@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-
+import * as orderService from '../../services/orderServices'
 const formInitialState = {
   fullname: "",
   address: "",
@@ -13,7 +13,7 @@ export default function Order() {
   const [errors, setErrors] = useState({});
 
 
-  const changeHandler = (e) => {
+  const changeHandler =  (e) => {
     let value = e.target.value
 
     setFormValues((state) => ({ 
@@ -28,10 +28,23 @@ export default function Order() {
     };
 
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     console.log(formValues);
 
+
+    //  const orderData = Object.fromEntries(
+    //   new FormData(e.currentTarget)
+    //  )
+
+       try {
+         await orderService.create(formValues);
+        // navigate(`/games`)
+    } catch (error) {
+        console.log(error);
+    }
+
+setFormValues(formInitialState);
     resetFomrHandler();
   };
 

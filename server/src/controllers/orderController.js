@@ -4,7 +4,7 @@ const orderService = require("../services/orderService");
 
 router.post("/order", async (req, res) => {
   try {
-    const { fullname, order, address, dayForDelivery, timeForDelivery } =
+    const { fullname, address, dayForDelivery, timeForDelivery, order } =
       req.body;
     // console.log(req.body);
 
@@ -15,11 +15,11 @@ router.post("/order", async (req, res) => {
       dayForDelivery,
       timeForDelivery,
     });
-      res.status(201).end();
+    res.status(201).end();
+    console.log("new order saved");
   } catch (message) {
     res.status(400).json({ message });
   }
-  
 });
 
 router.get("/details/:orderId", async (req, res) => {

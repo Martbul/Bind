@@ -36,7 +36,7 @@ export default function Navigation() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/order" className="nav-link">
+              <NavLink to="/orders/order" className="nav-link">
                 Order
               </NavLink>
             </li>

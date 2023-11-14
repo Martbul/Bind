@@ -1,4 +1,4 @@
-export default function Guard() {
+export default function About() {
    return (
      <>
        <div className="hero_area">

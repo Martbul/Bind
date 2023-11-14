@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 export default function Home() {
    return (
      <>
@@ -30,13 +30,13 @@ export default function Home() {
                          </h1>
                          <p>Make last minuet changes and track your order.</p>
                          <div className="btn-box">
-                           <a href="" className="btn-1">
+                           <Link to="/order" className="btn-1">
                              {" "}
                              Order{" "}
-                           </a>
-                           <a href="" className="btn-2">
+                           </Link>
+                           <Link to="" className="btn-2">
                             Learn More
-                           </a>
+                           </Link>
                          </div>
                        </div>
                      </div>
