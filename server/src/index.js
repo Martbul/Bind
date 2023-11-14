@@ -1,6 +1,6 @@
 // Imports
 const express = require("express");
-const cors = require("cors");
+
 
 const expressConfig = require("./config/expressConfig");
 const dbConnect = require("./config/dbConfig");
@@ -12,7 +12,7 @@ const routes = require("./router");
 const app = express();
 
 // Configs
-app.use(cors());
+
 expressConfig(app);
 
 

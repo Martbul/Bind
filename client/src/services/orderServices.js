@@ -13,7 +13,7 @@
 //   const result = await request.post(baseUrl, gameData);
 //   return result;
 // };
-const baseUrl = "http://localhost:5050/orders/order"
+const baseUrl = "http://localhost:5050/orders/order";
 
 
 import * as request from "../lib/request";

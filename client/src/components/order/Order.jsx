@@ -37,14 +37,15 @@ export default function Order() {
     //   new FormData(e.currentTarget)
     //  )
 
-       try {
+    try {
+         
          await orderService.create(formValues);
         // navigate(`/games`)
     } catch (error) {
         console.log(error);
     }
 
-setFormValues(formInitialState);
+// setFormValues(formInitialState);
     resetFomrHandler();
   };
 

@@ -12,7 +12,7 @@ export default function Navigation() {
     >
       <div className="container">
         <NavLink className="navbar-brand" to="/">
-          <img src="./src/public/images/shopping-bag (2).svg" />
+          <img src="../src/public/images/shopping-bag (2).svg" />
           Bind
           <br />
           <small>Delivery</small>
