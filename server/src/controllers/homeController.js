@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const orderService = require("../services/orderService");
-const {isAuth} = require('./../middlewares/authMiddleware');
+const {isAuth} = require('../middlewares/authMiddleware');
 
 
 // router.get("/", (req, res) => {

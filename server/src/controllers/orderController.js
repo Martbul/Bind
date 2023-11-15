@@ -3,10 +3,13 @@ const orderService = require("../services/orderService");
 
 
 router.post("/order", async (req, res) => {
+    console.log(req.body);
+  const { fullname, address, dayForDelivery, timeForDelivery, order } =
+      req.body;
+      
   try {
     console.log(req.body);
-    const { fullname, address, dayForDelivery, timeForDelivery, order } =
-      req.body;
+  
     
     // console.log(req.body);
 

@@ -1,6 +1,6 @@
 // Imports
 const express = require("express");
-
+const bodyParser = require("body-parser");
 
 const expressConfig = require("./config/expressConfig");
 const dbConnect = require("./config/dbConfig");
@@ -14,7 +14,10 @@ const app = express();
 // Configs
 
 expressConfig(app);
-
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 
 dbConnect()
   .then(() => console.log("Successfully connected to the DB!"))

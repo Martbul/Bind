@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const userService = require("../services/userService");
-const { extractErrorMsgs } = require("./../utils/errorHandler");
+const { extractErrorMsgs } = require("../utils/errorHandler");
 const isStrongPassword = require("validator/lib/isStrongPassword");
 const isEmail = require("validator/lib/isEmail");
 
