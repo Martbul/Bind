@@ -44,7 +44,6 @@ export default function Order() {
         console.log(error);
     }
 
-    setFormValues(formInitialState);
     resetFomrHandler();
   };
 

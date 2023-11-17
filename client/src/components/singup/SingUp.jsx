@@ -6,7 +6,7 @@ const signUpFormInitialstate = {
   password: "",
 };
 export default function SingUp() {
-
+//! kato vzemesh user authentication v soft uni trqbva da dovyrshih sigup-a
 
   const [formValues, setFormValues] = useState(signUpFormInitialstate);
 
@@ -20,6 +20,20 @@ export default function SingUp() {
       [e.target.name]: value,
     }));
   };
+
+  
+  const registerHandler = async (e) => { 
+    e.preventDefault()
+    try {
+      
+    } catch (error) {
+      
+    }
+    
+  resetFomrHandler();
+  }
+  
+  
 
 
 
@@ -59,7 +73,7 @@ export default function SingUp() {
           onChange={changeHandler}
         />
         <Link to="/login">Already have account?</Link>
-        <button>Sing up</button>
+        <button onClick={registerHandler}>Sing up</button>
       </form>
       &lt;
       <style
