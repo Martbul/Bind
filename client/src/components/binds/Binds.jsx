@@ -1,5 +1,11 @@
+import Search from "./Search";
+import BindsGrid from "./BindsGrid";
 export default function Binds() {
    return (
-      <h1>BINDS</h1>
+      <>
+        <Search/>
+      <BindsGrid/>
+      </>
+    
    )
 }

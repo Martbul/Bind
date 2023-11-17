@@ -1,13 +1,22 @@
 const router = require("express").Router();
-const orderService = require("../services/orderService");
-const { isAuth } = require("./../middlewares/authMiddleware");
+const bindService = require("../services/bindsService");
+//const { isAuth } = require("./../middlewares/authMiddleware");
 
 
-router.get("/binds", isAuth, async (req, res) => {
-  const { search, from, to } = req.query;
-  const orders = await orderService.getAll(search, from, to);
+router.get("/binds", async (req, res) => {
+  // const { search  } = req.query;
+ 
 
-  res.render("binds", { orders, search, from, to });
+  try {
+  //  const orders = await orderService.getAll(search, from, to);
+    const binds = await bindService.getAll();
+    console.log(binds);
+     res.json(binds);
+   
+  } catch (message) {
+     res.status(400).json({ message });
+  }
+
 });
 
 

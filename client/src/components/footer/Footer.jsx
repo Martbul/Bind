@@ -39,7 +39,30 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-        </div>
+           </div>
+           <div className="col-md-3">
+               <div className="info_form ">
+                 <h5>Newsletter</h5>
+                 <form action="#">
+                   <input type="email" placeholder="Enter your email" />
+                   <button>Subscribe</button>
+                 </form>
+                 <div className="social_box">
+                   <a href="">
+                     <i className="fa fa-facebook" aria-hidden="true" />
+                   </a>
+                   <a href="">
+                     <i className="fa fa-twitter" aria-hidden="true" />
+                   </a>
+                   <a href="">
+                     <i className="fa fa-youtube" aria-hidden="true" />
+                   </a>
+                   <a href="">
+                     <i className="fa fa-instagram" aria-hidden="true" />
+                   </a>
+                 </div>
+               </div>
+             </div>
       </div>
       <div className="row">
         <div className="col-md-12 text-center">
