@@ -10,6 +10,7 @@ const isEmail = require("validator/lib/isEmail");
 
 router.post("/singup", async (req, res) => {
   const { username, email, password } = req.body;
+  console.log(req.body);
   
 
   try {
