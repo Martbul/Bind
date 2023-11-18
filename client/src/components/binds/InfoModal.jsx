@@ -1,114 +1,70 @@
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
-
-import * as React from "react";
-import { Unstable_Popup as BasePopup } from "@mui/base/Unstable_Popup";
-import { styled } from "@mui/system";
-
-export default function InfoModal() {
-  const [anchor, setAnchor] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchor(anchor ? null : event.currentTarget);
-  };
-
-  const open = Boolean(anchor);
-  const id = open ? "simple-popper" : undefined;
-
+export default function InfoModal({orderDetails, hideModal }) {
   return (
-    <div>
-      <Button aria-describedby={id} type="button" onClick={handleClick}>
-        Toggle Popup
-      </Button>
-      <BasePopup id={id} open={open} anchor={anchor}>
-        <PopupBody>The content of the Popup.</PopupBody>
-      </BasePopup>
+    <div className="overlay">
+      <div className="backdrop" onClick={hideModal}></div>
+      <div className="modal">
+        <div className="detail-container">
+          <header className="headers">
+            <h2>User Detail</h2>
+            <button className="btn close" onClick={hideModal}>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="xmark"
+                className="svg-inline--fa fa-xmark"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
+                ></path>
+              </svg>
+            </button>
+          </header>
+          <div className="content">
+            {/* <div className="image-container">
+              <img
+                src={userDetails.imageUrl}
+                alt={userDetails.firstName}
+                className="image"
+              />
+            </div> */}
+            <div className="user-details">
+              
+              <p>
+                Full Name:
+                {/* <strong>
+                  {" "}
+                  {userDetails.firstName} {userDetails.lastName}
+                </strong> */}
+              </p>
+              {/* <p>
+                Email: <strong>{userDetails.email}</strong>
+              </p> */}
+              {/* <p>
+                Phone Number: <strong>{userDetails.phoneNumber}</strong>
+              </p> */}
+              <p>
+                Address:
+                {/* <strong>
+                  {" "}
+                  {userDetails.address?.country}, {userDetails.address?.city},{" "}
+                  {userDetails.address?.street}{" "}
+                  {userDetails.address?.streetNumber}{" "}
+                </strong> */}
+              </p>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
-const grey = {
-  50: "#F3F6F9",
-  100: "#E5EAF2",
-  200: "#DAE2ED",
-  300: "#C7D0DD",
-  400: "#B0B8C4",
-  500: "#9DA8B7",
-  600: "#6B7A90",
-  700: "#434D5B",
-  800: "#303740",
-  900: "#1C2025",
-};
-
-const blue = {
-  200: "#99CCFF",
-  300: "#66B2FF",
-  400: "#3399FF",
-  500: "#007FFF",
-  600: "#0072E5",
-  700: "#0066CC",
-};
-
-const PopupBody = styled("div")(
-  ({ theme }) => `
-  width: max-content;
-  padding: 12px 16px;
-  margin: 8px;
-  border-radius: 8px;
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  background-color: ${theme.palette.mode === "dark" ? grey[900] : "#FFF"};
-  box-shadow: ${
-    theme.palette.mode === "dark"
-      ? `0px 4px 8px rgb(0 0 0 / 0.7)`
-      : `0px 4px 8px rgb(0 0 0 / 0.1)`
-  };
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.875rem;
-  z-index: 1;
-`
-);
-
-const Button = styled("button")(
-  ({ theme }) => `
-  font-family: IBM Plex Sans, sans-serif;
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  background-color: ${blue[500]};
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: white;
-  transition: all 150ms ease;
-  cursor: pointer;
-  border: 1px solid ${blue[500]};
-  box-shadow: 0 2px 1px ${
-    theme.palette.mode === "dark"
-      ? "rgba(0, 0, 0, 0.5)"
-      : "rgba(45, 45, 60, 0.2)"
-  }, inset 0 1.5px 1px ${blue[400]}, inset 0 -2px 1px ${blue[600]};
-
-  &:hover {
-    background-color: ${blue[600]};
-  }
-
-  &:active {
-    background-color: ${blue[700]};
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 4px ${
-      theme.palette.mode === "dark" ? blue[300] : blue[200]
-    };
-    outline: none;
-  }
-
-  &.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    box-shadow: none;
-    &:hover {
-      background-color: ${blue[500]};
-    }
-  }
-`
-);

@@ -61,15 +61,11 @@ export default function Navigation() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/users/profile" className="nav-link">
+              <NavLink to="/profile" className="nav-link">
                 Profile
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink to="/about" className="nav-link">
-                About
-              </NavLink>
-            </li>
+            
             <li className="nav-item">
               <NavLink to="/singup" className="nav-link">
                 Sing up
