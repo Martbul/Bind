@@ -31,11 +31,10 @@ export default function Home() {
                          <p>Make last minuet changes and track your order.</p>
                          <div className="btn-box">
                            <Link to="/orders/order" className="btn-1">
-                             
                              Order
                            </Link>
                            <Link to="" className="btn-2">
-                            Learn More
+                             Learn More
                            </Link>
                          </div>
                        </div>
@@ -43,9 +42,7 @@ export default function Home() {
                    </div>
                  </div>
                </div>
-               
              </div>
-            
            </div>
          </section>
          {/* end slider section */}
@@ -409,6 +406,34 @@ export default function Home() {
        </section>
        {/* end contact section */}
        {/* team section */}
+
+       <section class="callto-action-area section-gap" id="join">
+         <div class="container">
+           <div class="row d-flex justify-content-center">
+             <div class="menu-content col-lg-9">
+               <div class="title text-center">
+                 <h1 class="mb-10 text-white">
+                   Join us today without any hesitation
+                 </h1>
+                 <p class="text-white">
+                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                   do eiusmod tempor incididunt ut labore et dolore magna
+                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                 </p>
+                 <a class="primary-btn" href="#">
+                   I am a Candidate
+                 </a>
+                 <a class="primary-btn" href="#">
+                   Request Free Demo
+                 </a>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+
+
+       
        <section className="team_section layout_padding">
          <div className="container">
            <div className="heading_container heading_center">
@@ -459,9 +484,59 @@ export default function Home() {
            </div>
          </div>
        </section>
+
+       <section className="download-area section-gap" id="app">
+         <div className="container">
+           <div className="row">
+             <div className="col-lg-6 download-left">
+               <img
+                 className="img-fluid"
+                 src="./src/public/images/d1.png"
+                 alt=""
+               />
+             </div>
+             <div className="col-lg-6 download-right">
+               <h1>
+                 Download the <br />
+                 Job Listing App Today!
+               </h1>
+               <p className="subs">
+                 It won’t be a bigger problem to find one video game lover in
+                 your neighbor. Since the introduction of Virtual Game, it has
+                 been achieving great heights so far as its popularity and
+                 technological advancement are concerned.
+               </p>
+               <div className="d-flex flex-row">
+                 <div className="buttons">
+                   <i className="fa fa-apple" aria-hidden="true" />
+                   <div className="desc">
+                     <a href="#">
+                       <p>
+                         <span>Available</span> <br />
+                         on App Store
+                       </p>
+                     </a>
+                   </div>
+                 </div>
+                 <div className="buttons">
+                   <i className="fa fa-android" aria-hidden="true" />
+                   <div className="desc">
+                     <a href="#">
+                       <p>
+                         <span>Available</span> <br />
+                         on Play Store
+                       </p>
+                     </a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+
        {/* end team section */}
        {/* info section */}
-       
      </>
    );
 }
