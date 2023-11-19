@@ -469,7 +469,7 @@ a:focus {
 }
 
 .service_section {
-  background-color: #1c1c1c;
+  background-color: #FFBB21;
 }
 
 .service_section .heading_container {
@@ -954,7 +954,7 @@ a:focus {
   margin: 10px;
   text-transform: capitalize;
   border-radius: 0;
-  background-color: #49e4fa;
+  background-color: #f1db25!important;
   color: #fff;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;

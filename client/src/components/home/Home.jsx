@@ -273,6 +273,9 @@ export default function Home() {
        {/* client section */}
        {/* end client section */}
        {/* contact section */}
+
+
+       
        <section className="callto-action-area section-gap" id="join">
          <div className="container">
            <div className="row d-flex justify-content-center">
@@ -297,6 +300,9 @@ export default function Home() {
            </div>
          </div>
        </section>
+
+
+
        <section className="contact_section layout_padding">
          <div className="contact_bg_box">
            <div className="img-box">

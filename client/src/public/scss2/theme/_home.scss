@@ -20,9 +20,9 @@
 
 
 .p1-gradient-bg {
-  background-image: -moz-linear-gradient( 0deg, rgb(191,172,255) 0%, rgb(121,95,255) 100%);
-  background-image: -webkit-linear-gradient( 0deg, rgb(191,172,255) 0%, rgb(121,95,255) 100%);
-  background-image: -ms-linear-gradient( 0deg, rgb(191,172,255) 0%, rgb(121,95,255) 100%);
+  background-image: -moz-linear-gradient( 0deg, rgb(191,172,255) 0%, #21d5ff 100%);
+  background-image: -webkit-linear-gradient( 0deg, #21cbff 0%,#21d5ff 100%);
+  background-image: -ms-linear-gradient( 0deg, rgb(191,172,255) 0%, #21d5ff 100%);
 }
 
 

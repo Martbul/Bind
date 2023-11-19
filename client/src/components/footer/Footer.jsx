@@ -79,10 +79,10 @@ export default function Footer() {
                </div>
              </div>
            </div>
-           <div className="col-md-3">
-             <div className="info_form ">
-               <h5>Newsletter</h5>
-               <form >
+           <div className="col-md-3 col-lg-3 col-md-6 mb-5 mb-md-5">
+             <div className="info_form ftco-footer-widget mb-4">
+               <h2 className="ftco-heading-2">Newsletter</h2>
+               <form>
                  <input type="email" placeholder="Enter your email" />
                  <button>Subscribe</button>
                </form>
