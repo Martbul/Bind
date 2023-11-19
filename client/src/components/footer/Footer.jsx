@@ -82,7 +82,7 @@ export default function Footer() {
            <div className="col-md-3">
              <div className="info_form ">
                <h5>Newsletter</h5>
-               <form action="#">
+               <form >
                  <input type="email" placeholder="Enter your email" />
                  <button>Subscribe</button>
                </form>
