@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
    return (
      <>
+    
        <div className="hero_area">
          {/* header section strats */}
          <div className="hero_bg_box">
@@ -64,11 +65,10 @@ export default function Home() {
                    <h2>Who Are We?</h2>
                  </div>
                  <p>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                   do eiusmod tempor incididunt ut labore et dolore magna
-                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                   ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                   aute irure dolor in reprehenderit in voluptate velit
+                   Our goal is to make life more simple and easy. We want people
+                   to have more time to himself and for holiday. Also everyone
+                   who wants a sidehusle and a part job and be part of our
+                   Deliver program and make money.
                  </p>
                  <div className="btn-box">
                    <a href="">Read More</a>
@@ -83,7 +83,7 @@ export default function Home() {
        <section className="service_section layout_padding">
          <div className="container">
            <div className="heading_container heading_center">
-             <h2>Our services</h2>
+             <h2 style={{ color: "white" }}>Our services </h2>
            </div>
            <div className="row">
              <div className="col-md-4">
@@ -111,12 +111,8 @@ export default function Home() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Home Security</h6>
-                   <p>
-                     Minima consequatur architecto eaque assumenda ipsam itaque
-                     quia eum in doloribus debitis impedit ut minus tenetur
-                     corrupti excepturi ullam.
-                   </p>
+                   <h6>Get weekly grocerys</h6>
+                   <p>Make order for your weekly groceries.</p>
                    <a href="">Read More</a>
                  </div>
                </div>
@@ -193,11 +189,10 @@ export default function Home() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Office Security</h6>
+                   <h6>Save time</h6>
                    <p>
-                     Minima consequatur architecto eaque assumenda ipsam itaque
-                     quia eum in doloribus debitis impedit ut minus tenetur
-                     corrupti excepturi ullam.
+                     Almost 90% of the people shop every week. Whit DeliverIt
+                     you can save that time.
                    </p>
                    <a href="">Read More</a>
                  </div>
@@ -276,10 +271,130 @@ export default function Home() {
        </section>
        {/* end service section */}
        {/* client section */}
+       {/* end client section */}
+       {/* contact section */}
+       <section className="callto-action-area section-gap" id="join">
+         <div className="container">
+           <div className="row d-flex justify-content-center">
+             <div className="menu-content col-lg-9">
+               <div className="title text-center">
+                 <h1 className="mb-10 text-white">
+                   Join us today without any hesitation
+                 </h1>
+                 <p className="text-white">
+                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                   do eiusmod tempor incididunt ut labore et dolore magna
+                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                 </p>
+                 <a className="primary-btn" href="#">
+                   I am a Candidate
+                 </a>
+                 <a className="primary-btn" href="#">
+                   Request Free Demo
+                 </a>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+       <section className="contact_section layout_padding">
+         <div className="contact_bg_box">
+           <div className="img-box">
+             <img src="images/contact-bg.jpg" alt="" />
+           </div>
+         </div>
+         <div className="container">
+           <div className="heading_container heading_center">
+             <h2>Get In touch</h2>
+           </div>
+           <div className="">
+             <div className="row">
+               <div className="col-md-7 mx-auto">
+                 <form action="#">
+                   <div className="contact_form-container">
+                     <div>
+                       <div>
+                         <input type="text" placeholder="Full Name" />
+                       </div>
+                       <div>
+                         <input type="email" placeholder="Email " />
+                       </div>
+                       <div>
+                         <input type="text" placeholder="Phone Number" />
+                       </div>
+                       <div className="">
+                         <input
+                           type="text"
+                           placeholder="Message"
+                           className="message_input"
+                         />
+                       </div>
+                       <div className="btn-box ">
+                         <button type="submit">Send</button>
+                       </div>
+                     </div>
+                   </div>
+                 </form>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+       {/* end contact section */}
+       {/* team section */}
+       <section className="download-area section-gap" id="app">
+         <div className="container">
+           <div className="row">
+             <div className="col-lg-6 download-left">
+               <img
+                 className="img-fluid"
+                 src="./src/public/images/d1.png"
+                 alt=""
+               />
+             </div>
+             <div className="col-lg-6 download-right">
+               <h1>
+                 Download the <br />
+                 Job Listing App Today!
+               </h1>
+               <p className="subs">
+                 It won’t be a bigger problem to find one video game lover in
+                 your neighbor. Since the introduction of Virtual Game, it has
+                 been achieving great heights so far as its popularity and
+                 technological advancement are concerned.
+               </p>
+               <div className="d-flex flex-row">
+                 <div className="buttons">
+                   <i className="fa fa-apple" aria-hidden="true" />
+                   <div className="desc">
+                     <a href="#">
+                       <p>
+                         <span>Available</span> <br />
+                         on App Store
+                       </p>
+                     </a>
+                   </div>
+                 </div>
+                 <div className="buttons">
+                   <i className="fa fa-android" aria-hidden="true" />
+                   <div className="desc">
+                     <a href="#">
+                       <p>
+                         <span>Available</span> <br />
+                         on Play Store
+                       </p>
+                     </a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>{" "}
        <section className="client_section layout_padding">
          <div className="container ">
            <div className="heading_container heading_center">
-             <h2>What is says our clients</h2>
+             <h2>What our clients says</h2>
            </div>
            <div
              id="carouselExampleControls"
@@ -359,182 +474,6 @@ export default function Home() {
            </div>
          </div>
        </section>
-       {/* end client section */}
-       {/* contact section */}
-       <section className="contact_section layout_padding">
-         <div className="contact_bg_box">
-           <div className="img-box">
-             <img src="images/contact-bg.jpg" alt="" />
-           </div>
-         </div>
-         <div className="container">
-           <div className="heading_container heading_center">
-             <h2>Get In touch</h2>
-           </div>
-           <div className="">
-             <div className="row">
-               <div className="col-md-7 mx-auto">
-                 <form action="#">
-                   <div className="contact_form-container">
-                     <div>
-                       <div>
-                         <input type="text" placeholder="Full Name" />
-                       </div>
-                       <div>
-                         <input type="email" placeholder="Email " />
-                       </div>
-                       <div>
-                         <input type="text" placeholder="Phone Number" />
-                       </div>
-                       <div className="">
-                         <input
-                           type="text"
-                           placeholder="Message"
-                           className="message_input"
-                         />
-                       </div>
-                       <div className="btn-box ">
-                         <button type="submit">Send</button>
-                       </div>
-                     </div>
-                   </div>
-                 </form>
-               </div>
-             </div>
-           </div>
-         </div>
-       </section>
-       {/* end contact section */}
-       {/* team section */}
-
-       <section class="callto-action-area section-gap" id="join">
-         <div class="container">
-           <div class="row d-flex justify-content-center">
-             <div class="menu-content col-lg-9">
-               <div class="title text-center">
-                 <h1 class="mb-10 text-white">
-                   Join us today without any hesitation
-                 </h1>
-                 <p class="text-white">
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                   do eiusmod tempor incididunt ut labore et dolore magna
-                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                 </p>
-                 <a class="primary-btn" href="#">
-                   I am a Candidate
-                 </a>
-                 <a class="primary-btn" href="#">
-                   Request Free Demo
-                 </a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </section>
-
-
-       
-       <section className="team_section layout_padding">
-         <div className="container">
-           <div className="heading_container heading_center">
-             <h2>Our Guards</h2>
-             <p>
-               Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a
-               euismod suspendisse vel, sed quam nulla mauris iaculis. Erat eget
-               vitae malesuada, tortor tincidunt porta lorem lectus.
-             </p>
-           </div>
-           <div className="row">
-             <div className="col-md-4 col-sm-6 mx-auto ">
-               <div className="box">
-                 <div className="img-box">
-                   <img src="images/t1.jpg" alt="" />
-                 </div>
-                 <div className="detail-box">
-                   <h5>Martin Anderson</h5>
-                   <h6 className="">supervisor</h6>
-                 </div>
-               </div>
-             </div>
-             <div className="col-md-4 col-sm-6 mx-auto ">
-               <div className="box">
-                 <div className="img-box">
-                   <img src="images/t2.jpg" alt="" />
-                 </div>
-                 <div className="detail-box">
-                   <h5>Denny Butler</h5>
-                   <h6 className="">supervisor</h6>
-                 </div>
-               </div>
-             </div>
-             <div className="col-md-4 col-sm-6 mx-auto ">
-               <div className="box">
-                 <div className="img-box">
-                   <img src="images/t3.jpg" alt="" />
-                 </div>
-                 <div className="detail-box">
-                   <h5>Nathan Mcpherson</h5>
-                   <h6 className="">supervisor</h6>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <div className="btn-box">
-             <a href="">View All</a>
-           </div>
-         </div>
-       </section>
-
-       <section className="download-area section-gap" id="app">
-         <div className="container">
-           <div className="row">
-             <div className="col-lg-6 download-left">
-               <img
-                 className="img-fluid"
-                 src="./src/public/images/d1.png"
-                 alt=""
-               />
-             </div>
-             <div className="col-lg-6 download-right">
-               <h1>
-                 Download the <br />
-                 Job Listing App Today!
-               </h1>
-               <p className="subs">
-                 It won’t be a bigger problem to find one video game lover in
-                 your neighbor. Since the introduction of Virtual Game, it has
-                 been achieving great heights so far as its popularity and
-                 technological advancement are concerned.
-               </p>
-               <div className="d-flex flex-row">
-                 <div className="buttons">
-                   <i className="fa fa-apple" aria-hidden="true" />
-                   <div className="desc">
-                     <a href="#">
-                       <p>
-                         <span>Available</span> <br />
-                         on App Store
-                       </p>
-                     </a>
-                   </div>
-                 </div>
-                 <div className="buttons">
-                   <i className="fa fa-android" aria-hidden="true" />
-                   <div className="desc">
-                     <a href="#">
-                       <p>
-                         <span>Available</span> <br />
-                         on Play Store
-                       </p>
-                     </a>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </section>
-
        {/* end team section */}
        {/* info section */}
      </>

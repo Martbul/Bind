@@ -16,6 +16,7 @@ import BecomeADeliver from "./components/become-a-deliver/BecomeADeliver";
 import "./style1.css";
 import './public/scss2/main.scss'
 
+
 function App() {
   return (
     <>
