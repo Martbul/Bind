@@ -1,7 +1,22 @@
-import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import useForm from "../../hooks/useForm";
+import AuthContext from "../../contexts/authContext";
+
+const loginFormKeys = {
+  Email: "email",
+  Password: "password",
+};
 
 export default function Login() {
+  
+  const { loginSubmitHandler } = useContext(AuthContext);
+
+  const { formValues, onChange, onSubmit } = useForm(loginSubmitHandler, {
+    [loginFormKeys.Email]: "",
+    [loginFormKeys.Password]: "",
+  });
+
   //! kato vzemesh user authentication v soft uni trqbva da dovyrshih login-a
   return (
     <>
@@ -9,16 +24,25 @@ export default function Login() {
         <div className="shape" />
         <div className="shape" />
       </div>
-      <form id="loginForm" method="POST" className='form11'>
+      <form id="loginForm" method="POST" className="form11" onSubmit={onSubmit}>
         <h3>Login</h3>
         <label htmlFor="email">Email</label>
-        <input type="text" placeholder="Email" id="email" name="email" />
+        <input
+          type="text"
+          placeholder="Email"
+          id="email"
+          name={loginFormKeys.Email}
+          onChange={onChange}
+          value={formValues[loginFormKeys.Email]}
+        />
         <label htmlFor="password">Password</label>
         <input
           type="password"
           placeholder="Password"
           id="password"
-          name="password"
+          name={loginFormKeys.Password}
+          onChange={onChange}
+          value={formValues[loginFormKeys.Password]}
         />
         <Link to="/singup">Already have account?</Link>
         <button>Log In</button>

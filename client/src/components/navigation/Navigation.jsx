@@ -56,7 +56,7 @@ export default function Navigation() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/users/logout" className="nav-link">
+              <NavLink to="/logout" className="nav-link">
                 Logout
               </NavLink>
             </li>

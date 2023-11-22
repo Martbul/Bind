@@ -1,31 +1,26 @@
-import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
+import useForm from "../../hooks/useForm";
+import { useContext } from "react";
+
+
 const signUpFormInitialstate = {
-  username: "",
-  email: "",
-  password: "",
+  Username: "",
+  Email: "",
+  Password: "",
 };
 export default function SingUp() {
+
+  const { registerSubmitHandler } = useContext(AuthContext);
+
+  const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
+    [signUpFormInitialstate.Email]: "",
+    [signUpFormInitialstate.Password]: "",
+    [signUpFormInitialstate.ConfirmPassword]: "",
+  });
   //! kato vzemesh user authentication v soft uni trqbva da dovyrshih sigup-a
 
-  const [formValues, setFormValues] = useState(signUpFormInitialstate);
-
-  const changeHandler = (e) => {
-    let value = e.target.value;
-
-    setFormValues((state) => ({
-      ...state,
-      [e.target.name]: value,
-    }));
-  };
-
-  const registerHandler = async (e) => {
-    e.preventDefault();
-    try {
-    } catch (error) {}
-
-    resetFomrHandler();
-  };
+  
 
   return (
     <>
@@ -33,7 +28,7 @@ export default function SingUp() {
         <div className="shape" />
         <div className="shape" />
       </div>
-      <form method="POST" className='form11'>
+      <form method="POST" className='form11' onSubmit={onSubmit}>
         <h3>Sing up</h3>
         <label htmlFor="username">Username</label>
         <input
@@ -41,8 +36,8 @@ export default function SingUp() {
           placeholder="Username"
           id="username"
           name="username"
-          value={formValues.username}
-          onChange={changeHandler}
+          onChange={onChange}
+          values={formValues[signUpFormInitialstate.Username]}
         />
         <label htmlFor="email">Email</label>
         <input
@@ -50,8 +45,8 @@ export default function SingUp() {
           placeholder="email"
           id="email"
           name="email"
-          value={formValues.email}
-          onChange={changeHandler}
+          onChange={onChange}
+          values={formValues[signUpFormInitialstate.Email]}
         />
         <label htmlFor="password">Password</label>
         <input
@@ -59,11 +54,11 @@ export default function SingUp() {
           placeholder="Password"
           id="password"
           name="password"
-          value={formValues.password}
-          onChange={changeHandler}
+          onChange={onChange}
+          values={formValues[signUpFormInitialstate.Password]}
         />
         <Link to="/login">Already have account?</Link>
-        <button onClick={registerHandler}>Sing up</button>
+        <button >Sing up</button>
       </form>
       &lt;
       <style

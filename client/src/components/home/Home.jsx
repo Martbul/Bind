@@ -78,7 +78,11 @@ export default function Home() {
            </div>
          </div>
        </section>
-       {/* end about section */}
+       {/* end about section */}\
+
+
+       
+   
        {/* service section */}
        <section className="service_section layout_padding">
          <div className="container">
@@ -112,7 +116,7 @@ export default function Home() {
                  </div>
                  <div className="detail-box">
                    <h6>Get weekly grocerys</h6>
-                   <p>Make order for your weekly groceries.</p>
+                   <p>Make order for your weekly groceries with us.</p>
                    <a href="">Read More</a>
                  </div>
                </div>
@@ -191,8 +195,7 @@ export default function Home() {
                  <div className="detail-box">
                    <h6>Save time</h6>
                    <p>
-                     Almost 90% of the people shop every week. Whit DeliverIt
-                     you can save that time.
+                     Almost 90% of the people shop every week. 
                    </p>
                    <a href="">Read More</a>
                  </div>
@@ -256,11 +259,9 @@ export default function Home() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Bodyguard</h6>
+                   <h6>Earn as a deliver</h6>
                    <p>
-                     Minima consequatur architecto eaque assumenda ipsam itaque
-                     quia eum in doloribus debitis impedit ut minus tenetur
-                     corrupti excepturi ullam.
+                     Tou can become a deliver and make money when you want. 
                    </p>
                    <a href="">Read More</a>
                  </div>
@@ -271,29 +272,108 @@ export default function Home() {
        </section>
        {/* end service section */}
        {/* client section */}
+
+       <section className="client_section layout_padding">
+         <div className="container ">
+           <div className="heading_container heading_center">
+             <h2>What our clients says</h2>
+           </div>
+           <div
+             id="carouselExampleControls"
+             className="carousel slide"
+             data-ride="carousel"
+           >
+             <div className="carousel-inner">
+               <div className="carousel-item active">
+                 <div className="box">
+                   <div className="img-box">
+                     <img src="images/client.png" alt="" />
+                   </div>
+                   <div className="detail-box">
+                     <h4>Peter Dimov</h4>
+                     <p>
+                       I hated weekly shopping so much, but i was the only one able to do in in my family. Now with Bind i dont have to 
+                       spend time in the store.
+                     </p>
+                   </div>
+                 </div>
+               </div>
+               <div className="carousel-item ">
+                 <div className="box">
+                   <div className="img-box">
+                     <img src="images/client.png" alt="" />
+                   </div>
+                   <div className="detail-box">
+                     <h4>Ivo Petrov</h4>
+                     <p>
+                       The price is a bit high for a delivey , but they saved me so much time. Now that i dont have to go shop for 
+                       groseries i have so much spare time. I was able to finish my docturanture.
+                     </p>
+                   </div>
+                 </div>
+               </div>
+               <div className="carousel-item ">
+                 <div className="box">
+                   <div className="img-box">
+                     <img src="images/client.png" alt="" />
+                   </div>
+                   <div className="detail-box">
+                     <h4>Martin Kovachki</h4>
+                     <p>
+                      "The service is the best in the whole county. I have never experienced the this type 
+                      of service and now i love it. The delivery was on time and the products i orderd were in 
+                      perfect conditoin"
+                     </p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div className="carousel_btn-box">
+               <a
+                 className="carousel-control-prev"
+                 href="#carouselExampleControls"
+                 role="button"
+                 data-slide="prev"
+               >
+                 <i className="fa fa-angle-left" aria-hidden="true" />
+                 <span className="sr-only">Previous</span>
+               </a>
+               <a
+                 className="carousel-control-next"
+                 href="#carouselExampleControls"
+                 role="button"
+                 data-slide="next"
+               >
+                 <i className="fa fa-angle-right" aria-hidden="true" />
+                 <span className="sr-only">Next</span>
+               </a>
+             </div>
+           </div>
+         </div>
+       </section>
        {/* end client section */}
        {/* contact section */}
 
 
        
-       <section className="callto-action-area section-gap" id="join">
-         <div className="container">
-           <div className="row d-flex justify-content-center">
-             <div className="menu-content col-lg-9">
-               <div className="title text-center">
-                 <h1 className="mb-10 text-white">
-                   Join us today without any hesitation
+       <section class="callto-action-area section-gap" id="join">
+         <div class="container">
+           <div class="row d-flex justify-content-center">
+             <div class="menu-content col-lg-9">
+               <div class="title text-center">
+                 <h1 class="mb-10 text-white">
+                   Join us today
                  </h1>
-                 <p className="text-white">
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                   do eiusmod tempor incididunt ut labore et dolore magna
-                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                 <p class="text-white">
+                   Make the dream true wit us. Become a deliver and make money when you want.
+                   Deliver order in your time shedule and prefferd day.
+                   Have own customers and live the life you deserve
                  </p>
-                 <a className="primary-btn" href="#">
-                   I am a Candidate
+                 <a class="primary-btn" href="#">
+                  Make deliver account
                  </a>
-                 <a className="primary-btn" href="#">
-                   Request Free Demo
+                 <a class="primary-btn" href="#">
+                   Lear more
                  </a>
                </div>
              </div>
@@ -303,6 +383,58 @@ export default function Home() {
 
 
 
+      
+       {/* end contact section */}
+       {/* team section */}
+       <section className="download-area section-gap" id="app">
+         <div className="container">
+           <div className="row">
+             <div className="col-lg-6 download-left">
+               <img
+                 className="img-fluid"
+                 src="./src/public/images/d1.png"
+                 alt=""
+               />
+             </div>
+             <div className="col-lg-6 download-right">
+               <h1>
+                 Download the <br />
+                 Job Listing App Today!
+               </h1>
+               <p className="subs">
+                 Now you can download the Bind app. Select and manage your orders easily from the comfort of your phone.
+               </p>
+               <div className="d-flex flex-row">
+                 <div className="buttons">
+                   <i className="fa fa-apple" aria-hidden="true" />
+                   <div className="desc">
+                     <a href="#">
+                       <p>
+                         <span>Available</span> <br />
+                         on App Store
+                       </p>
+                     </a>
+                   </div>
+                 </div>
+                 <div className="buttons">
+                   <i className="fa fa-android" aria-hidden="true" />
+                   <div className="desc">
+                     <a href="#">
+                       <p>
+                         <span>Available</span> <br />
+                         on Play Store
+                       </p>
+                     </a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>{" "}
+
+       
+       {/* end team section */}
        <section className="contact_section layout_padding">
          <div className="contact_bg_box">
            <div className="img-box">
@@ -311,7 +443,7 @@ export default function Home() {
          </div>
          <div className="container">
            <div className="heading_container heading_center">
-             <h2>Get In touch</h2>
+             <h2>Have a questions?</h2>
            </div>
            <div className="">
              <div className="row">
@@ -346,142 +478,6 @@ export default function Home() {
            </div>
          </div>
        </section>
-       {/* end contact section */}
-       {/* team section */}
-       <section className="download-area section-gap" id="app">
-         <div className="container">
-           <div className="row">
-             <div className="col-lg-6 download-left">
-               <img
-                 className="img-fluid"
-                 src="./src/public/images/d1.png"
-                 alt=""
-               />
-             </div>
-             <div className="col-lg-6 download-right">
-               <h1>
-                 Download the <br />
-                 Job Listing App Today!
-               </h1>
-               <p className="subs">
-                 It won’t be a bigger problem to find one video game lover in
-                 your neighbor. Since the introduction of Virtual Game, it has
-                 been achieving great heights so far as its popularity and
-                 technological advancement are concerned.
-               </p>
-               <div className="d-flex flex-row">
-                 <div className="buttons">
-                   <i className="fa fa-apple" aria-hidden="true" />
-                   <div className="desc">
-                     <a href="#">
-                       <p>
-                         <span>Available</span> <br />
-                         on App Store
-                       </p>
-                     </a>
-                   </div>
-                 </div>
-                 <div className="buttons">
-                   <i className="fa fa-android" aria-hidden="true" />
-                   <div className="desc">
-                     <a href="#">
-                       <p>
-                         <span>Available</span> <br />
-                         on Play Store
-                       </p>
-                     </a>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </section>{" "}
-       <section className="client_section layout_padding">
-         <div className="container ">
-           <div className="heading_container heading_center">
-             <h2>What our clients says</h2>
-           </div>
-           <div
-             id="carouselExampleControls"
-             className="carousel slide"
-             data-ride="carousel"
-           >
-             <div className="carousel-inner">
-               <div className="carousel-item active">
-                 <div className="box">
-                   <div className="img-box">
-                     <img src="images/client.png" alt="" />
-                   </div>
-                   <div className="detail-box">
-                     <h4>Minim Veniam</h4>
-                     <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                       sed do eiusmod tempor incididunt ut labore et dolore
-                       magna aliqua. Ut enim ad minim veniam, quis nostrud
-                       exercitation ullamco laboris nisi ut aliquip
-                     </p>
-                   </div>
-                 </div>
-               </div>
-               <div className="carousel-item ">
-                 <div className="box">
-                   <div className="img-box">
-                     <img src="images/client.png" alt="" />
-                   </div>
-                   <div className="detail-box">
-                     <h4>Minim Veniam</h4>
-                     <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                       sed do eiusmod tempor incididunt ut labore et dolore
-                       magna aliqua. Ut enim ad minim veniam, quis nostrud
-                       exercitation ullamco laboris nisi ut aliquip
-                     </p>
-                   </div>
-                 </div>
-               </div>
-               <div className="carousel-item ">
-                 <div className="box">
-                   <div className="img-box">
-                     <img src="images/client.png" alt="" />
-                   </div>
-                   <div className="detail-box">
-                     <h4>Minim Veniam</h4>
-                     <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                       sed do eiusmod tempor incididunt ut labore et dolore
-                       magna aliqua. Ut enim ad minim veniam, quis nostrud
-                       exercitation ullamco laboris nisi ut aliquip
-                     </p>
-                   </div>
-                 </div>
-               </div>
-             </div>
-             <div className="carousel_btn-box">
-               <a
-                 className="carousel-control-prev"
-                 href="#carouselExampleControls"
-                 role="button"
-                 data-slide="prev"
-               >
-                 <i className="fa fa-angle-left" aria-hidden="true" />
-                 <span className="sr-only">Previous</span>
-               </a>
-               <a
-                 className="carousel-control-next"
-                 href="#carouselExampleControls"
-                 role="button"
-                 data-slide="next"
-               >
-                 <i className="fa fa-angle-right" aria-hidden="true" />
-                 <span className="sr-only">Next</span>
-               </a>
-             </div>
-           </div>
-         </div>
-       </section>
-       {/* end team section */}
-       {/* info section */}
      </>
    );
 }
