@@ -5,8 +5,7 @@ const { SECRET } = require("../constants");
 const { body } = require('express-validator');
 
 async function validatePassword(password, userPassword) {
- // console.log('pass = '+  password);
- //  console.log("Upass = " + userPassword);
+ 
   const isValid = await bcrypt.compare( password, userPassword );
   //console.log(isValid);
 
@@ -17,29 +16,25 @@ async function validatePassword(password, userPassword) {
 
 async function getToken(user) {
   const payload = { username:user.username,_id: user._id, email: user.email };
+  
   const token = await jwt.sign(payload, SECRET, { expiresIn: "3d" });
 
   return token;
 }
 
-exports.singup = async (userData) => {
-  let { password , email} = userData;
-  // body('email')
-  //   .isEmail()
-  //   .normalizeEmail(),
-  // body('text')
-  //   .not().isEmpty()
-  //   .trim()
-  //   .escape(),
-  // body('notifyOnReply').toBoolean()
 
+
+
+exports.singup = async (userData) => {
+ console.log(userData);
   const user = await User.create(userData);
 
-  await validatePassword(password, user.password);
-  const token = await getToken(user);
-
+const token = await getToken(user);
+//console.log('token' + token);
   return token;
 };
+
+
 
 exports.login = async (email, password) => {
  // console.log(email + '   '+ password);

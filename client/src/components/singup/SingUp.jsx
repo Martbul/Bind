@@ -4,23 +4,20 @@ import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 
 
-const signUpFormInitialstate = {
-  Username: "",
-  Email: "",
-  Password: "",
+const signUpFormKeys = {
+  Username: "username",
+  Email:'email',
+  Password: "password",
 };
 export default function SingUp() {
-
   const { registerSubmitHandler } = useContext(AuthContext);
-
+ 
   const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
-    [signUpFormInitialstate.Email]: "",
-    [signUpFormInitialstate.Password]: "",
-    [signUpFormInitialstate.ConfirmPassword]: "",
-  });
-  //! kato vzemesh user authentication v soft uni trqbva da dovyrshih sigup-a
-
-  
+    [signUpFormKeys.Username]: '',
+    [signUpFormKeys.Email]: '',
+    [signUpFormKeys.Password]: '',
+ 
+});
 
   return (
     <>
@@ -37,7 +34,7 @@ export default function SingUp() {
           id="username"
           name="username"
           onChange={onChange}
-          values={formValues[signUpFormInitialstate.Username]}
+          values={formValues[signUpFormKeys.Username]}
         />
         <label htmlFor="email">Email</label>
         <input
@@ -46,7 +43,7 @@ export default function SingUp() {
           id="email"
           name="email"
           onChange={onChange}
-          values={formValues[signUpFormInitialstate.Email]}
+          values={formValues[signUpFormKeys.Email]}
         />
         <label htmlFor="password">Password</label>
         <input
@@ -55,7 +52,7 @@ export default function SingUp() {
           id="password"
           name="password"
           onChange={onChange}
-          values={formValues[signUpFormInitialstate.Password]}
+          values={formValues[signUpFormKeys.Password]}
         />
         <Link to="/login">Already have account?</Link>
         <button >Sing up</button>

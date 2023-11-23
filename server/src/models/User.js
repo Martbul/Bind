@@ -21,12 +21,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "usernmae is required"],
     unique: { value: true, message: "email already exists" },
-    validate: {
-        validator: function (value) {
-          return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
-        },
-        message: 'please enter a valid email address'
-      },
+    // validate: {
+    //     validator: function (value) {
+    //       return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+    //     },
+    //     message: 'please enter a valid email address'
+    //   },
   },
 
   
@@ -34,12 +34,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "password is required"],
     minLength: [8, "password is too short"],
-    validate: {
-      validator: function (value) {
-        return /^[A-Za-z0-9]+$/.test(value);
-      },
-      message: 'please enter a valid password(only letters and numbers are allowed)'
-    },
+    // validate: {
+    //   validator: function (value) {
+    //     return /^[A-Za-z0-9]+$/.test(value);
+    //   },
+    //   message: 'please enter a valid password(only letters and numbers are allowed)'
+    // },
   },
 });
 

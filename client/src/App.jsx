@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
+import { AuthProvider } from './contexts/authContext';
 import Path from "./paths"
 import AuthContext from "./contexts/authContext"
 import * as authService from "./services/authService" 
@@ -27,59 +28,11 @@ import './public/scss2/main.scss'
 
 function App() {
 
-  const navigate = useNavigate()
-  const [auth, setAuth] = useState(()=>{
-    localStorage.removeItem('accessToken')
-
-    return {}
-  })
-
-
-  //!needs an error handling
-  const loginSubmitHandler= async(formValues) =>{
-
-    console.log(formValues);
-    //! trqbva da napishsh survura da vrushta jwt token pri login zaqvka za da proraboti(mai)
-    //! survura vrushda "data"
-    const result = await authService.login(formValues.email, formValues.password)
-    
-    setAuth(result)
-    localStorage.setItem('accessToken', result.accessToken)
-    navigate(Path.Home)
-  }
-
-  //!needs an error handling
-  const registerSubmitHandler = async(formValues) =>{
-    //! trqbva da napishsh survura da vrushta jwt token pri register zaqvka za da proraboti(mai)
-   const result = await authService.register(formValues.email, formValues.password)
-  
-   setAuth(result)
-   
-   localStorage.setItem('accessToken', result.accessToken)
-    navigate(Path.Home)
-  }
-
-  const logoutHandler =()=>{
-    setAuth({})
-    
-    localStorage.removeItem('accessToken')
-    
-  }
-
-  const values = {
-    registerSubmitHandler,
-    logoutHandler,
-    loginSubmitHandler,
-    username: auth.username || auth.email,
-    email:auth.email,
-    isAuthenticated: !!auth.accessToken
-  }
-
   return (
 
-    <AuthContext.Provider value={values}>
-   
-      <Navigation />
+
+   <AuthProvider>
+    <Navigation />
 
       <Routes>
         <Route path={Path.Home} element={<Home />} />
@@ -94,7 +47,9 @@ function App() {
       </Routes>
 
       <Footer />
-      </AuthContext.Provider>
+   </AuthProvider>
+     
+     
     
   );
 }

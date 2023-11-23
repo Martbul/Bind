@@ -1,33 +1,31 @@
 const router = require("express").Router();
 const userService = require("../services/userService");
 const { extractErrorMsgs } = require("../utils/errorHandler");
-const isStrongPassword = require("validator/lib/isStrongPassword");
-const isEmail = require("validator/lib/isEmail");
+//const isStrongPassword = require("validator/lib/isStrongPassword");
+//const isEmail = require("validator/lib/isEmail");
 
-// router.get("/singup", (req, res) => {
-//   res.render("singup");
-// });
+
+
 
 router.post("/singup", async (req, res) => {
   const { username, email, password } = req.body;
-  console.log(req.body);
-  
+  //console.log(req.body.username);
 
   try {
-    const token = await userService.singup({ username, email, password });
-    //console.log('TOKEN111111111'+token);
-    res.cookie("auth", token, { httpOnly: true });
-    res.json(token);
-    // res.redirect("/");
+    const result = await userService.singup({ username,email, password ,});
+    console.log('tokkeen ' + result);
+   // res.cookie("auth", token, { httpOnly: true });
+   res.json(result);
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
-    res.status(404).render("singUp", { errorMessages });
+    console.log(errorMessages);
+   // res.status(404).render("singUp", { errorMessages });
   }
 });
 
-router.get("/login", (req, res) => {
-  res.render("login");
-});
+// router.get("/login", (req, res) => {
+//   res.render("login");
+// });
 
 router.post("/login", async (req, res) => {
   //find the user
@@ -41,7 +39,7 @@ router.post("/login", async (req, res) => {
     // res.redirect("/");
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
-    res.status(404).render("login", { errorMessages });
+   // res.status(404).render("login", { errorMessages });
   }
 });
 
@@ -51,7 +49,7 @@ router.get('/profile', async(req, res) => {
 
   const myProfile = await userService.getMyProfile(user._id).lean()
  // console.log(myProfile);
-  res.render('profile',{ myProfile})
+ // res.render('profile',{ myProfile})
 })
 
 router.get("/logout", (req, res) => {

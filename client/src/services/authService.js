@@ -8,10 +8,7 @@ import * as request from '../lib/request'
     return result
 }
 
-export const register = async (email, password) => {
-
-    const result = await request.post(`${baseUrl}/singup`, {email,password})
-console.log(result);
-}
+export const register = async (username,email, password,) => 
+    request.post(`${baseUrl}/singup`, {username,email,password})
 
 export const logout = ( )=> request.get(`${baseUrl}/logout`)
