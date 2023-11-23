@@ -37,9 +37,9 @@ const token = await getToken(user);
 
 
 exports.login = async (email, password) => {
- // console.log(email + '   '+ password);
+console.log(email);
   const user = await User.findOne({email});
-  //console.log(user);
+  
 
   if (!user) {
     throw new Error("invalid username!!!!!!!!! or password");

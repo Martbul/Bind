@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+
+import AuthContext from "../../contexts/authContext";
 
 
 export default function Navigation() {
+  const {isAuthenticated, username} = useContext(AuthContext)
+
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
@@ -40,7 +43,9 @@ export default function Navigation() {
                 Order
               </NavLink>
             </li>
-            <li className="nav-item">
+            {isAuthenticated &&(
+              <>
+                <li className="nav-item">
               <NavLink to="/beADeliver" className="nav-link">
                 BecomeAdeliver
               </NavLink>
@@ -50,12 +55,17 @@ export default function Navigation() {
                 Binds
               </NavLink>
             </li>
+              </>
+          )}
+            
             <li className="nav-item">
               <NavLink to="/about" className="nav-link">
                 About
               </NavLink>
             </li>
-            <li className="nav-item">
+            {isAuthenticated &&(
+              <>
+               <li className="nav-item">
               <NavLink to="/logout" className="nav-link">
                 Logout
               </NavLink>
@@ -65,8 +75,12 @@ export default function Navigation() {
                 Profile
               </NavLink>
             </li>
-            
-            <li className="nav-item">
+              </>
+            )}
+           
+            {!isAuthenticated &&(
+              <>
+              <li className="nav-item">
               <NavLink to="/singup" className="nav-link">
                 Sing up
               </NavLink>
@@ -76,6 +90,9 @@ export default function Navigation() {
                 Log in
               </NavLink>
             </li>
+              </>
+            )}
+            
           </ul>
         </div>
       </div>

@@ -23,23 +23,20 @@ router.post("/singup", async (req, res) => {
   }
 });
 
-// router.get("/login", (req, res) => {
-//   res.render("login");
-// });
 
 router.post("/login", async (req, res) => {
-  //find the user
+  
   const { email, password } = req.body;
   try {
-    const token = await userService.login(  email, password );
+    const result = await userService.login( { email, password} );
     // console.log("TOKEN111111111" + token);
   
-    res.cookie("auth", token, { httpOnly: true });
-      res.json(token)
-    // res.redirect("/");
+    //res.cookie("auth", result, { httpOnly: true });
+      res.json(result).end();
+    
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
-   // res.status(404).render("login", { errorMessages });
+   console.log(errorMessages);
   }
 });
 

@@ -14,8 +14,9 @@ export const AuthProvider = ({
     const [auth, setAuth] = usePersistedState('auth', {});
 
     const loginSubmitHandler = async (formValues) => {
-        const result = await authService.login(formValues.username,formValues.email, formValues.password);
       
+        const result = await authService.login(formValues.email, formValues.password);
+        console.log(result);
 
         setAuth(result);
 
@@ -31,7 +32,7 @@ export const AuthProvider = ({
        setAuth(result); 
 
         localStorage.setItem('accessToken', result);
-
+console.log(auth);
         navigate(Path.Home);
     };
 
@@ -44,10 +45,10 @@ export const AuthProvider = ({
         loginSubmitHandler,
         registerSubmitHandler,
         logoutHandler,
-       // username: auth.username || auth.email,
-       //  email: auth.email,
-      //  userId: auth._id,
-      //  isAuthenticated: !!auth.accessToken,
+       username: auth.username || auth.email,
+         email: auth.email,
+        userId: auth._id,
+        isAuthenticated: !!auth.accessToken,
        
     };
 
