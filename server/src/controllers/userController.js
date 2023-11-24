@@ -28,11 +28,11 @@ router.post("/login", async (req, res) => {
   
   const { email, password } = req.body;
   try {
-    const result = await userService.login( { email, password} );
+    const result = await userService.login(  email, password );
     // console.log("TOKEN111111111" + token);
   
     //res.cookie("auth", result, { httpOnly: true });
-      res.json(result).end();
+      res.json(result)
     
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
