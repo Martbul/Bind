@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userService = require("../services/userService");
+const decoder = require('../lib/tokenDecoder')
 const { extractErrorMsgs } = require("../utils/errorHandler");
 //const isStrongPassword = require("validator/lib/isStrongPassword");
 //const isEmail = require("validator/lib/isEmail");
@@ -12,8 +13,10 @@ router.post("/singup", async (req, res) => {
   //console.log(req.body.username);
 
   try {
-    const result = await userService.singup({ username,email, password ,});
-    console.log('tokkeen ' + result);
+    const result = await userService.singup({ username,email, password });
+
+    let decodedToken = decoder(result)
+    console.log('DECODED TOKEN   ' + decodedToken);
    // res.cookie("auth", token, { httpOnly: true });
    res.json(result);
   } catch (error) {

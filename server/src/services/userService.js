@@ -26,7 +26,7 @@ async function getToken(user) {
 
 
 exports.singup = async (userData) => {
- console.log(userData);
+ //console.log(userData);
   const user = await User.create(userData);
 
 const token = await getToken(user);
@@ -48,7 +48,7 @@ console.log(email);
   await validatePassword(password, user.password);
 
   const token = await getToken(user);
-  console.log(token);
+  //console.log(token);
 
   return token;
 };

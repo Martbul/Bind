@@ -200,23 +200,23 @@ export default function About() {
        {/* end team section */}
        {/* info section */}
 
-       <section class="callto-action-area section-gap" id="join">
-         <div class="container">
-           <div class="row d-flex justify-content-center">
-             <div class="menu-content col-lg-9">
-               <div class="title text-center">
-                 <h1 class="mb-10 text-white">
+       <section className="callto-action-area section-gap" id="join">
+         <div className="container">
+           <div className="row d-flex justify-content-center">
+             <div className="menu-content col-lg-9">
+               <div className="title text-center">
+                 <h1 className="mb-10 text-white">
                    Join us today
                  </h1>
-                 <p class="text-white">
+                 <p className="text-white">
                    Make the dream true wit us. Become a deliver and make money when you want.
                    Deliver order in your time shedule and prefferd day.
                    Have own customers and live the life you deserve
                  </p>
-                 <a class="primary-btn" href="#">
+                 <a className="primary-btn" href="#">
                   Make deliver account
                  </a>
-                 <a class="primary-btn" href="#">
+                 <a className="primary-btn" href="#">
                    Lear more
                  </a>
                </div>

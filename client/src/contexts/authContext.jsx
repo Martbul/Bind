@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
 
 import * as authService from '../services/authService';
 import usePersistedState from "../hooks/usePersistedState";
@@ -13,12 +14,21 @@ export const AuthProvider = ({
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
 
+
     const loginSubmitHandler = async (formValues) => {
       
         const result = await authService.login(formValues.email, formValues.password);
-        console.log(result);
+
+
+
+
+       // console.log(result);
+
+
 
         setAuth(result);
+
+
 
         localStorage.setItem('accessToken', result);
 
@@ -27,12 +37,14 @@ export const AuthProvider = ({
 
     const registerSubmitHandler = async (formValues) => {
      
-      const result = await authService.register(formValues.username,formValues.email, formValues.password);
+      let result = await authService.register(formValues.username,formValues.email, formValues.password);
+     // console.log('result '+ result);
+      console.log(result);
      
        setAuth(result); 
 
         localStorage.setItem('accessToken', result);
-console.log(auth);
+       // console.log(jwtDecode(`'${auth}'`).username);
         navigate(Path.Home);
     };
 
@@ -41,14 +53,30 @@ console.log(auth);
         localStorage.removeItem('accessToken');
     };
 
+    // const userData = ()=>{
+    //     const userData={}
+    //     if(auth){
+    //         userData.username = jwtDecode(`'${auth}'`).username
+    //         userData.email = jwtDecode(`'${auth}'`).email
+    //         userData.userId = jwtDecode(`'${auth}'`).userId
+    //         userData.isAuthenticated = !!jwtDecode(`'${auth}'`)
+    //     }
+    //     return userData
+    // }
+
     const values = {
         loginSubmitHandler,
         registerSubmitHandler,
         logoutHandler,
-       username: auth.username || auth.email,
-         email: auth.email,
-        userId: auth._id,
-        isAuthenticated: !!auth.accessToken,
+        // username:function(){
+        //     if(auth){
+        //        return jwtDecode(`'${auth}'`).username
+        //     }
+        // }
+    //   username: auth=={} ?   undefined:jwtDecode(`'${auth}'`).username,
+    //   email: auth=={} ? undefined:jwtDecode(`'${auth}'`).email  ,
+    //  userId: auth=={} ? undefined:jwtDecode(`'${auth}'`)._id ,
+    //    isAuthenticated:   !!jwtDecode(`'${auth}'`) ,
        
     };
 
