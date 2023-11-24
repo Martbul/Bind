@@ -4,12 +4,13 @@ const bindService = require("../services/bindsService");
 
 
 router.get("/binds", async (req, res) => {
-  // const { search  } = req.query;
+   const { search  } = req.query;
+  
  
 
   try {
   //  const orders = await orderService.getAll(search, from, to);
-    const binds = await bindService.getAll();
+    const binds = await bindService.getAll(search);
     console.log(binds);
      res.json(binds);
    

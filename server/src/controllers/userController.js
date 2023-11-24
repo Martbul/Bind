@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const userService = require("../services/userService");
-const decoder = require('../lib/tokenDecoder')
+//const decoder = require('../lib/tokenDecoder')
+//const jwt = require("jsonwebtoken");
+//const {SECRET} = require('../constants')
 const { extractErrorMsgs } = require("../utils/errorHandler");
 //const isStrongPassword = require("validator/lib/isStrongPassword");
 //const isEmail = require("validator/lib/isEmail");
@@ -14,9 +16,9 @@ router.post("/singup", async (req, res) => {
 
   try {
     const result = await userService.singup({ username,email, password });
-
-    let decodedToken = decoder(result)
-    console.log('DECODED TOKEN   ' + decodedToken);
+console.log(result);
+    //let decodedToken = decoder(result)
+    //console.log('DECODED TOKEN   ' + decodedToken);
    // res.cookie("auth", token, { httpOnly: true });
    res.json(result);
   } catch (error) {
@@ -32,6 +34,10 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const result = await userService.login(  email, password );
+
+   // const decoded = await jwt.decode(result, SECRET);
+    // let decodedToken = decoder(result)
+  //  console.log('DECODED TOKEN   ' + decoded.username);
     // console.log("TOKEN111111111" + token);
   
     //res.cookie("auth", result, { httpOnly: true });

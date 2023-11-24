@@ -1,20 +1,20 @@
 import { React, useState } from "react";
+import AuthContext from "../../contexts/authContext";
+import useForm from "../../hooks/useForm";
+import { useContext } from "react";
 
-import styles from "./Search.module.css";
-    // <div className={styles.container}>
-    //   <input
-    //     type="text"
-    //     className={styles.textbox}
-    //     placeholder="Search data..."
-    //   //   value={value}
-    //   //   onChange={(e) => {
-    //   //     setValue(e.target.value);
-    //   //   }}
-    //   />
-    // </div>var MyClass = React.createClass({
-function Search() {
+const searchFormKeys = {
+Search:'search',
+}
+
+export default function Search() {
+  //! NAPRAVI SEARCH
+  const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
+    [signUpFormKeys.Search]: '',
+ 
+});
   return (
-    <form
+    <form onSubmit={onSubmit}
       className="serach-form-area"
       style={{
         
@@ -33,13 +33,15 @@ function Search() {
             type="text"
             className="form-control"
             name="search"
+            onChange={onChange}
+            values={formValues[searchFormKeys.Search]}
             placeholder="what are you looging for?"
           />
         </div>
         <div className="col-lg-3 form-cols">
           <div className="default-select" id="default-selects">
             <select>
-              <option value={1}>Select area</option>
+              <option value={1}>Select city</option>
               <option value={2}>Dhaka</option>
               <option value={3}>Rajshahi</option>
               <option value={4}>Barishal</option>
@@ -50,7 +52,7 @@ function Search() {
         <div className="col-lg-3 form-cols">
           <div className="default-select" id="default-selects2">
             <select>
-              <option value={1}>All Category</option>
+              <option value={1}>Select day</option>
               <option value={2}>Medical</option>
               <option value={3}>Technology</option>
               <option value={4}>Goverment</option>
@@ -67,5 +69,3 @@ function Search() {
     </form>
   );
 }
-
-export default Search;

@@ -111,8 +111,8 @@ export default function Footer() {
                <script>document.write(new Date().getFullYear());</script> All
                rights reserved | This template is made with
                <i className="icon-heart" aria-hidden="true"></i> by{" "}
-               <a href="https://colorlib.com" target="_blank">
-                 Colorlib
+               <a href="https://github.com/Martbul" target="_blank">
+                 Martin Kovachki
                </a>
                {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
              </p>

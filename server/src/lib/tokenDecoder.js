@@ -1,4 +1,6 @@
-const jwt = require('../lib/jwt');
+//const jwt = require('../lib/jwt');
+const jwt = require("jsonwebtoken");
+
 const {SECRET} = require('../constants')
 
 //  exports.decoder =async (token)=>{
@@ -12,8 +14,20 @@ const {SECRET} = require('../constants')
 
 // }
 
-async function decoder(result){
-    console.log(result);
+// async function decoder(result){
+//     //console.log(result);
+//     try {
+//         const decodedToken = await jwt.verify(result,SECRET)
+//         return decodedToken
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// module.exports = decoder
+
+async function  decoder(result){
+    //console.log(result);
     try {
         const decodedToken = await jwt.verify(result,SECRET)
         return decodedToken

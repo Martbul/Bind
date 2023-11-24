@@ -1,4 +1,9 @@
+import { useContext } from "react";
+
+import AuthContext from "../../contexts/authContext";
 export default function Profile() {
+
+  const {isAuthenticated, username} = useContext(AuthContext)
    return (
      <>
        <div className="main-content">
@@ -63,9 +68,7 @@ export default function Profile() {
              <div className="row">
                <div className="col-lg-7 col-md-10">
                  <h1 className="display-2 text-white">
-                   Hello {"{"}
-                   {"{"}myProfile.username{"}"}
-                   {"}"}
+                   Hello {username}
                  </h1>
                  <p className="text-white mt-0 mb-5">
                    This is your profile page. You can see the progress you've
@@ -112,14 +115,14 @@ export default function Profile() {
                    </div>
                    <div className="text-center">
                      <h3>
-                       {"{"}
-                       {"{"}myProfile.username{"}"}
-                       {"}"}
+                      {username}
                        <span className="font-weight-light" />
                      </h3>
                      <div className="h5 font-weight-300">
-                       <i className="ni location_pin mr-2" />
-                       Bucharest, Romania
+                       <i className="ni location_pin mr-2" 
+                       />
+                       <h4 placeholder='eerere'></h4>
+                      
                      </div>
                      <div className="h5 mt-4">
                        <i className="ni business_briefcase-24 mr-2" />
@@ -158,6 +161,7 @@ export default function Profile() {
                    </div>
                  </div>
                  <div className="card-body">
+
                    <form>
                      <h6 className="heading-small text-muted mb-4">
                        User information
@@ -176,7 +180,7 @@ export default function Profile() {
                                type="text"
                                id="input-username"
                                className="form-control form-control-alternative"
-                               placeholder="{{myProfile.username}}"
+                               placeholder={username}
                              />
                            </div>
                          </div>

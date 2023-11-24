@@ -8252,7 +8252,7 @@ h1, h2, h3, h4, h5,
 .form-control {
   height: 58px !important;
   background: transparent !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(0, 0, 0, 0.9) !important;
   font-size: 18px;
   border-radius: 0px;
   -webkit-box-shadow: none !important;
@@ -8816,7 +8816,7 @@ textarea.form-control {
   box-shadow: none !important; }
   .contact-form .form-control::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(25, 55, 25, 0.9); }
   .contact-form .form-control::-moz-placeholder {
     /* Firefox 19+ */
     color: rgba(255, 255, 255, 0.9); }

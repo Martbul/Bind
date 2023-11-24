@@ -43,7 +43,7 @@ export default function Navigation() {
                 Order
               </NavLink>
             </li>
-            {isAuthenticated &&(
+            {username != undefined &&(
               <>
                 <li className="nav-item">
               <NavLink to="/beADeliver" className="nav-link">
@@ -63,22 +63,23 @@ export default function Navigation() {
                 About
               </NavLink>
             </li>
-            {isAuthenticated &&(
+            {username != undefined&&(
               <>
-               <li className="nav-item">
-              <NavLink to="/logout" className="nav-link">
-                Logout
-              </NavLink>
-            </li>
+               
             <li className="nav-item">
               <NavLink to="/profile" className="nav-link">
                 Profile
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/logout" className="nav-link">
+                Logout
+              </NavLink>
+            </li>
               </>
             )}
            
-            {!isAuthenticated &&(
+            {username != undefined&&(
               <>
               <li className="nav-item">
               <NavLink to="/singup" className="nav-link">
