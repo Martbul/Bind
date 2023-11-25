@@ -6,3 +6,11 @@ export const getAll = async () => {
    const result = await request.get(baseUrl);
    return result
 }
+
+export const getOne = async (bindId) => {
+   //console.log(bindId);
+  const result = await request.get(`${baseUrl}/${bindId}`);
+  
+
+  return result;
+};

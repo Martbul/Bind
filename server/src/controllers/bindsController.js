@@ -21,5 +21,21 @@ router.get("/binds", async (req, res) => {
 });
 
 
+router.get("/binds/:bindId", async (req, res) => {
+   const bindId = req.params.bindId;
+   
+
+  const bind = await bindService.getSingleBind(bindId).lean();
+
+  if (!bind) {
+    
+    return;
+   }
+   res.json(bind)
+
+  //res.render("details");
+});
+
+
 
 module.exports = router;

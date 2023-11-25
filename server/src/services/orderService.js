@@ -6,4 +6,3 @@ exports.create = async (orderData) => {
    return order
 }
 
-exports.getSingleOrder = (id) => Order.findById(id)

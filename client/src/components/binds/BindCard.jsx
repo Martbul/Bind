@@ -6,12 +6,11 @@ function BindCard({
   userFullName,
   userAddress,
   dayForDelivery,
-  user_id,
-  onDetailsClick,
+  bind_id,
+  onBindInfoClick,
 }) {
-
-  const onDetailsClickHandler = () => {
-    onDetailsClick(user_id);
+  const infoClickHandler = () => {
+    onBindInfoClick(bind_id);
   };
   return (
     <>
@@ -29,7 +28,7 @@ function BindCard({
             {userAddress}
           </Card.Subtitle>
           <Card.Text>{dayForDelivery}</Card.Text>
-          <button onClick={onDetailsClickHandler}>Show more info</button>
+          <button onClick={infoClickHandler}>Show more info</button>
         </Card.Body>
       </Card>
     </>

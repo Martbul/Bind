@@ -1,14 +1,10 @@
 const Order = require("../models/order");
 
-exports.getAll = async (search) => {
-  console.log(search);
-  let filterOrders = await Order.find().lean();
+exports.getAll = async () => {
+  const binds = await Order.find().lean();
 
-  if (search) {
-    filterOrders = filterOrders.filter((order) =>
-      order.order.toLowerCase().includes(search.toLowerCase())
-    );
-  }
-
-  return filterOrders;
+  return binds;
 };
+
+
+exports.getSingleBind = (id) => Order.findById(id);

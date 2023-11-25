@@ -22,6 +22,7 @@ const buildOptions = (data) => {
 };
 
 const request = async (method, url, data) => {
+    console.log(url);
   const response = await fetch(url, {
       ...buildOptions(data),
       method,

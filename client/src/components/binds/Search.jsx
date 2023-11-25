@@ -12,26 +12,7 @@ Search:'search',
 }
 
 export default function Search() {
-  //! NAPRAVI SEARCH
-
-//   const searchSubmitHandler = async (formValues) => {
-    
-//     let result = await bindsService.getAll();
-//    // console.log('result '+ result);
-    
-//     const search= formValues.search
-
-//      if(search){
-//       result = result.filter((order)=>
-//      order.order.toLowerCase().includes(search.toLowerCase())
-      
-//       )
-//        }
-// console.log(result)
-// return result
-
-
-  //     }
+  
     const { searchSubmitHandler } = useContext(BindsContext);
 
   const { formValues, onChange, onSubmit } = useForm(searchSubmitHandler, {
