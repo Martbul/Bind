@@ -2,6 +2,9 @@ import { React, useState } from "react";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 import { useContext } from "react";
+import * as  bindsService from '../../services/bindsService'
+
+
 
 const searchFormKeys = {
 Search:'search',
@@ -9,12 +12,34 @@ Search:'search',
 
 export default function Search() {
   //! NAPRAVI SEARCH
-  const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
-    [signUpFormKeys.Search]: '',
+
+  const searchSubmitHandler = async (formValues) => {
+    
+    let result = await bindsService.getAll();
+   // console.log('result '+ result);
+    
+    const search= formValues.search
+
+     if(search){
+      result = result.filter((order)=>
+     order.order.toLowerCase().includes(search.toLowerCase())
+      
+      )
+       }
+console.log(result)
+return result
+
+
+    }
+
+  const { formValues, onChange, onSubmit } = useForm(searchSubmitHandler, {
+    [searchFormKeys.Search]: '',
  
 });
+
+
   return (
-    <form onSubmit={onSubmit}
+    <form method='POST' onSubmit={onSubmit}
       className="serach-form-area"
       style={{
         
@@ -61,7 +86,7 @@ export default function Search() {
           </div>
         </div>
         <div className="col-lg-2 form-cols">
-          <button type="button" className="btn btn-info">
+          <button  type="submit" className="btn btn-info">
             <span className="lnr lnr-magnifier" /> Search
           </button>
         </div>

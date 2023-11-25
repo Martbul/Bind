@@ -10,7 +10,8 @@ import Col from "react-bootstrap/Col";
 
 export default function BindsGrid() {
    const [binds, setBinds] = useState([])
-   
+   //! dobavi chrez context search stojnostite ot search.jsx tuk i posle sortiraj tuk binds za da naprawi prerendr
+   //! i da zapazi pravilnite stojnosti|| search-a v search.jsx backa prosto napravigorniq komentar
 
    useEffect(() => {
      bindsService.getAll()

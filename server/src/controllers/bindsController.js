@@ -4,7 +4,7 @@ const bindService = require("../services/bindsService");
 
 
 router.get("/binds", async (req, res) => {
-   const { search  } = req.query;
+   console.log(req);
   
  
 
