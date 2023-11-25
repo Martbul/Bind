@@ -14,7 +14,7 @@ import BindsContext from '../../contexts/bindsContext';
 export default function BindsGrid() {
   const [binds, setBinds] = useState([])
   const { search } = useContext(BindsContext);
-
+  const [showMoreInfoModal, setMoreInfoModal] = useState(false);
  
    useEffect(() => {
      bindsService
@@ -30,10 +30,9 @@ export default function BindsGrid() {
    }, [search]);
 
   
-  const [showMoreInfoModal, setMoreInfoModal] = useState(false);
   
 
-   const createMoreInfoModal = () => {
+   const onDetailsClick = () => {
      setMoreInfoModal(true);
    };
 
@@ -48,19 +47,16 @@ export default function BindsGrid() {
        {showMoreInfoModal && <InfoModal hideModal={hideMoreInfoModal} />}
 
        <Container>
-         <Row
-          
-         >
+         <Row>
            {" "}
            {binds.map((bind) => (
              <BindCard
-               
                key={bind._id}
                user_id={bind._id}
                userFullName={bind.fullname}
                userAddress={bind.address}
                dayForDelivery={bind.dayForDelivery}
-               createMoreInfoModal={createMoreInfoModal}
+               onDetailsClick={onDetailsClick}
              />
            ))}
          </Row>

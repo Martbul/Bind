@@ -7,8 +7,12 @@ function BindCard({
   userAddress,
   dayForDelivery,
   user_id,
-  createMoreInfoModal,
+  onDetailsClick,
 }) {
+
+  const onDetailsClickHandler = () => {
+    onDetailsClick(user_id);
+  };
   return (
     <>
       <Card
@@ -25,7 +29,7 @@ function BindCard({
             {userAddress}
           </Card.Subtitle>
           <Card.Text>{dayForDelivery}</Card.Text>
-          <button onClick={createMoreInfoModal}>Show more info</button>
+          <button onClick={onDetailsClickHandler}>Show more info</button>
         </Card.Body>
       </Card>
     </>
