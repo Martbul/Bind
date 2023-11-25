@@ -10,7 +10,7 @@ router.get("/binds", async (req, res) => {
 
   try {
   //  const orders = await orderService.getAll(search, from, to);
-    const binds = await bindService.getAll(search);
+    const binds = await bindService.getAll();
     console.log(binds);
      res.json(binds);
    

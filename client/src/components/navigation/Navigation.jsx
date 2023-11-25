@@ -79,7 +79,7 @@ export default function Navigation() {
               </>
             )}
            
-            {username != undefined&&(
+            
               <>
               <li className="nav-item">
               <NavLink to="/singup" className="nav-link">
@@ -92,7 +92,7 @@ export default function Navigation() {
               </NavLink>
             </li>
               </>
-            )}
+           
             
           </ul>
         </div>

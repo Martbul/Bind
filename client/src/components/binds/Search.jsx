@@ -3,6 +3,7 @@ import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import * as  bindsService from '../../services/bindsService'
+import BindsContext from "../../contexts/bindsContext";
 
 
 
@@ -13,24 +14,25 @@ Search:'search',
 export default function Search() {
   //! NAPRAVI SEARCH
 
-  const searchSubmitHandler = async (formValues) => {
+//   const searchSubmitHandler = async (formValues) => {
     
-    let result = await bindsService.getAll();
-   // console.log('result '+ result);
+//     let result = await bindsService.getAll();
+//    // console.log('result '+ result);
     
-    const search= formValues.search
+//     const search= formValues.search
 
-     if(search){
-      result = result.filter((order)=>
-     order.order.toLowerCase().includes(search.toLowerCase())
+//      if(search){
+//       result = result.filter((order)=>
+//      order.order.toLowerCase().includes(search.toLowerCase())
       
-      )
-       }
-console.log(result)
-return result
+//       )
+//        }
+// console.log(result)
+// return result
 
 
-    }
+  //     }
+    const { searchSubmitHandler } = useContext(BindsContext);
 
   const { formValues, onChange, onSubmit } = useForm(searchSubmitHandler, {
     [searchFormKeys.Search]: '',

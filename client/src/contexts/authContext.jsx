@@ -73,8 +73,8 @@ export const AuthProvider = ({
         //        return jwtDecode(`'${auth}'`).username
         //     }
         // }
-      username: auth?  jwtDecode(`'${auth}'`).username :undefined,
-       email: auth ? jwtDecode(`'${auth}'`).email: undefined ,
+    username: auth?  jwtDecode(`'${auth}'`).username :undefined,
+      email: auth ? jwtDecode(`'${auth}'`).email: undefined ,
     //  userId: auth=={} ? undefined:jwtDecode(`'${auth}'`)._id ,
     //    isAuthenticated:   !!jwtDecode(`'${auth}'`) ,
        

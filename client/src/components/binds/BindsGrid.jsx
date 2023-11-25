@@ -1,23 +1,33 @@
 import * as bindsService from '../../services/bindsService'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import BindCard from "./BindCard"
 import InfoModal from "./InfoModal"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Search from './Search';
+
+import BindsContext from '../../contexts/bindsContext';
 
 
 export default function BindsGrid() {
-   const [binds, setBinds] = useState([])
-   //! dobavi chrez context search stojnostite ot search.jsx tuk i posle sortiraj tuk binds za da naprawi prerendr
-   //! i da zapazi pravilnite stojnosti|| search-a v search.jsx backa prosto napravigorniq komentar
+  const [binds, setBinds] = useState([])
+  const { search } = useContext(BindsContext);
 
+ 
    useEffect(() => {
-     bindsService.getAll()
-       .then((result) => setBinds(result))
+     bindsService
+       .getAll()
+       .then((result) => {
+         // Filter the result based on the search value
+         const filteredBinds = result.filter((bind) =>
+           bind.order.includes(search)
+         );
+         setBinds(filteredBinds);
+       })
        .catch((err) => console.log(err));
-   }, []);
+   }, [search]);
 
   
   const [showMoreInfoModal, setMoreInfoModal] = useState(false);

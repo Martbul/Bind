@@ -9207,7 +9207,8 @@ div.oder:hover p.name {
   font-family: 'Poppins', sans-serif;
   background: #000;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color:black
+  /* -webkit-text-fill-color: transparent; */
 }
 .container00 form{
   padding: 30px 0 0 0;
