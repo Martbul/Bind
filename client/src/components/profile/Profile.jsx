@@ -8,6 +8,7 @@ const profileFormKeys = {
   Email:'email',
   FirstName: "firstname",
   LastName:  "lasttname",
+  MyOrder:  "myorder",
   Country: "country",
   City: "city",
   Address: "address",
@@ -43,14 +44,12 @@ export default function Profile() {
      <>
        <div className="main-content">
          {/* Top navbar */}
-         <nav
+         {/* <nav
            className="navbar navbar-top navbar-expand-md navbar-dark"
            id="navbar-main"
          >
            <div className="container-fluid">
-             {/* Brand */}
-             {/* Form */}
-             {/* User */}
+           
              <ul className="navbar-nav align-items-center d-none d-md-flex">
                <li className="nav-item dropdown">
                  <a
@@ -90,7 +89,7 @@ export default function Profile() {
                </li>
              </ul>
            </div>
-         </nav>
+         </nav> */}
          {/* Header */}
          <div
            className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
@@ -207,15 +206,16 @@ export default function Profile() {
                            <div className="form-group focused">
                              <label
                                className="form-control-label"
-                               htmlFor="input-username"
+                               htmlFor="username"
                              >
                                Username
                              </label>
                              <input
                                type="text"
-                               id="input-username"
+                               id="username"
                                className="form-control form-control-alternative"
-                               placeholder={username}
+                               onChange={onChange}
+                                values={formValues[profileFormKeys.Username]}
                              />
                            </div>
                          </div>
@@ -223,15 +223,16 @@ export default function Profile() {
                            <div className="form-group">
                              <label
                                className="form-control-label"
-                               htmlFor="input-email"
+                               htmlFor="email"
                              >
                                Email address
                              </label>
                              <input
                                type="email"
-                               id="input-email"
+                               id="email"
                                className="form-control form-control-alternative"
-                               placeholder="{{myProfile.email}}"
+                               onChange={onChange}
+                                values={formValues[profileFormKeys.Email]}
                              />
                            </div>
                          </div>
@@ -241,16 +242,17 @@ export default function Profile() {
                            <div className="form-group focused">
                              <label
                                className="form-control-label"
-                               htmlFor="input-first-name"
+                               htmlFor="firstname"
                              >
                                First name
                              </label>
                              <input
                                type="text"
-                               id="input-first-name"
+                               id="firstname"
                                className="form-control form-control-alternative"
                                placeholder="First name"
-                               defaultValue="Lucky"
+                               onChange={onChange}
+                               values={formValues[profileFormKeys.FirstName]}
                              />
                            </div>
                          </div>
@@ -258,16 +260,17 @@ export default function Profile() {
                            <div className="form-group focused">
                              <label
                                className="form-control-label"
-                               htmlFor="input-last-name"
+                               htmlFor="lastname"
                              >
                                Last name
                              </label>
                              <input
                                type="text"
-                               id="input-last-name"
+                               id="lastname"
                                className="form-control form-control-alternative"
                                placeholder="Last name"
-                               defaultValue="Jesse"
+                               onChange={onChange}
+                                values={formValues[profileFormKeys.LastName]}
                              />
                            </div>
                          </div>
@@ -283,9 +286,8 @@ export default function Profile() {
                            rows={4}
                            className="form-control form-control-alternative"
                            placeholder="A few words about you ..."
-                           defaultValue={
-                             "A beautiful Dashboard for Bootstrap 4. It is Free and Open Source."
-                           }
+                           onChange={onChange}
+                           values={formValues[profileFormKeys.MyOrder]}
                          />
                        </div>
                      </div>
@@ -299,16 +301,17 @@ export default function Profile() {
                            <div className="form-group focused">
                              <label
                                className="form-control-label"
-                               htmlFor="input-country"
+                               htmlFor="country"
                              >
                                Country
                              </label>
                              <input
                                type="text"
-                               id="input-country"
+                               id="country"
                                className="form-control form-control-alternative"
                                placeholder="Country"
-                               defaultValue="United States"
+                               onChange={onChange}
+                           values={formValues[profileFormKeys.Country]}
                              />
                            </div>
                          </div>
@@ -316,16 +319,17 @@ export default function Profile() {
                            <div className="form-group focused">
                              <label
                                className="form-control-label"
-                               htmlFor="input-city"
+                               htmlFor="city"
                              >
                                City
                              </label>
                              <input
                                type="text"
-                               id="input-city"
+                               id="city"
                                className="form-control form-control-alternative"
                                placeholder="City"
-                               defaultValue="New York"
+                               onChange={onChange}
+                               values={formValues[profileFormKeys.City]}
                              />
                            </div>
                          </div>
@@ -333,15 +337,16 @@ export default function Profile() {
                            <div className="form-group">
                              <label
                                className="form-control-label"
-                               htmlFor="input-address"
+                               htmlFor="address"
                              >
                                Address
                              </label>
                              <input
-                               id="input-address"
+                               id="address"
                                className="form-control form-control-alternative"
-                               placeholder="Home Address"
-                               defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                               
+                               onChange={onChange}
+                               values={formValues[profileFormKeys.Address]}
                                type="text"
                              />
                            </div>
