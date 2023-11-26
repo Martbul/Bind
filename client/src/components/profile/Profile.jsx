@@ -1,9 +1,44 @@
 import { useContext } from "react";
 
 import AuthContext from "../../contexts/authContext";
+import useForm from "../../hooks/useForm";
+
+const profileFormKeys = {
+  Username: "username",
+  Email:'email',
+  FirstName: "firstname",
+  LastName:  "lasttname",
+  Country: "country",
+  City: "city",
+  Address: "address",
+  AboutMe: "aboutme",
+  OrdersMade: "ordersmade",
+  BindsDeliverd: "bindsdeliverd",
+  Rating:'rating'
+};
+
 export default function Profile() {
 
   const {isAuthenticated, username} = useContext(AuthContext)
+  const logger = () => {
+    console.log(bindDetails);
+  };
+  const { formValues, onChange, onSubmit } = useForm(logger, {
+    [profileFormKeys.Username]: '',
+    [profileFormKeys.Email]: '',
+    [profileFormKeys.FirstName]: '',
+    [profileFormKeys.LastName]: '',
+    [profileFormKeys.Country]: '',
+    [profileFormKeys.City]: '',
+    [profileFormKeys.Address]: '',
+    [profileFormKeys.AboutMe]: '',
+    [profileFormKeys.OrdersMade]: '',
+    [profileFormKeys.BindsDeliverd]: '',
+    [profileFormKeys.Rating]: '',
+ 
+ 
+});
+
    return (
      <>
        <div className="main-content">
@@ -155,7 +190,7 @@ export default function Profile() {
                          href="/editProfile"
                          className="btn btn-sm btn-primary"
                        >
-                         Edit profile
+                        Save
                        </a>
                      </div>
                    </div>
@@ -239,6 +274,21 @@ export default function Profile() {
                        </div>
                      </div>
                      <hr className="my-4" />
+                     {/* Order */}
+                     <h6 className="heading-small text-muted mb-4">My Order</h6>
+                     <div className="pl-lg-4">
+                       <div className="form-group focused">
+                         <label>Order:</label>
+                         <textarea
+                           rows={4}
+                           className="form-control form-control-alternative"
+                           placeholder="A few words about you ..."
+                           defaultValue={
+                             "A beautiful Dashboard for Bootstrap 4. It is Free and Open Source."
+                           }
+                         />
+                       </div>
+                     </div>
                      {/* Address */}
                      <h6 className="heading-small text-muted mb-4">
                        Contact information

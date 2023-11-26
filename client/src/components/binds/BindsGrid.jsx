@@ -5,8 +5,7 @@ import BindCard from "./BindCard"
 import InfoModal from "./InfoModal"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Search from './Search';
+import Loader from '../loader/Loader';
 
 import BindsContext from '../../contexts/bindsContext';
 
@@ -16,8 +15,10 @@ export default function BindsGrid() {
   const { search } = useContext(BindsContext);
   const [showMoreInfoModal, setMoreInfoModal] = useState(false);
    const [selectedBind, setSelectedBind] = useState(null);
+   const [isLoading, setIsLoading] = useState(false);
  
   useEffect(() => {
+    setIsLoading(true);
     bindsService
       .getAll()
       .then((result) => {
@@ -27,7 +28,8 @@ export default function BindsGrid() {
         );
         setBinds(filteredBinds);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
   }, [search]);
   
   
@@ -48,7 +50,8 @@ export default function BindsGrid() {
 
    return (
      <>
-  
+        {isLoading && <Loader />}
+
 
        {showMoreInfoModal && (
          <InfoModal hideModal={hideMoreInfoModal} bindId={selectedBind} />
