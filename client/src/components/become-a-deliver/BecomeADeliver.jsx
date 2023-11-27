@@ -1,11 +1,12 @@
-import Carousel from "react-bootstrap/Carousel";
+// import Carousel from "react-bootstrap/Carousel";
+
 
 export default function BecomeADeliver() {
   return (
     <>
      
-
-      <Carousel data-bs-theme="dark">
+     
+      {/* <Carousel data-bs-theme="dark">
         <Carousel.Item>
           <img
             
@@ -43,7 +44,7 @@ export default function BecomeADeliver() {
             </p>
           </Carousel.Caption>
         </Carousel.Item>
-      </Carousel>
+      </Carousel> */}
 
       <section className="first-section" style={{ backgroundColor: "#121618" }}>
         <div>

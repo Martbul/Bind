@@ -39,10 +39,11 @@ export const AuthProvider = ({
      
       let result = await authService.register(formValues.username,formValues.email, formValues.password);
      // console.log('result '+ result);
-      console.log(result);
+    //  console.log(result);
      
        setAuth(`'${result}'`); 
-
+      console.log(auth); //vushta prazen auth sled signUp
+     //  console.log( jwtDecode(`'${auth}'`).username);;
         localStorage.setItem('accessToken', `'${result}'`);
        // console.log(jwtDecode(`'${auth}'`).username);
         navigate(Path.Home);
@@ -73,8 +74,10 @@ export const AuthProvider = ({
         //        return jwtDecode(`'${auth}'`).username
         //     }
         // }
-    username: auth?  jwtDecode(`'${auth}'`).username :undefined,
-      email: auth ? jwtDecode(`'${auth}'`).email: undefined ,
+        //username : ( auth=={} ) ?   undefined:jwtDecode(`'${auth}'`).username,
+        //email : ( auth=={} ) ? jwtDecode(`'${auth}'`).email : undefined,
+        //isAuthenticated : ( auth=={} ) ? !!jwtDecode(`'${auth}'`) : false
+   //   email: auth ? jwtDecode(`'${auth}'`).email: undefined ,
     //  userId: auth=={} ? undefined:jwtDecode(`'${auth}'`)._id ,
     //    isAuthenticated:   !!jwtDecode(`'${auth}'`) ,
        
