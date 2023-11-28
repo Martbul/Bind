@@ -18,19 +18,9 @@ export const AuthProvider = ({
     const loginSubmitHandler = async (formValues) => {
       
         const result = await authService.login(formValues.email, formValues.password);
-
-
-
-
        // console.log(result);
-
-
-
         setAuth(result);
-
-
-
-        localStorage.setItem('accessToken', result);
+        localStorage.setItem('accessToken', `'${result}'`);
 
         navigate(Path.Home);
     };
@@ -38,13 +28,17 @@ export const AuthProvider = ({
     const registerSubmitHandler = async (formValues) => {
      
       let result = await authService.register(formValues.username,formValues.email, formValues.password);
-     // console.log('result '+ result);
-    //  console.log(result);
      
-       setAuth(`'${result}'`); 
-      console.log(auth); //vushta prazen auth sled signUp
+    // console.log(result);
+   //  console.log(`'${result}'`);
+       setAuth(result); 
+   //   console.log(auth);
+      ; //vushta prazen auth sled signUp
      //  console.log( jwtDecode(`'${auth}'`).username);;
         localStorage.setItem('accessToken', `'${result}'`);
+
+       // console.log(auth)
+        //console.log(jwtDecode(`'${auth}'`).email);
        // console.log(jwtDecode(`'${auth}'`).username);
         navigate(Path.Home);
     };
@@ -77,7 +71,11 @@ export const AuthProvider = ({
         //username : ( auth=={} ) ?   undefined:jwtDecode(`'${auth}'`).username,
         //email : ( auth=={} ) ? jwtDecode(`'${auth}'`).email : undefined,
         //isAuthenticated : ( auth=={} ) ? !!jwtDecode(`'${auth}'`) : false
-   //   email: auth ? jwtDecode(`'${auth}'`).email: undefined ,
+    // email: (auth!={}) ? jwtDecode(`'${auth}'`).email: undefined ,
+    username:auth.username,
+    email: auth.email,
+    isAuthenticated:!!auth.email
+    //email: (auth=={}) ?  undefined :jwtDecode(`'${auth}'`).email
     //  userId: auth=={} ? undefined:jwtDecode(`'${auth}'`)._id ,
     //    isAuthenticated:   !!jwtDecode(`'${auth}'`) ,
        

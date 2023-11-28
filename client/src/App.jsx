@@ -22,6 +22,7 @@ import BecomeADeliver from "./components/become-a-deliver/BecomeADeliver";
 
 import "./style1.css";
 import './public/scss2/main.scss'
+import Logout from "./components/logout/Logout";
 
 
 
@@ -43,6 +44,7 @@ function App() {
         <Route path={Path.Profile} element={<Profile />} />
         <Route path={Path.SingUp} element={<SingUp />} />
         <Route path={Path.LogIn} element={<Login />} />
+        <Route path={Path.Logout} element={<Logout />} />
         <Route path={Path.WildCard} element={<NotFound />} />
       </Routes>
 

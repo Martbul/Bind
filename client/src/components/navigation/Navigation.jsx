@@ -43,7 +43,7 @@ export default function Navigation() {
                 Order
               </NavLink>
             </li>
-            {username != undefined &&(
+            {isAuthenticated == true &&(
               <>
                 <li className="nav-item">
               <NavLink to="/beADeliver" className="nav-link">
@@ -63,7 +63,7 @@ export default function Navigation() {
                 About
               </NavLink>
             </li>
-            {username != undefined&&(
+            {isAuthenticated == true&&(
               <>
                
             <li className="nav-item">
@@ -79,8 +79,7 @@ export default function Navigation() {
               </>
             )}
            
-            
-              <>
+            {isAuthenticated == false&&(<>
               <li className="nav-item">
               <NavLink to="/singup" className="nav-link">
                 Sing up
@@ -91,7 +90,8 @@ export default function Navigation() {
                 Log in
               </NavLink>
             </li>
-              </>
+              </>)}
+              
            
             
           </ul>

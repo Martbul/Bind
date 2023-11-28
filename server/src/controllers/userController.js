@@ -2,7 +2,9 @@ const router = require("express").Router();
 const userService = require("../services/userService");
 //const decoder = require('../lib/tokenDecoder')
 //const jwt = require("jsonwebtoken");
-//const {SECRET} = require('../constants')
+//const {SECRET} = require('../constants'
+//import { jwtDecode } from "jwt-decode";
+const jwtDecode = require("jwt-decode");
 const { extractErrorMsgs } = require("../utils/errorHandler");
 //const isStrongPassword = require("validator/lib/isStrongPassword");
 //const isEmail = require("validator/lib/isEmail");
@@ -16,11 +18,18 @@ router.post("/singup", async (req, res) => {
 
   try {
     const result = await userService.singup({ username,email, password });
-console.log(result);
+    //! u need to make jwt work, but for the SFPROJECT DEFENCE I WILL USE AS A RESULT THE GIVEN 
+    //!USERNAME AND EMAIL WITHOUT USING THE RESULT
+  //  const decodedUsername = jwtDecode(`'${result}'`)
+    //console.log(username1);
+//console.log(result);
     //let decodedToken = decoder(result)
     //console.log('DECODED TOKEN   ' + decodedToken);
    // res.cookie("auth", token, { httpOnly: true });
-   res.json(result);
+   res.json({
+    result,
+    username,email
+   });
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
     console.log(errorMessages);
