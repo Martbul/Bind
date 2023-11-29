@@ -50,13 +50,14 @@ export default function Navigation() {
                 BecomeAdeliver
               </NavLink>
             </li>
-            <li className="nav-item">
+            
+              </>
+          )}
+          <li className="nav-item">
               <NavLink to="/binds/binds" className="nav-link">
                 Binds
               </NavLink>
             </li>
-              </>
-          )}
             
             <li className="nav-item">
               <NavLink to="/about" className="nav-link">

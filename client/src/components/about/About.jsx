@@ -1,6 +1,8 @@
 export default function About() {
    return (
      <>
+
+     
        <div className="hero_area">
          {/* header section strats */}
          <div className="hero_bg_box">
