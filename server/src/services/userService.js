@@ -31,14 +31,19 @@ exports.singup = async (userData) => {
   const user = await User.create(userData);
 
 const token = await getToken(user);
+
 //console.log('token' + token);
-  return token;
+const decodedToken = jwtDecode(token)
+console.log('token =  '+decodedToken);
+//console.log(token);
+
+return decodedToken;
 };
 
 
 
 exports.login = async (email, password) => {
-console.log(email);
+
   const user = await User.findOne({email});
   
 
@@ -49,9 +54,11 @@ console.log(email);
   await validatePassword(password, user.password);
 
   const token = await getToken(user);
+  const decodedToken = jwtDecode(token)
+  console.log('token =  '+decodedToken);
   //console.log(token);
 
-  return token;
+  return decodedToken;
 };
 
 exports.getMyProfile = (userId)=> 

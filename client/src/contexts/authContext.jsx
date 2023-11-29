@@ -18,6 +18,7 @@ export const AuthProvider = ({
     const loginSubmitHandler = async (formValues) => {
       
         const result = await authService.login(formValues.email, formValues.password);
+        console.log(result);
        // console.log(result);
         setAuth(result);
         localStorage.setItem('accessToken', `'${result}'`);
@@ -31,6 +32,7 @@ export const AuthProvider = ({
      
     // console.log(result);
    //  console.log(`'${result}'`);
+   console.log(result);
        setAuth(result); 
    //   console.log(auth);
       ; //vushta prazen auth sled signUp

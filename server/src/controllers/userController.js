@@ -17,7 +17,7 @@ router.post("/singup", async (req, res) => {
   //console.log(req.body.username);
 
   try {
-    const result = await userService.singup({ username,email, password });
+    const decodedToken = await userService.singup({ username,email, password });
     //! u need to make jwt work, but for the SFPROJECT DEFENCE I WILL USE AS A RESULT THE GIVEN 
     //!USERNAME AND EMAIL WITHOUT USING THE RESULT
   //  const decodedUsername = jwtDecode(`'${result}'`)
@@ -26,10 +26,10 @@ router.post("/singup", async (req, res) => {
     //let decodedToken = decoder(result)
     //console.log('DECODED TOKEN   ' + decodedToken);
    // res.cookie("auth", token, { httpOnly: true });
-   res.json({
-    result,
-    username,email
-   });
+   res.json(
+    decodedToken
+   // username,email
+   );
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
     console.log(errorMessages);
@@ -42,7 +42,7 @@ router.post("/login", async (req, res) => {
   
   const { email, password } = req.body;
   try {
-    const result = await userService.login(  email, password );
+    const decodedToken = await userService.login(  email, password );
 
    // const decoded = await jwt.decode(result, SECRET);
     // let decodedToken = decoder(result)
@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
     // console.log("TOKEN111111111" + token);
   
     //res.cookie("auth", result, { httpOnly: true });
-      res.json(result)
+      res.json(decodedToken)
     
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
