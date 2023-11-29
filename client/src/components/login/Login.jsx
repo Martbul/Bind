@@ -9,6 +9,7 @@ const loginFormKeys = {
 };
 
 export default function Login() {
+ // const [errors, setErrors] = useState({});
   
   const { loginSubmitHandler } = useContext(AuthContext);
 
@@ -17,7 +18,8 @@ export default function Login() {
     [loginFormKeys.Password]: "",
   });
 
-  //! kato vzemesh user authentication v soft uni trqbva da dovyrshih login-a
+
+
   return (
     <>
       <div style={{ paddingTop: "23%" }}>
@@ -45,7 +47,7 @@ export default function Login() {
           value={formValues[loginFormKeys.Password]}
         />
         <Link to="/singup">Already have account?</Link>
-        <button>Log In</button>
+        <button style={{ color: "black" }}>Log In</button>
       </form>
       <style
         media="screen"

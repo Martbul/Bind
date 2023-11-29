@@ -122,7 +122,7 @@ export default function Profile() {
                    <div className="col-lg-3 order-lg-2">
                      <div className="card-profile-image">
                        <a href="#">
-                         <img src="/images/p1.jpg" className="rounded-circle" />
+                         <img src="./src/public/images/default-avatar-icon-of-social-media-user-vector.jpg" className="rounded-circle" />
                        </a>
                      </div>
                    </div>

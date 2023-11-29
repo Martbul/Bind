@@ -55,7 +55,7 @@ export default function SingUp() {
           values={formValues[signUpFormKeys.Password]}
         />
         <Link to="/login">Already have account?</Link>
-        <button >Sing up</button>
+        <button style={{ color: "black" }}>Sing up</button>
       </form>
       &lt;
       <style
