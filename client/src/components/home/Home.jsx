@@ -34,7 +34,7 @@ export default function Home() {
                            <Link to="/orders/order" className="btn-1">
                              Order
                            </Link>
-                           <Link to="" className="btn-2">
+                           <Link to="/learnMore" className="btn-2">
                              Learn More
                            </Link>
                          </div>

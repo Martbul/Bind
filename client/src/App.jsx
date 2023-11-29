@@ -23,6 +23,7 @@ import BecomeADeliver from "./components/become-a-deliver/BecomeADeliver";
 import "./style1.css";
 import './public/scss2/main.scss'
 import Logout from "./components/logout/Logout";
+import LearnMore from "./components/learn-more/LearnMore";
 
 
 
@@ -37,6 +38,7 @@ function App() {
 
       <Routes>
         <Route path={Path.Home} element={<Home />} />
+        <Route path={Path.LearnMore} element={<LearnMore />} />
         <Route path={Path.Orders} element={<Order />} />
         <Route path={Path.BeADeliver} element={<BecomeADeliver/>} />
         <Route path={Path.Binds} element={<Binds />} />
