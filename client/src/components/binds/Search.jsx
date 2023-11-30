@@ -43,7 +43,7 @@ export default function Search() {
             name="searchorder"
             onChange={onChange}
             values={formValues[searchFormKeys.SearchOrder]}
-            placeholder="what to deliver?"
+            placeholder="what to deliver"
           />
         </div>
 
@@ -56,7 +56,7 @@ export default function Search() {
             onChange={onChange}
             values={formValues[searchFormKeys.SearchCity]}
             //!make the placeholder and all login to search for CITY NOT TIME
-            placeholder="in what time?"
+            placeholder="what time"
           />
         </div>
 
@@ -68,7 +68,7 @@ export default function Search() {
             name="searchday"
             onChange={onChange}
             values={formValues[searchFormKeys.SearchDay]}
-            placeholder="what day?"
+            placeholder="what day"
           />
         </div>
         <div className="col-lg-2 form-cols">

@@ -28,7 +28,7 @@ function BindCard({
             {userAddress}
           </Card.Subtitle>
           <Card.Text>{dayForDelivery}</Card.Text>
-          <button onClick={infoClickHandler}>Show more info</button>
+          <button onClick={infoClickHandler}>Order Info</button>
         </Card.Body>
       </Card>
     </>

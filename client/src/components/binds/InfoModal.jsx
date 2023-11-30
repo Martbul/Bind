@@ -15,23 +15,24 @@ const bindDetailsFormKeys = {
 
 export default function InfoModal({ hideModal, bindId }) {
   const [bindDetails, setBindDetails] = useState({});
+  
 
   useEffect(() => {
     bindsService.getOne(bindId).then((result) => setBindDetails(result));
   }, [bindId]);
 
-  const logger = () => {
-    console.log(bindDetails);
-  };
-  const { formValues, onChange, onSubmit } = useForm(logger, {
-    [bindDetailsFormKeys.Name]: "",
-    [bindDetailsFormKeys.Email]: "",
-    [bindDetailsFormKeys.PhoneNumber]: "",
-    [bindDetailsFormKeys.DayAndTimeForDelivery]: "",
-    [bindDetailsFormKeys.City]: "",
-    [bindDetailsFormKeys.StreetAndNumber]: bindDetails.address,
-    [bindDetailsFormKeys.Order]: bindDetails.order,
-  });
+  // const logger = () => {
+  //   console.log(order);
+  // };
+  // const { formValues, onChange, onSubmit } = useForm(logger, {
+  //   [bindDetailsFormKeys.Name]: fullname,
+  //   [bindDetailsFormKeys.Email]: "",
+  //   [bindDetailsFormKeys.PhoneNumber]: "",
+  //   [bindDetailsFormKeys.DayAndTimeForDelivery]: "",
+  //   [bindDetailsFormKeys.City]: "lpj",
+  //   [bindDetailsFormKeys.StreetAndNumber]: [bindDetails.order],
+  //   [bindDetailsFormKeys.Order]: JSON.stringify(order),
+  // });
 
   return (
     <div className="overlay">
@@ -58,7 +59,47 @@ export default function InfoModal({ hideModal, bindId }) {
               </svg>
             </button>
           </header>
-          <form onSubmit={onSubmit}>
+
+
+
+
+
+
+
+          <p>Name: {bindDetails.fullname}</p>
+            {/* <p>Email: {bindDetails.email}</p>
+            <p>Phonenumber: {bindDetails.PhoneNumber}</p> */}
+          <p>Day and time for delivery: {bindDetails.dayForDelivery} {bindDetails.timeForDelivery}</p>
+          <p>City: {bindDetails.city}</p>
+          <p>Address: {bindDetails.address}</p>
+          <p>Order: {bindDetails.order}</p>
+
+
+
+
+
+
+
+          <div id="form-actions">
+          <button id="action-save" className="btn" type="submit" style={{ backgroundColor: "purple" }}>
+                Deliver
+              </button>
+              <button id="action-save" className="btn" type="submit" >
+                Save
+              </button>
+              <button
+                id="action-cancel"
+                className="btn"
+                type="button"
+                onClick={hideModal}
+              >
+                Cancel
+              </button>
+            </div>
+
+
+
+          {/* <form onSubmit={onSubmit}>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -73,11 +114,11 @@ export default function InfoModal({ hideModal, bindId }) {
                     onChange={onChange}
                     value={formValues[bindDetailsFormKeys.Name]}
                   />
-                </div>
+                </div> */}
                 {/* <p className="form-error">
                   First name should be at least 3 characters long!
                 </p> */}
-              </div>
+              {/* </div>
 
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -92,9 +133,9 @@ export default function InfoModal({ hideModal, bindId }) {
                     onChange={onChange}
                     value={formValues[bindDetailsFormKeys.Email]}
                   />
-                </div>
+                </div> */}
                 {/* <p className="form-error">Email is not valid!</p> */}
-              </div>
+              {/* </div>
             </div>
 
             <div className="form-row">
@@ -111,9 +152,9 @@ export default function InfoModal({ hideModal, bindId }) {
                     onChange={onChange}
                     value={formValues[bindDetailsFormKeys.PhoneNumber]}
                   />
-                </div>
+                </div> */}
                 {/* <p className="form-error">Phone number is not valid!</p> */}
-              </div>
+              {/* </div>
 
               <div className="form-group">
                 <label htmlFor="coudayAndTimeForDeliveryntry">
@@ -130,11 +171,11 @@ export default function InfoModal({ hideModal, bindId }) {
                     onChange={onChange}
                     value={formValues[bindDetailsFormKeys.dayAndTimeForDelivery]}
                   />
-                </div>
+                </div> */}
                 {/* <p className="form-error">
                   Country should be at least 2 characters long!
                 </p> */}
-              </div>
+              {/* </div>
             </div>
 
             <div className="form-row">
@@ -151,11 +192,11 @@ export default function InfoModal({ hideModal, bindId }) {
                     onChange={onChange}
                     value={formValues[bindDetailsFormKeys.City]}
                   />
-                </div>
+                </div> */}
                 {/* <p className="form-error">
                   City should be at least 3 characters long!
                 </p> */}
-              </div>
+              {/* </div>
               <div className="form-group">
                 <label htmlFor="streetAndNumber">Street</label>
                 <div className="input-wrapper">
@@ -169,11 +210,11 @@ export default function InfoModal({ hideModal, bindId }) {
                     onChange={onChange}
                     value={formValues[bindDetailsFormKeys.StreetAndNumber]}
                   />
-                </div>
+                </div> */}
                 {/* <p className="form-error">
                   Street should be at least 3 characters long!
                 </p> */}
-              </div>
+              {/* </div>
             </div>
 
             <div className="form-row">
@@ -190,11 +231,11 @@ export default function InfoModal({ hideModal, bindId }) {
                     onChange={onChange}
                     value={formValues[bindDetailsFormKeys.Order]}
                   />
-                </div>
+                </div> */}
                 {/* <p className="form-error">
                   Last name should be at least 3 characters long!
                 </p> */}
-              </div>
+              {/* </div>
             </div>
             <div id="form-actions">
               <button id="action-save" className="btn" type="submit">
@@ -209,7 +250,8 @@ export default function InfoModal({ hideModal, bindId }) {
                 Cancel
               </button>
             </div>
-          </form>
+          </form> */}
+
         </div>
       </div>
     </div>
