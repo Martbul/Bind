@@ -2,74 +2,77 @@ import { React, useState } from "react";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 import { useContext } from "react";
-import * as  bindsService from '../../services/bindsService'
+import * as bindsService from "../../services/bindsService";
 import BindsContext from "../../contexts/bindsContext";
 
-
-
 const searchFormKeys = {
-Search:'search',
-}
+  SearchOrder: "searchorder",
+  SearchCity:'searchcity',
+  SearchDay:'searchday'
+};
 
 export default function Search() {
-  
-    const { searchSubmitHandler } = useContext(BindsContext);
+  const { searchSubmitHandler } = useContext(BindsContext);
 
   const { formValues, onChange, onSubmit } = useForm(searchSubmitHandler, {
-    [searchFormKeys.Search]: '',
- 
-});
-
+    [searchFormKeys.SearchOrder]: "",
+    [searchFormKeys.SearchCity]: "",
+    [searchFormKeys.SearchDay]: "",
+  });
 
   return (
-    <form method='POST' onSubmit={onSubmit}
+    <form
+      method="POST"
+      onSubmit={onSubmit}
       className="serach-form-area"
       style={{
-        
-        boxShadow:'10px 10px 10px lightblue',
+        boxShadow: "10px 10px 10px lightblue",
         padding: "1%",
         marginTop: "4%",
         marginLeft: "18%",
         marginRight: "18%",
         marginBottom: "4%",
-        
       }}
     >
       <div className="row justify-content-center form-wrap">
         <div className="col-lg-4 form-cols">
           <input
+            style={{ textAlign: "center" }}
             type="text"
-            className="form-control"
-            name="search"
+            className="form-control  "
+            name="searchorder"
             onChange={onChange}
-            values={formValues[searchFormKeys.Search]}
-            placeholder="what are you looging for?"
+            values={formValues[searchFormKeys.SearchOrder]}
+            placeholder="what to deliver?"
           />
         </div>
-        <div className="col-lg-3 form-cols">
-          <div className="default-select" id="default-selects">
-            <select>
-              <option value={1}>Select city</option>
-              <option value={2}>Dhaka</option>
-              <option value={3}>Rajshahi</option>
-              <option value={4}>Barishal</option>
-              <option value={5}>Noakhali</option>
-            </select>
-          </div>
+
+        <div className="col-lg-4 form-cols">
+          <input
+            style={{ textAlign: "center" }}
+            type="text"
+            className="form-control"
+            name="searchcity"
+            onChange={onChange}
+            values={formValues[searchFormKeys.SearchCity]}
+            //!make the placeholder and all login to search for CITY NOT TIME
+            placeholder="in what time?"
+          />
         </div>
-        <div className="col-lg-3 form-cols">
-          <div className="default-select" id="default-selects2">
-            <select>
-              <option value={1}>Select day</option>
-              <option value={2}>Medical</option>
-              <option value={3}>Technology</option>
-              <option value={4}>Goverment</option>
-              <option value={5}>Development</option>
-            </select>
-          </div>
+
+        <div className="col-lg-4 form-cols">
+          <input
+            style={{ textAlign: "center" }}
+            type="text"
+            className="form-control"
+            name="searchday"
+            onChange={onChange}
+            values={formValues[searchFormKeys.SearchDay]}
+            placeholder="what day?"
+          />
         </div>
         <div className="col-lg-2 form-cols">
-          <button  type="submit" className="btn btn-info">
+          <button type="submit" className="btn btn-info">
             <span className="lnr lnr-magnifier" /> Search
           </button>
         </div>

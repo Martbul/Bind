@@ -4,18 +4,24 @@ const BindsContext = createContext();
 
 export const BindsProvider = ({ children }) => {
 
-   const [search, setSearch] = useState('')
+   const [searchorder, setSearchOrder] = useState('')
+   const [searchcity, setSearchCity] = useState('')
+   const [searchday, setSearchDay] = useState('')
 
    const searchSubmitHandler = async (formValues) => {
-     
-      setSearch(formValues.search);
+     //console.log(formValues);
+     setSearchOrder(formValues.searchorder);
+     setSearchCity(formValues.searchcity);
+     setSearchDay(formValues.searchday);
     
   };
 
 
    const values = {
      searchSubmitHandler,
-    search,
+     searchorder,
+     searchcity,
+     searchday
   };
 
   return <BindsContext.Provider value={values}>{children}</BindsContext.Provider>;

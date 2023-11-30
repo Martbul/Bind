@@ -12,7 +12,7 @@ const formInitialState = {
 export default function Order() {
   const [formValues, setFormValues] = useState(formInitialState)
   const [showSuccessfulOrderModal, setSuccessfulOrderModal] = useState(false)
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState('');
 
 
   const changeHandler =  (e) => {
@@ -26,7 +26,7 @@ export default function Order() {
 
     const resetFomrHandler = () => {
       setFormValues(formInitialState);
-      setErrors({});
+      setErrors('');
     };
 
 
@@ -34,12 +34,50 @@ export default function Order() {
     e.preventDefault();
     console.log(formValues);
 
+    if(formValues.fullname.length < 3 || typeof(formValues.fullname) != 'string'){
+      setErrors('Please enter a valid name')
+      throw new Error('Please enter a valid name')
+      
+    }
+    
+    if(formValues.address.length < 5 || typeof(formValues.address) != 'string'){
+      setErrors('Please enter a valid address')
+      throw new Error('Please enter a valid address')
+      
+    }
+
+
+    if(formValues.dayForDelivery.length < 5 || typeof(formValues.dayForDelivery) != 'string'){
+      setErrors('Please enter a valid day for delivery')
+      throw new Error('Please enter a valid day for delivery')
+      
+    }
+
+
+    // if(formValues.timeForDelivery.length !== 5 || typeof(formValues.timeForDelivery) != 'string'){
+    //   setErrors('Please enter a valid time for delivery')
+    //   throw new Error('Please enter a valid time for delivery')
+      
+    // }
+
+
+    if(formValues.order.length < 4 || typeof(formValues.order) != 'string'){
+      setErrors('Please enter a valid order')
+      throw new Error('Please enter a valid order')
+      
+    }
+
+    if(!formValues.timeForDelivery.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/)){
+      setErrors('Please enter a valid time for delivery')
+      throw new Error('Please enter a valid time for delivery')
+    }
 
     try {
          
       await orderService.create(formValues);
-      // createSuccessfulOrderModal()
+      setSuccessfulOrderModal(true)
         // navigate(`/games`)
+       
     } catch (error) {
         console.log(error);
     }
@@ -55,19 +93,28 @@ export default function Order() {
   //     setSuccessfulOrderModal(true);
   //   };
 
-  //   const hideSuccessfulOrderModal = () => {
-  //     setSuccessfulOrderModal(false);
-  //   };
+    const hideSuccessfulOrderModal = () => {
+      setSuccessfulOrderModal(false);
+    };
 
 
 
   return (
     <>
-      {/* {showSuccessfulOrderModal && (
+    {errors && (
+      <div className="d11">
+<p className="p11">{errors}</p>
+
+      </div>
+      
+    )}
+
+
+      {showSuccessfulOrderModal && (
         <SuccessfulOrderModal
           hideSuccessfulOrderModal={hideSuccessfulOrderModal}
         />
-      )} */}
+      )}
 
       <section className="s11">
         <div className="container00">

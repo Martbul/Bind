@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 
 const signUpFormKeys = {
@@ -10,6 +10,9 @@ const signUpFormKeys = {
   Password: "password",
 };
 export default function SingUp() {
+//  const [errors, setErrors] = useState('');
+
+
   const { registerSubmitHandler } = useContext(AuthContext);
  
   const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
@@ -19,8 +22,20 @@ export default function SingUp() {
  
 });
 
+
+const { errors} = useContext(AuthContext)
+
+
   return (
     <>
+
+{errors && (
+      <div className="d11">
+<p className="p11">{errors}</p>
+
+      </div>
+      
+    )}
       <div style={{ paddingTop: "23%" }}>
         <div className="shape" />
         <div className="shape" />

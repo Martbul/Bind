@@ -14950,3 +14950,28 @@ ul {
     font-size: 0.9rem;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.d11{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+.p11{
+  margin: auto;
+  
+  color: red;
+}
