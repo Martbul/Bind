@@ -1,7 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import * as bindsService from "../../services/bindsService";
 import useForm from "../../hooks/useForm";
+import AuthContext from "../../contexts/authContext";
+import { Link } from "react-router-dom";
+import { pathToUrl } from "../../utils/pathUtils";
+import Path from "../../paths";
 
 const bindDetailsFormKeys = {
   Name: "name",
@@ -15,6 +19,8 @@ const bindDetailsFormKeys = {
 
 export default function InfoModal({ hideModal, bindId }) {
   const [bindDetails, setBindDetails] = useState({});
+  
+  const {  email } = useContext(AuthContext);
   
 
   useEffect(() => {
@@ -34,6 +40,21 @@ export default function InfoModal({ hideModal, bindId }) {
   //   [bindDetailsFormKeys.Order]: JSON.stringify(order),
   // });
 
+
+
+  const deleteButtonClickHandler = async () => {
+    const hasConfirmed = confirm(
+      `Are you sure you want to delete this order`
+    );
+
+    if (hasConfirmed) {
+      await bindsService.remove(bindId);
+
+      navigate("/binds");
+    }
+  };
+
+
   return (
     <div className="overlay">
       <div className="backdrop" onClick={hideModal}></div>
@@ -49,7 +70,8 @@ export default function InfoModal({ hideModal, bindId }) {
                 data-icon="xmark"
                 className="svg-inline--fa fa-xmark"
                 role="img"
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="https://www.svgrepo.com/svg/506648/clear/svg"
+                img
                 viewBox="0 0 320 512"
               >
                 <path
@@ -60,44 +82,62 @@ export default function InfoModal({ hideModal, bindId }) {
             </button>
           </header>
 
-
-
-
-
-
-
           <p>Name: {bindDetails.fullname}</p>
-            {/* <p>Email: {bindDetails.email}</p>
+          {/* <p>Email: {bindDetails.email}</p>
             <p>Phonenumber: {bindDetails.PhoneNumber}</p> */}
-          <p>Day and time for delivery: {bindDetails.dayForDelivery} {bindDetails.timeForDelivery}</p>
+          <p>
+            Day and time for delivery: {bindDetails.dayForDelivery}{" "}
+            {bindDetails.timeForDelivery}
+          </p>
           <p>City: {bindDetails.city}</p>
           <p>Address: {bindDetails.address}</p>
           <p>Order: {bindDetails.order}</p>
 
-
-
-
-
-
-
           <div id="form-actions">
-          <button id="action-save" className="btn" type="submit" style={{ backgroundColor: "purple" }}>
+            {email !== bindDetails._ownerEmail && (
+              <button
+                id="action-save"
+                className="btn"
+                type="submit"
+                style={{ backgroundColor: "purple" }}
+              >
                 Deliver
               </button>
-              <button id="action-save" className="btn" type="submit" >
-                Save
-              </button>
-              <button
-                id="action-cancel"
-                className="btn"
-                type="button"
-                onClick={hideModal}
-              >
-                Cancel
-              </button>
-            </div>
+            )}
 
+            {/*          CHECKING FOR OWNERSHIP         */}
+            {email === bindDetails._ownerEmail && (
+              <>
+                <Link
+                  id="action-save"
+                  className="btn"
+                  type="submit"
+                  to={pathToUrl(Path.OrderEdit, { bindId })}
+                >
+                  Edit
+                </Link>
 
+                <button
+                  id="action-save"
+                  className="btn"
+                  type="submit"
+                  style={{ backgroundColor: "red" }}
+                  onClick={deleteButtonClickHandler}
+                >
+                  Delete
+                </button>
+              </>
+            )}
+
+            <button
+              id="action-cancel"
+              className="btn"
+              type="button"
+              onClick={hideModal}
+            >
+              Cancel
+            </button>
+          </div>
 
           {/* <form onSubmit={onSubmit}>
             <div className="form-row">
@@ -115,10 +155,10 @@ export default function InfoModal({ hideModal, bindId }) {
                     value={formValues[bindDetailsFormKeys.Name]}
                   />
                 </div> */}
-                {/* <p className="form-error">
+          {/* <p className="form-error">
                   First name should be at least 3 characters long!
                 </p> */}
-              {/* </div>
+          {/* </div>
 
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -134,8 +174,8 @@ export default function InfoModal({ hideModal, bindId }) {
                     value={formValues[bindDetailsFormKeys.Email]}
                   />
                 </div> */}
-                {/* <p className="form-error">Email is not valid!</p> */}
-              {/* </div>
+          {/* <p className="form-error">Email is not valid!</p> */}
+          {/* </div>
             </div>
 
             <div className="form-row">
@@ -153,8 +193,8 @@ export default function InfoModal({ hideModal, bindId }) {
                     value={formValues[bindDetailsFormKeys.PhoneNumber]}
                   />
                 </div> */}
-                {/* <p className="form-error">Phone number is not valid!</p> */}
-              {/* </div>
+          {/* <p className="form-error">Phone number is not valid!</p> */}
+          {/* </div>
 
               <div className="form-group">
                 <label htmlFor="coudayAndTimeForDeliveryntry">
@@ -172,10 +212,10 @@ export default function InfoModal({ hideModal, bindId }) {
                     value={formValues[bindDetailsFormKeys.dayAndTimeForDelivery]}
                   />
                 </div> */}
-                {/* <p className="form-error">
+          {/* <p className="form-error">
                   Country should be at least 2 characters long!
                 </p> */}
-              {/* </div>
+          {/* </div>
             </div>
 
             <div className="form-row">
@@ -193,10 +233,10 @@ export default function InfoModal({ hideModal, bindId }) {
                     value={formValues[bindDetailsFormKeys.City]}
                   />
                 </div> */}
-                {/* <p className="form-error">
+          {/* <p className="form-error">
                   City should be at least 3 characters long!
                 </p> */}
-              {/* </div>
+          {/* </div>
               <div className="form-group">
                 <label htmlFor="streetAndNumber">Street</label>
                 <div className="input-wrapper">
@@ -211,10 +251,10 @@ export default function InfoModal({ hideModal, bindId }) {
                     value={formValues[bindDetailsFormKeys.StreetAndNumber]}
                   />
                 </div> */}
-                {/* <p className="form-error">
+          {/* <p className="form-error">
                   Street should be at least 3 characters long!
                 </p> */}
-              {/* </div>
+          {/* </div>
             </div>
 
             <div className="form-row">
@@ -232,10 +272,10 @@ export default function InfoModal({ hideModal, bindId }) {
                     value={formValues[bindDetailsFormKeys.Order]}
                   />
                 </div> */}
-                {/* <p className="form-error">
+          {/* <p className="form-error">
                   Last name should be at least 3 characters long!
                 </p> */}
-              {/* </div>
+          {/* </div>
             </div>
             <div id="form-actions">
               <button id="action-save" className="btn" type="submit">
@@ -251,7 +291,6 @@ export default function InfoModal({ hideModal, bindId }) {
               </button>
             </div>
           </form> */}
-
         </div>
       </div>
     </div>

@@ -14,3 +14,21 @@ export const getOne = async (bindId) => {
 
   return result;
 };
+
+
+
+//! export za namirane na porycha za profile page
+// export const getOneByUserEmail = async (userEmail) => {
+//    const user =
+// }
+
+
+export const edit = async (bindId, bindData) => {
+  const result = await request.put(`${baseUrl}/${bindId}`, bindData);
+
+  return result;
+};
+
+
+
+export const remove = async (bindId) => request.remove(`${baseUrl}/${bindId}`);

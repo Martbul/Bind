@@ -30,7 +30,7 @@ const orderSchema = new mongoose.Schema({
       message: "please enter a correct time(hours:minutes)",
     },
   },
-
+  _ownerEmail: { type: String },
 });
 
 

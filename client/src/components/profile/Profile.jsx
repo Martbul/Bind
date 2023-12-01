@@ -3,6 +3,8 @@ import { useContext } from "react";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 
+import * as bindsService from "../../services/bindsService";
+
 const profileFormKeys = {
   Username: "username",
   Email:'email',
@@ -20,76 +22,40 @@ const profileFormKeys = {
 
 export default function Profile() {
 
-  const {isAuthenticated, username} = useContext(AuthContext)
-  const logger = () => {
-    console.log(bindDetails);
+  const {username, email } = useContext(AuthContext)
+
+
+//! logica za namirane na porychka na usera
+//  let userOrder = ''
+
+//   useEffect(() => {
+//     bindsService.getOne(email).then((result) => userOrder =result);
+//   }, [email]);
+
+
+
+
+  const logger = (formValues) => {
+    console.log(formValues);
   };
   const { formValues, onChange, onSubmit } = useForm(logger, {
-    [profileFormKeys.Username]: '',
-    [profileFormKeys.Email]: '',
-    [profileFormKeys.FirstName]: '',
-    [profileFormKeys.LastName]: '',
-    [profileFormKeys.Country]: '',
-    [profileFormKeys.City]: '',
-    [profileFormKeys.Address]: '',
-    [profileFormKeys.AboutMe]: '',
-    [profileFormKeys.OrdersMade]: '',
-    [profileFormKeys.BindsDeliverd]: '',
-    [profileFormKeys.Rating]: '',
- 
- 
-});
+    [profileFormKeys.Username]: username,
+    [profileFormKeys.Email]: email,
+    [profileFormKeys.FirstName]: "",
+    [profileFormKeys.LastName]: "",
+    [profileFormKeys.Country]: "",
+    [profileFormKeys.City]: "",
+    [profileFormKeys.Address]: "",
+    [profileFormKeys.AboutMe]: "",
+    [profileFormKeys.OrdersMade]: "",
+    [profileFormKeys.BindsDeliverd]: "",
+    [profileFormKeys.Rating]: "",
+  });
 
    return (
      <>
        <div className="main-content">
-         {/* Top navbar */}
-         {/* <nav
-           className="navbar navbar-top navbar-expand-md navbar-dark"
-           id="navbar-main"
-         >
-           <div className="container-fluid">
-           
-             <ul className="navbar-nav align-items-center d-none d-md-flex">
-               <li className="nav-item dropdown">
-                 <a
-                   className="nav-link pr-0"
-                   href="#"
-                   role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false"
-                 ></a>
-                 <div className="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-                   <div className=" dropdown-header noti-title">
-                     <h6 className="text-overflow m-0">Welcome!</h6>
-                   </div>
-                   <a href="../examples/profile.html" className="dropdown-item">
-                     <i className="ni ni-single-02" />
-                     <span>My profile</span>
-                   </a>
-                   <a href="../examples/profile.html" className="dropdown-item">
-                     <i className="ni ni-settings-gear-65" />
-                     <span>Settings</span>
-                   </a>
-                   <a href="../examples/profile.html" className="dropdown-item">
-                     <i className="ni ni-calendar-grid-58" />
-                     <span>Activity</span>
-                   </a>
-                   <a href="../examples/profile.html" className="dropdown-item">
-                     <i className="ni ni-support-16" />
-                     <span>Support</span>
-                   </a>
-                   <div className="dropdown-divider" />
-                   <a href="#!" className="dropdown-item">
-                     <i className="ni ni-user-run" />
-                     <span>Logout</span>
-                   </a>
-                 </div>
-               </li>
-             </ul>
-           </div>
-         </nav> */}
+       
          {/* Header */}
          <div
            className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
@@ -101,9 +67,7 @@ export default function Profile() {
            <div className="container-fluid d-flex align-items-center">
              <div className="row">
                <div className="col-lg-7 col-md-10">
-                 <h1 className="display-2 text-white">
-                   Hello {username}
-                 </h1>
+                 <h1 className="display-2 text-white">Hello {username}</h1>
                  <p className="text-white mt-0 mb-5">
                    This is your profile page. You can see the progress you've
                    made with your work and manage your projects or assigned
@@ -122,7 +86,10 @@ export default function Profile() {
                    <div className="col-lg-3 order-lg-2">
                      <div className="card-profile-image">
                        <a href="#">
-                         <img src="./src/public/images/default-avatar-icon-of-social-media-user-vector.jpg" className="rounded-circle" />
+                         <img
+                           src="./src/public/images/default-avatar-icon-of-social-media-user-vector.jpg"
+                           className="rounded-circle"
+                         />
                        </a>
                      </div>
                    </div>
@@ -149,14 +116,12 @@ export default function Profile() {
                    </div>
                    <div className="text-center">
                      <h3>
-                      {username}
+                       {username}
                        <span className="font-weight-light" />
                      </h3>
                      <div className="h5 font-weight-300">
-                       <i className="ni location_pin mr-2" 
-                       />
-                       <h4 placeholder='eerere'></h4>
-                      
+                       <i className="ni location_pin mr-2" />
+                       <h4 placeholder="eerere"></h4>
                      </div>
                      <div className="h5 mt-4">
                        <i className="ni business_briefcase-24 mr-2" />
@@ -189,13 +154,12 @@ export default function Profile() {
                          href="/editProfile"
                          className="btn btn-sm btn-primary"
                        >
-                        Save
+                         Save
                        </a>
                      </div>
                    </div>
                  </div>
                  <div className="card-body">
-
                    <form>
                      <h6 className="heading-small text-muted mb-4">
                        User information
@@ -215,7 +179,7 @@ export default function Profile() {
                                id="username"
                                className="form-control form-control-alternative"
                                onChange={onChange}
-                                values={formValues[profileFormKeys.Username]}
+                               value={formValues[profileFormKeys.Username]}
                              />
                            </div>
                          </div>
@@ -232,7 +196,8 @@ export default function Profile() {
                                id="email"
                                className="form-control form-control-alternative"
                                onChange={onChange}
-                                values={formValues[profileFormKeys.Email]}
+                               
+                               value={formValues[profileFormKeys.Email]}
                              />
                            </div>
                          </div>
@@ -270,7 +235,7 @@ export default function Profile() {
                                className="form-control form-control-alternative"
                                placeholder="Last name"
                                onChange={onChange}
-                                values={formValues[profileFormKeys.LastName]}
+                               values={formValues[profileFormKeys.LastName]}
                              />
                            </div>
                          </div>
@@ -281,7 +246,7 @@ export default function Profile() {
                      <h6 className="heading-small text-muted mb-4">My Order</h6>
                      <div className="pl-lg-4">
                        <div className="form-group focused">
-                         <label>Order:</label>
+                         <label>Order: {}</label>
                          <textarea
                            rows={4}
                            className="form-control form-control-alternative"
@@ -311,7 +276,7 @@ export default function Profile() {
                                className="form-control form-control-alternative"
                                placeholder="Country"
                                onChange={onChange}
-                           values={formValues[profileFormKeys.Country]}
+                               values={formValues[profileFormKeys.Country]}
                              />
                            </div>
                          </div>
@@ -344,7 +309,6 @@ export default function Profile() {
                              <input
                                id="address"
                                className="form-control form-control-alternative"
-                               
                                onChange={onChange}
                                values={formValues[profileFormKeys.Address]}
                                type="text"

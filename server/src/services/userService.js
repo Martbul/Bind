@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("../lib/jwt");
 const {jwtDecode} = require('jwt-decode')
 const { SECRET } = require("../constants");
-const { body } = require('express-validator');
+// const { body } = require('express-validator');
 
 async function validatePassword(password, userPassword) {
  

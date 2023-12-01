@@ -24,6 +24,7 @@ import "./style1.css";
 import './public/scss2/main.scss'
 import Logout from "./components/logout/Logout";
 import LearnMore from "./components/learn-more/LearnMore";
+import BindEdit from './components/binds/BindEdit';
 
 
 
@@ -31,17 +32,16 @@ import LearnMore from "./components/learn-more/LearnMore";
 function App() {
 
   return (
-
-
-   <AuthProvider>
-    <Navigation />
+    <AuthProvider>
+      <Navigation />
 
       <Routes>
         <Route path={Path.Home} element={<Home />} />
         <Route path={Path.LearnMore} element={<LearnMore />} />
         <Route path={Path.Orders} element={<Order />} />
-        <Route path={Path.BeADeliver} element={<BecomeADeliver/>} />
+        <Route path={Path.BeADeliver} element={<BecomeADeliver />} />
         <Route path={Path.Binds} element={<Binds />} />
+        <Route path={Path.OrderEdit} element={<BindEdit />} />
         <Route path={Path.About} element={<About />} />
         <Route path={Path.Profile} element={<Profile />} />
         <Route path={Path.SingUp} element={<SingUp />} />
@@ -51,10 +51,7 @@ function App() {
       </Routes>
 
       <Footer />
-   </AuthProvider>
-     
-     
-    
+    </AuthProvider>
   );
 }
 

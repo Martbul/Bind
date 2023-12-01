@@ -38,4 +38,48 @@ router.get("/binds/:bindId", async (req, res) => {
 
 
 
+
+router.put("/edit/:bindId", async (req, res) => {
+  try {
+    const { bindId } = req.params;
+
+    const { description, img, make, material, model, price, year } = req.body;
+
+    const bindData = {
+      description,
+      img,
+      make,
+      material,
+      model,
+      price,
+      year,
+      // _ownerId: req.user._id,
+    };
+
+    await bindService.update(bindId, bindData);
+    res.status(200).end();
+  } catch (message) {
+    res.status(400).json({ message });
+  }
+});
+
+
+
+
+
+
+router.delete("/binds/:bindId", async (req, res) => {
+  //console.log("kurec");
+  try {
+     const { bindId } = req.params;
+    // console.log(bindId);
+    await bindService.delete(bindId);
+    res.status(200).end();
+  } catch (message) {
+    res.status(400).json({ message });
+  }
+});
+
+
+
 module.exports = router;

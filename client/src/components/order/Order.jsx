@@ -1,6 +1,7 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import * as orderService from '../../services/orderServices'
 import SuccessfulOrderModal from './SuccessfulOrderModal';
+import AuthContext from "../../contexts/authContext";
 const formInitialState = {
   fullname: "",
   address: "",
@@ -13,6 +14,7 @@ export default function Order() {
   const [formValues, setFormValues] = useState(formInitialState)
   const [showSuccessfulOrderModal, setSuccessfulOrderModal] = useState(false)
   const [errors, setErrors] = useState('');
+ const { email, username } = useContext(AuthContext);
 
 
   const changeHandler =  (e) => {
@@ -73,6 +75,8 @@ export default function Order() {
     }
 
     try {
+      formValues.email = email
+      formValues.username = username;
          
       await orderService.create(formValues);
       setSuccessfulOrderModal(true)

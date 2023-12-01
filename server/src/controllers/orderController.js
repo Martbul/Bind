@@ -3,12 +3,20 @@ const orderService = require("../services/orderService");
 
 
 router.post("/order", async (req, res) => {
-    console.log(req.body);
-  const { fullname, address, dayForDelivery, timeForDelivery, order } =
-      req.body;
+    
+  const {
+    fullname,
+    address,
+    dayForDelivery,
+    timeForDelivery,
+    order,
+    email,
+    username,
+  } = req.body;
+ // console.log(email);
       
   try {
-    console.log(req.body);
+    //console.log(req.body);
   
     
     // console.log(req.body);
@@ -19,6 +27,7 @@ router.post("/order", async (req, res) => {
       address,
       dayForDelivery,
       timeForDelivery,
+      _ownerEmail: email,
     });
     res.status(201).end();
     console.log("new order saved");
@@ -39,5 +48,10 @@ router.get("/details/:orderId", async (req, res) => {
 
   res.render("details");
 });
+
+
+
+
+
 
 module.exports = router;
