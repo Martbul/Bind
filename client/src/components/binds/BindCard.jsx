@@ -10,6 +10,7 @@ function BindCard({
   onBindInfoClick,
 }) {
   const infoClickHandler = () => {
+    window.scrollTo(0, 0);
     onBindInfoClick(bind_id);
   };
   return (

@@ -11,7 +11,8 @@ exports.getSingleBind = (id) => Order.findById(id);
 
 
 exports.update = (bindId, bindData) =>
-  Furniture.findByIdAndUpdate(bindId, bindData);
+  
+  Order.findByIdAndUpdate(bindId, bindData);
 
 
 exports.delete = (bindId) => Order.findByIdAndDelete(bindId);

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
@@ -7,30 +7,30 @@ import * as bindsService from "../../services/bindsService";
 
 const profileFormKeys = {
   Username: "username",
-  Email:'email',
+  Email: "email",
   FirstName: "firstname",
-  LastName:  "lasttname",
-  MyOrder:  "myorder",
+  LastName: "lasttname",
+  MyOrder: "myorder",
   Country: "country",
   City: "city",
-  Address: "address",
+  PhoneNumber: "phoneNumber",
   AboutMe: "aboutme",
   OrdersMade: "ordersmade",
   BindsDeliverd: "bindsdeliverd",
-  Rating:'rating'
+  Rating: "rating",
 };
 
 export default function Profile() {
 
   const {username, email } = useContext(AuthContext)
-
+const [userOrder, setUserOrder] = useState()
 
 //! logica za namirane na porychka na usera
 //  let userOrder = ''
 
-//   useEffect(() => {
-//     bindsService.getOne(email).then((result) => userOrder =result);
-//   }, [email]);
+  // useEffect(() => {
+  //   bindsService.getUserOrder(email).then((result) => userOrder = result);
+  // }, [email]);
 
 
 
@@ -55,7 +55,6 @@ export default function Profile() {
    return (
      <>
        <div className="main-content">
-       
          {/* Header */}
          <div
            className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
@@ -153,8 +152,9 @@ export default function Profile() {
                        <a
                          href="/editProfile"
                          className="btn btn-sm btn-primary"
+                         style={{ display: "inline" }}
                        >
-                         Save
+                         Edit
                        </a>
                      </div>
                    </div>
@@ -196,7 +196,6 @@ export default function Profile() {
                                id="email"
                                className="form-control form-control-alternative"
                                onChange={onChange}
-                               
                                value={formValues[profileFormKeys.Email]}
                              />
                            </div>
@@ -302,12 +301,12 @@ export default function Profile() {
                            <div className="form-group">
                              <label
                                className="form-control-label"
-                               htmlFor="address"
+                               htmlFor="phoneNumber"
                              >
-                               Address
+                               Phone number
                              </label>
                              <input
-                               id="address"
+                               id="phoneNumber"
                                className="form-control form-control-alternative"
                                onChange={onChange}
                                values={formValues[profileFormKeys.Address]}
@@ -322,7 +321,6 @@ export default function Profile() {
                      <h6 className="heading-small text-muted mb-4">About me</h6>
                      <div className="pl-lg-4">
                        <div className="form-group focused">
-                         <label>About Me</label>
                          <textarea
                            rows={4}
                            className="form-control form-control-alternative"

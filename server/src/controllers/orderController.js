@@ -20,8 +20,9 @@ router.post("/order", async (req, res) => {
   
     
     // console.log(req.body);
+    //! dobarvi nqkaksi tuk da vrushtah ordur id za da move posle da go vzema i posle da rendurna ordura v prole page
 
-    await orderService.create({
+     await orderService.create({
       fullname,
       order,
       address,
@@ -35,21 +36,6 @@ router.post("/order", async (req, res) => {
     res.status(400).json({ message });
   }
 });
-
-router.get("/details/:orderId", async (req, res) => {
-  const orderId = req.params;
-
-  const order = await orderService.getSingleOrder(orderId).lean();
-
-  if (!order) {
-    res.redirect("/404");
-    return;
-  }
-
-  res.render("details");
-});
-
-
 
 
 

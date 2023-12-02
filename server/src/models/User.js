@@ -8,14 +8,13 @@ const userSchema = new mongoose.Schema({
     minLength: [3, "username is too short"],
     maxLength: [70, "usernmae is too long"],
     validate: {
-        validator: function (value) {
-          return /^[A-Za-z0-9_.]+$/.test(value);
-        },
-        message: 'please enter a valid username address \n only letters, numbers, underscores, and periods are alowed'
+      validator: function (value) {
+        return /^[A-Za-z0-9_.]+$/.test(value);
       },
+      message:
+        "please enter a valid username address \n only letters, numbers, underscores, and periods are alowed",
+    },
   },
-  
-
 
   email: {
     type: String,
@@ -29,7 +28,6 @@ const userSchema = new mongoose.Schema({
     //   },
   },
 
-  
   password: {
     type: String,
     required: [true, "password is required"],
@@ -41,6 +39,13 @@ const userSchema = new mongoose.Schema({
     //   message: 'please enter a valid password(only letters and numbers are allowed)'
     // },
   },
+  firstName: {},
+  lastName: { type: String, required: [false] },
+  order: { type: String, required: [false] },
+  country: { type: String, required: [false] },
+  city: { type: String, required: [false] },
+  phoneNumber: { type: String, required: [false] },
+  aboutMe: { type: String, required: [false] },
 });
 
 userSchema.pre("save", async function () {

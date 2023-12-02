@@ -14,7 +14,7 @@ export default function Order() {
   const [formValues, setFormValues] = useState(formInitialState)
   const [showSuccessfulOrderModal, setSuccessfulOrderModal] = useState(false)
   const [errors, setErrors] = useState('');
- const { email, username } = useContext(AuthContext);
+ const { email, username, isAuthenticated } = useContext(AuthContext);
 
 
   const changeHandler =  (e) => {
@@ -36,10 +36,28 @@ export default function Order() {
     e.preventDefault();
     console.log(formValues);
 
-    if(formValues.fullname.length < 3 || typeof(formValues.fullname) != 'string'){
-      setErrors('Please enter a valid name')
-      throw new Error('Please enter a valid name')
+
+
+    if (!isAuthenticated) {
+    
+  
+    const alerted = alert(`You must be logged in to make an order!`)
+
+      if (alerted) {
+      navigate("/singup");
+    }
       
+      
+    
+  
+  }
+    if (
+      formValues.fullname.length < 3 ||
+      typeof formValues.fullname != "string" ||
+      !formValues.fullname.match(/^[a-zA-Z]+ [a-zA-Z]+$/)
+    ) {
+      setErrors("Please enter a valid name");
+      throw new Error("Please enter a valid name");
     }
     
     if(formValues.address.length < 5 || typeof(formValues.address) != 'string'){
@@ -74,12 +92,19 @@ export default function Order() {
       throw new Error('Please enter a valid time for delivery')
     }
 
+
+
+
     try {
       formValues.email = email
       formValues.username = username;
          
       await orderService.create(formValues);
       setSuccessfulOrderModal(true)
+
+      await userService.addOrder(orderId)
+
+      //! pri create na ordur dobavi ordura kym shemata na usera
         // navigate(`/games`)
        
     } catch (error) {
@@ -105,14 +130,7 @@ export default function Order() {
 
   return (
     <>
-    {errors && (
-      <div className="d11">
-<p className="p11">{errors}</p>
-
-      </div>
-      
-    )}
-
+    
 
       {showSuccessfulOrderModal && (
         <SuccessfulOrderModal
@@ -133,6 +151,12 @@ export default function Order() {
                   value={formValues.fullname}
                   onChange={changeHandler}
                 />
+                {errors == "Please enter a valid name" && (
+                  <div className="d11">
+                    <p className="p11">{errors}</p>
+                  </div>
+                )}
+
                 <div className="underline" />
                 <label htmlFor="fullname">Full name</label>
               </div>
@@ -144,6 +168,12 @@ export default function Order() {
                   value={formValues.address}
                   onChange={changeHandler}
                 />
+                {errors == "Please enter a valid address" && (
+                  <div className="d11">
+                    <p className="p11">{errors}</p>
+                  </div>
+                )}
+
                 <div className="underline" />
                 <label htmlFor="address">Address</label>
               </div>
@@ -157,6 +187,12 @@ export default function Order() {
                   value={formValues.dayForDelivery}
                   onChange={changeHandler}
                 />
+                {errors == "Please enter a valid day for delivery" && (
+                  <div className="d11">
+                    <p className="p11">{errors}</p>
+                  </div>
+                )}
+
                 <div className="underline" />
                 <label htmlFor="">Preffered day for delivery</label>
               </div>
@@ -168,6 +204,12 @@ export default function Order() {
                   value={formValues.timeForDelivery}
                   onChange={changeHandler}
                 />
+                {errors == "Please enter a valid time for delivery" && (
+                  <div className="d11">
+                    <p className="p11">{errors}</p>
+                  </div>
+                )}
+
                 <div className="underline" />
                 <label htmlFor="">Preffered time for delivery</label>
               </div>
@@ -182,6 +224,12 @@ export default function Order() {
                   value={formValues.order}
                   onChange={changeHandler}
                 />
+                {errors == "Please enter a valid order" && (
+                  <div className="d11">
+                    <p className="p11">{errors}</p>
+                  </div>
+                )}
+
                 <br />
                 <div className="underline" />
                 <label htmlFor="">Order</label>
@@ -192,10 +240,7 @@ export default function Order() {
                     <input
                       type="button"
                       defaultValue="Order"
-                      onClick={
-                       submitHandler
-                     
-                      }
+                      onClick={submitHandler}
                     />
                   </div>
                 </div>

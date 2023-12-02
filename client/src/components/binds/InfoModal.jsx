@@ -48,9 +48,10 @@ export default function InfoModal({ hideModal, bindId }) {
     );
 
     if (hasConfirmed) {
-      await bindsService.remove(bindId);
+      const result = await bindsService.remove(bindId);
+      
 
-      navigate("/binds");
+      navigate("/binds/binds");
     }
   };
 

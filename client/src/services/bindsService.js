@@ -18,8 +18,9 @@ export const getOne = async (bindId) => {
 
 
 //! export za namirane na porycha za profile page
-// export const getOneByUserEmail = async (userEmail) => {
-//    const user =
+// export const getUserOrder = async (userEmail) => {
+//   const result = await request.get(`${baseUrl}/${userEmail}`);
+//   return result
 // }
 
 

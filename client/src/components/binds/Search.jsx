@@ -26,7 +26,7 @@ export default function Search() {
       onSubmit={onSubmit}
       className="serach-form-area"
       style={{
-        boxShadow: "10px 10px 10px lightblue",
+        boxShadow: "10px 10px 10px 8px  lightblue",
         padding: "1%",
         marginTop: "4%",
         marginLeft: "18%",
@@ -43,7 +43,7 @@ export default function Search() {
             name="searchorder"
             onChange={onChange}
             values={formValues[searchFormKeys.SearchOrder]}
-            placeholder="what to deliver"
+            placeholder="WHAT TO DELIVER"
           />
         </div>
 
@@ -56,7 +56,7 @@ export default function Search() {
             onChange={onChange}
             values={formValues[searchFormKeys.SearchCity]}
             //!make the placeholder and all login to search for CITY NOT TIME
-            placeholder="what time"
+            placeholder="WHAT TIME"
           />
         </div>
 
@@ -68,7 +68,7 @@ export default function Search() {
             name="searchday"
             onChange={onChange}
             values={formValues[searchFormKeys.SearchDay]}
-            placeholder="what day"
+            placeholder="WHAT DAY"
           />
         </div>
         <div className="col-lg-2 form-cols">
