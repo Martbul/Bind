@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react"
+import { StrictMode, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 import { AuthProvider } from './contexts/authContext';
@@ -26,32 +26,48 @@ import Logout from "./components/logout/Logout";
 import LearnMore from "./components/learn-more/LearnMore";
 import BindEdit from './components/binds/BindEdit';
 
+import ErrorBoundary from "./components/ErrorBoundary";
+import AuthGuard from "./components/guards/AuthGuard";
 
 
 
 function App() {
 
   return (
-    <AuthProvider>
+  
+ <ErrorBoundary>
+
+       <AuthProvider>
       <Navigation />
 
       <Routes>
         <Route path={Path.Home} element={<Home />} />
         <Route path={Path.LearnMore} element={<LearnMore />} />
         <Route path={Path.Orders} element={<Order />} />
-        <Route path={Path.BeADeliver} element={<BecomeADeliver />} />
+        
         <Route path={Path.Binds} element={<Binds />} />
         <Route path={Path.OrderEdit} element={<BindEdit />} />
         <Route path={Path.About} element={<About />} />
-        <Route path={Path.Profile} element={<Profile />} />
+        
+
+          <Route element={<AuthGuard />}>
+            <Route path={Path.BeADeliver} element={<BecomeADeliver />} />
+            <Route path={Path.Profile} element={<Profile />} />
+            <Route path={Path.Logout} element={<Logout />} />
+        </Route>
+
         <Route path={Path.SingUp} element={<SingUp />} />
         <Route path={Path.LogIn} element={<Login />} />
-        <Route path={Path.Logout} element={<Logout />} />
+        
         <Route path={Path.WildCard} element={<NotFound />} />
       </Routes>
 
       <Footer />
     </AuthProvider>
+    </ErrorBoundary>
+   
+
+   
   );
 }
 
