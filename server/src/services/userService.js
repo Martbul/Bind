@@ -27,7 +27,7 @@ async function getToken(user) {
 
 
 exports.singup = async (userData) => {
- //console.log(userData);
+  //console.log(userData);
   const user = await User.create(userData);
 
 const token = await getToken(user);
@@ -62,4 +62,34 @@ exports.login = async (email, password) => {
 };
 
 exports.getMyProfile = (userId)=> 
-User.findById(userId)
+  User.findById(userId)
+
+
+
+exports.addOrderToUser = (order) => {
+
+  const userOrder = User.populate("order", order)
+  return userOrder
+}
+  
+exports.addOrderToUser = (order) => {
+  
+};
+  
+
+
+exports.addOrderToUser = (order, email) => {
+  // Find the user by ID
+  console.log(email);
+  User.findOneAndUpdate(
+    { email: email },
+    { $push: { order: order.order } },
+    { new: true }
+  )
+    .then((updatedUser) => {
+      //    console.log("Order added successfully to the user:", updatedUser);
+    })
+    .catch((error) => {
+      console.error("Failed to update user with order:", error);
+    });
+};

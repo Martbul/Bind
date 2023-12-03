@@ -46,8 +46,12 @@ const userSchema = new mongoose.Schema({
   city: { type: String, required: [false] },
   phoneNumber: { type: String, required: [false] },
   aboutMe: { type: String, required: [false] },
-  imgUrl:{type:String, required: [false]}
+  imgUrl: { type: String, required: [false] },
+  
 });
+
+
+
 
 userSchema.pre("save", async function () {
   //                             word   salt rounds()

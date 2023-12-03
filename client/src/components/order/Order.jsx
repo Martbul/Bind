@@ -34,7 +34,7 @@ export default function Order() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(formValues);
+    //console.log(formValues);
 
 
 
@@ -99,16 +99,13 @@ export default function Order() {
       formValues.email = email
       formValues.username = username;
          
-      await orderService.create(formValues);
-      setSuccessfulOrderModal(true)
+      const order = await orderService.create(formValues);
+      console.log(order._id);
+     // setSuccessfulOrderModal(true)
 
-      await userService.addOrder(orderId)
-
-      //! pri create na ordur dobavi ordura kym shemata na usera
-        // navigate(`/games`)
        
-    } catch (error) {
-        console.log(error);
+    } catch (message) {
+        console.log(message);
     }
 
     resetFomrHandler();

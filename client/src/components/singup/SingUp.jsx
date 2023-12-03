@@ -10,7 +10,6 @@ const signUpFormKeys = {
   Password: "password",
 };
 export default function SingUp() {
-//  const [errors, setErrors] = useState('');
 
 
   const { registerSubmitHandler } = useContext(AuthContext);
