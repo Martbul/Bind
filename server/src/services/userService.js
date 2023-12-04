@@ -28,6 +28,15 @@ async function getToken(user) {
 
 exports.singup = async (userData) => {
   //console.log(userData);
+  userData.firstName = ''
+  userData.lastName = ''
+  userData.order = Array
+  userData.country = ''
+  userData.city = ''
+  userData.phoneNumber = ''
+  userData.aboutMe = ''
+  userData.imgUrl = ''
+  console.log(userData.order);
   const user = await User.create(userData);
 
 const token = await getToken(user);
@@ -66,15 +75,6 @@ exports.getMyProfile = (userId)=>
 
 
 
-exports.addOrderToUser = (order) => {
-
-  const userOrder = User.populate("order", order)
-  return userOrder
-}
-  
-exports.addOrderToUser = (order) => {
-  
-};
   
 
 

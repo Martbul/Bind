@@ -67,4 +67,5 @@ router.delete("/binds/:bindId", async (req, res) => {
   }
 });
 
+
 module.exports = router;

@@ -3,24 +3,19 @@ import * as profileService from '../services/profileService';
 const ProfileContext = createContext();
 
 export const ProfileProvider = ({ children }) => {
-   const [userOrder, setOrder] = useState('')
-   const [userFirstName, setUserFirstName] = useState('')
-   const [userLastName, setUserLastName] = useState('')
-   const [userCountry, setUserCountry] = useState('')
-   const [userCity, setUserCity] = useState('')
-   const [userPhoneNumber, setUserPhoneNumber] = useState('')
-   const [userAboutMeText, setUserAboutMeText] = useState('')
 
+const [profileData,setProfileData] = useState('')
   
   
    const profileInfoHandler = async (email) => {
-     console.log(email);
+    // console.log(email);
 
      
     try {
          
       const profileData = await profileService.getProfileData(email);
-      console.log(profileData);
+    //  console.log(profileData);
+      setProfileData(profileData)
  
     } catch (message) {
         console.log(message);
@@ -35,13 +30,14 @@ export const ProfileProvider = ({ children }) => {
 
    const values = {
      profileInfoHandler,
-     userOrder,
-     userFirstName,
-     userLastName,
-     userCountry,
-     userCity,
-     userPhoneNumber,
-     userAboutMeText,
+     userOrder:profileData.order,
+     userFirstName:profileData.firstName,
+     userLastName:profileData.lastName,
+     userCountry:profileData.country,
+     userCity:profileData.city,
+     userPhoneNumber:profileData.phoneNumber,
+     userAboutMeText:profileData.aboutMe,
+
    };
 
   return (

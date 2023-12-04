@@ -11,8 +11,5 @@ router.use("/orders", orderController);
 router.use("/users", userController);
 router.use('/delivers',deliverController) 
 router.use("/profile", profileController);
-// router.get("*", (req, res) => {
-//   res.redirect("/404");
-// });
 
 module.exports = router;

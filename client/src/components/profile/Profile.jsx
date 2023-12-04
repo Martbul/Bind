@@ -2,24 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import ProfileContext from "../../contexts/profileContext";
 
 import AuthContext from "../../contexts/authContext";
-import useForm from "../../hooks/useForm";
-
-import * as bindsService from "../../services/bindsService";
-
-const profileFormKeys = {
-  Username: "username",
-  Email: "email",
-  FirstName: "firstname",
-  LastName: "lasttname",
-  MyOrder: "myorder",
-  Country: "country",
-  City: "city",
-  PhoneNumber: "phoneNumber",
-  AboutMe: "aboutme",
-  OrdersMade: "ordersmade",
-  BindsDeliverd: "bindsdeliverd",
-  Rating: "rating",
-};
+import * as profileService from '../../services/profileService'
 
 export default function Profile() {
   const { username, email } = useContext(AuthContext);
@@ -27,24 +10,60 @@ export default function Profile() {
 
   //! logica za namirane na porychka na usera
 
-  profileInfoHandler(email);
+  useEffect(() => {
+    profileInfoHandler(email);
+  }, [email]);
 
-  const logger = (formValues) => {
-    console.log(formValues);
+  const {
+    userOrder,
+    userFirstName,
+    userLastName,
+    userCountry,
+    userCity,
+    userPhoneNumber,
+    userAboutMeText,
+  } = useContext(ProfileContext);
+
+  const [profileDetails, setProfileDetails] = useState({
+    userUsername:username,
+    userEmail:email,
+    userOrder,
+    userFirstName,
+    userLastName,
+    userCountry,
+    userCity,
+    userPhoneNumber,
+    userAboutMeText,
+  });  
+  
+  const editGameSubmitHandler = async (e) => {
+    
+    e.preventDefault();
+  
+console.log(profileDetails);
+    //! add validations
+    try {
+      await profileService.edit(email, profileDetails);
+
+      //navigate("/binds/binds");
+    } catch (err) {
+      // Error notification
+      console.log(err);
+    }
   };
-  const { formValues, onChange, onSubmit } = useForm(logger, {
-    [profileFormKeys.Username]: username,
-    [profileFormKeys.Email]: email,
-    [profileFormKeys.FirstName]: "",
-    [profileFormKeys.LastName]: "",
-    [profileFormKeys.Country]: "",
-    [profileFormKeys.City]: "",
-    [profileFormKeys.Address]: "",
-    [profileFormKeys.AboutMe]: "",
-    [profileFormKeys.OrdersMade]: "",
-    [profileFormKeys.BindsDeliverd]: "",
-    [profileFormKeys.Rating]: "",
-  });
+
+
+
+
+  const onChange = (e) => {
+   // console.log(e.target.name);
+    setProfileDetails((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+
 
   return (
     <>
@@ -142,18 +161,19 @@ export default function Profile() {
                       <h3 className="mb-0">My account</h3>
                     </div>
                     <div className="col-4 text-right">
-                      <a
-                        href="/editProfile"
+                      <button
+                       type='submit'
                         className="btn btn-sm btn-primary"
                         style={{ display: "inline" }}
+                        onClick={editGameSubmitHandler}
                       >
                         Edit
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
                 <div className="card-body">
-                  <form>
+                  <form method='POST'>
                     <h6 className="heading-small text-muted mb-4">
                       User information
                     </h6>
@@ -163,16 +183,17 @@ export default function Profile() {
                           <div className="form-group focused">
                             <label
                               className="form-control-label"
-                              htmlFor="username"
+                              htmlFor="userUsername"
                             >
                               Username
                             </label>
                             <input
                               type="text"
-                              id="username"
+                              id="userUsername"
+                              name='userUsername'
                               className="form-control form-control-alternative"
                               onChange={onChange}
-                              value={formValues[profileFormKeys.Username]}
+                              value={profileDetails.userUsername}
                             />
                           </div>
                         </div>
@@ -180,16 +201,17 @@ export default function Profile() {
                           <div className="form-group">
                             <label
                               className="form-control-label"
-                              htmlFor="email"
+                              htmlFor="userEmail"
                             >
                               Email address
                             </label>
                             <input
                               type="email"
-                              id="email"
+                              id="userEmail"
+                              name='userEmail'
                               className="form-control form-control-alternative"
                               onChange={onChange}
-                              value={formValues[profileFormKeys.Email]}
+                              value={profileDetails.userEmail}
                             />
                           </div>
                         </div>
@@ -199,17 +221,18 @@ export default function Profile() {
                           <div className="form-group focused">
                             <label
                               className="form-control-label"
-                              htmlFor="firstname"
+                              htmlFor="userFirstName"
                             >
                               First name
                             </label>
                             <input
                               type="text"
-                              id="firstname"
+                              id="userFirstName"
+                              name='userFirstName'
                               className="form-control form-control-alternative"
-                              placeholder="First name"
+                              placeholder="John"
                               onChange={onChange}
-                              values={formValues[profileFormKeys.FirstName]}
+                              values={profileDetails.userFirstName}
                             />
                           </div>
                         </div>
@@ -217,17 +240,18 @@ export default function Profile() {
                           <div className="form-group focused">
                             <label
                               className="form-control-label"
-                              htmlFor="lastname"
+                              htmlFor="userLastName"
                             >
                               Last name
                             </label>
                             <input
                               type="text"
-                              id="lastname"
+                              id="userLastName"
+                              name='userLastName'
                               className="form-control form-control-alternative"
-                              placeholder="Last name"
+                              placeholder="Smith"
                               onChange={onChange}
-                              values={formValues[profileFormKeys.LastName]}
+                              values={profileDetails.userLastName}
                             />
                           </div>
                         </div>
@@ -238,13 +262,14 @@ export default function Profile() {
                     <h6 className="heading-small text-muted mb-4">My Order</h6>
                     <div className="pl-lg-4">
                       <div className="form-group focused">
-                        <label>Order: {}</label>
+                        
                         <textarea
                           rows={4}
                           className="form-control form-control-alternative"
-                          placeholder="A few words about you ..."
+                          placeholder="2kg tomatos, 5kg potatos and 1kg lemons"
+                          name='userOrder'
                           onChange={onChange}
-                          values={formValues[profileFormKeys.MyOrder]}
+                          value={profileDetails.userOrder}
                         />
                       </div>
                     </div>
@@ -258,17 +283,18 @@ export default function Profile() {
                           <div className="form-group focused">
                             <label
                               className="form-control-label"
-                              htmlFor="country"
+                              htmlFor="userCountry"
                             >
                               Country
                             </label>
                             <input
                               type="text"
-                              id="country"
+                              id="userCountry"
+                              name='userCountry'
                               className="form-control form-control-alternative"
-                              placeholder="Country"
+                              placeholder="England"
                               onChange={onChange}
-                              values={formValues[profileFormKeys.Country]}
+                              values={profileDetails.userCountry}
                             />
                           </div>
                         </div>
@@ -276,17 +302,18 @@ export default function Profile() {
                           <div className="form-group focused">
                             <label
                               className="form-control-label"
-                              htmlFor="city"
+                              htmlFor="userCity"
                             >
                               City
                             </label>
                             <input
                               type="text"
-                              id="city"
+                              id="userCity"
+                              name='userCity'
                               className="form-control form-control-alternative"
-                              placeholder="City"
+                              placeholder="London"
                               onChange={onChange}
-                              values={formValues[profileFormKeys.City]}
+                              values={profileDetails.userCity}
                             />
                           </div>
                         </div>
@@ -294,15 +321,17 @@ export default function Profile() {
                           <div className="form-group">
                             <label
                               className="form-control-label"
-                              htmlFor="phoneNumber"
+                              htmlFor="userPhoneNumber"
                             >
-                              Phone number
+                              Phone
                             </label>
                             <input
-                              id="phoneNumber"
+                              id="userPhoneNumber"
+                              name="userPhoneNumber"
                               className="form-control form-control-alternative"
+                              placeholder="0888692894"
                               onChange={onChange}
-                              values={formValues[profileFormKeys.Address]}
+                              values={profileDetails.userPhoneNumber}
                               type="text"
                             />
                           </div>
@@ -316,11 +345,11 @@ export default function Profile() {
                       <div className="form-group focused">
                         <textarea
                           rows={4}
+                          name='userAboutMeText'
                           className="form-control form-control-alternative"
                           placeholder="A few words about you ..."
-                          defaultValue={
-                            "A beautiful Dashboard for Bootstrap 4. It is Free and Open Source."
-                          }
+                          onChange={onChange}
+                          values={profileDetails.userAboutMeText}
                         />
                       </div>
                     </div>

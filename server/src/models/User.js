@@ -39,19 +39,39 @@ const userSchema = new mongoose.Schema({
     //   message: 'please enter a valid password(only letters and numbers are allowed)'
     // },
   },
-  firstName: {},
-  lastName: { type: String, required: [false] },
-  order: { type: String, required: [false] },
-  country: { type: String, required: [false] },
-  city: { type: String, required: [false] },
-  phoneNumber: { type: String, required: [false] },
-  aboutMe: { type: String, required: [false] },
-  imgUrl: { type: String, required: [false] },
-  
+
+  firstName: { 
+    type: String, 
+  },
+
+  lastName: { 
+    type: String,  
+  },
+
+  order: { 
+    type: Array,  
+   },
+
+  country: { 
+    type: String, 
+  },
+
+  city: { 
+    type: String,
+   },
+
+  phoneNumber: {
+     type: String,
+      },
+
+  aboutMe: { 
+    type: String, 
+   },
+
+  imgUrl: { 
+    type: String, 
+   },
 });
-
-
-
 
 userSchema.pre("save", async function () {
   //                             word   salt rounds()
