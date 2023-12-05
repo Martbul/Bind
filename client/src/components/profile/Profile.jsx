@@ -8,11 +8,11 @@ export default function Profile() {
   const { username, email } = useContext(AuthContext);
   const { profileInfoHandler } = useContext(ProfileContext);
 
-  //! logica za namirane na porychka na usera
+  //!mislq che useEffecta neshto ne baca
 
   useEffect(() => {
     profileInfoHandler(email);
-  }, [email]);
+  }, [email,username]);
 
   const {
     userOrder,
@@ -45,7 +45,7 @@ console.log(profileDetails);
     try {
       await profileService.edit(email, profileDetails);
 
-      //navigate("/binds/binds");
+      navigate("/profile");
     } catch (err) {
       // Error notification
       console.log(err);
@@ -232,7 +232,7 @@ console.log(profileDetails);
                               className="form-control form-control-alternative"
                               placeholder="John"
                               onChange={onChange}
-                              values={profileDetails.userFirstName}
+                              value={profileDetails.userFirstName}
                             />
                           </div>
                         </div>
@@ -251,7 +251,7 @@ console.log(profileDetails);
                               className="form-control form-control-alternative"
                               placeholder="Smith"
                               onChange={onChange}
-                              values={profileDetails.userLastName}
+                              value={profileDetails.userLastName}
                             />
                           </div>
                         </div>
@@ -294,7 +294,7 @@ console.log(profileDetails);
                               className="form-control form-control-alternative"
                               placeholder="England"
                               onChange={onChange}
-                              values={profileDetails.userCountry}
+                              value={profileDetails.userCountry}
                             />
                           </div>
                         </div>
@@ -313,7 +313,7 @@ console.log(profileDetails);
                               className="form-control form-control-alternative"
                               placeholder="London"
                               onChange={onChange}
-                              values={profileDetails.userCity}
+                              value={profileDetails.userCity}
                             />
                           </div>
                         </div>
@@ -331,7 +331,7 @@ console.log(profileDetails);
                               className="form-control form-control-alternative"
                               placeholder="0888692894"
                               onChange={onChange}
-                              values={profileDetails.userPhoneNumber}
+                              value={profileDetails.userPhoneNumber}
                               type="text"
                             />
                           </div>
@@ -349,7 +349,7 @@ console.log(profileDetails);
                           className="form-control form-control-alternative"
                           placeholder="A few words about you ..."
                           onChange={onChange}
-                          values={profileDetails.userAboutMeText}
+                          value={profileDetails.userAboutMeText}
                         />
                       </div>
                     </div>

@@ -12,7 +12,7 @@ export const getProfileData = async (email) => {
 
 export const edit = async (email, profileDetails) => {
   const result = await request.put(`${baseUrl}/${email}`, profileDetails);
-
+console.log(result);
   return result;
 };
 

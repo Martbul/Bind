@@ -38,7 +38,7 @@ router.put("/:email", async (req, res) => {
   
       await profileService.update(email, profileData);
   
-      res.json(bindData).status(200).end();
+      res.json(profileData).status(200).end();
     } catch (message) {
       res.status(400).json({ message });
     }
