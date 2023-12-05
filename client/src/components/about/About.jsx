@@ -1,17 +1,303 @@
 export default function About() {
    return (
      <>
+     <>
+  <section className="hero-header" id="home">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-5 col-12">
+          <div className="hero-header-content">
+            <p>Plan your life</p>
+            <h1>
+              Increase your <b>productivity</b>
+            </h1>
+            <p>
+              Brute laoreet efficiendi id his, ea illum nonumes luptatum pro.
+              Usu atqui laudem an, insolens gubergren similique est cu. Et vel
+              modus congue vituperata.
+            </p>
+            <div>
+              <a href="#" className="btn btn-secondary">
+                Get Start
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-7 col-12">
+          <div className="hero-header-image">
+            <img src="./src/public/images/i11.jpg" alt="#" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {/*Hero header end*/}
+  
+
+  {/* End Services Area */}
+  {/* Start Counter Section*/}
+  <section className="product-counter-section">
+    <div className="product-counter-wrap">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 col-12">
+            <div className="counter-content-wrap">
+              <i className="lni lni-rocket" />
+              <h6 className="counter-title">
+                <strong>Trusted by 4000+</strong>
+              </h6>
+              <p className="counter-text">High performing team worldwide</p>
+            </div>
+          </div>
+          <div className="col-lg-6 col-12">
+            <ul className="counter-list list-inline text-right">
+              <li>
+                <span className="number count">1000</span>
+                <span className="title">Happy Clients</span>
+              </li>
+              <li>
+                <span className="number count">4400</span>
+                <span className="title">Wining Award</span>
+              </li>
+              <li>
+                <span className="number count">5000</span>
+                <span className="title">Team Member</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {/* /End Counter Section*/}
+
+  {/*Frequently asked questions start*/}
+  <section id="faq" className="faq-section section">
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          <div className="section-title">
+            <h2>Frequently asked questions</h2>
+            <p>
+              Business consulting excepteur sint occaecat cupidatat consulting
+              non proident, sunt in culpa qui officia deserunt laborum market.{" "}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <div id="accordion" className="mt-4 faq-container">
+            <div className="simple-card">
+              <div className="card-header" id="headingOne">
+                <h5 className="mb-0">
+                  <button
+                    className=" btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
+                  >
+                    <span className="arrow-container" /> Reque insolens in vel?
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseOne"
+                className="collapse"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div className="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life
+                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa
+                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                  aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                  beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                  beer farm-to-table, raw denim aesthetic synth nesciunt you
+                  probably haven't heard of them accusamus labore sustainable
+                  VHS.
+                </div>
+              </div>
+            </div>
+            <div className="simple-card">
+              <div className="card-header" id="headingTwo">
+                <h5 className="mb-0">
+                  <button
+                    className=" btn-link"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="true"
+                    aria-controls="collapseTwo"
+                  >
+                    <span className="arrow-container" /> Vis rebum error graecis
+                    ea, id sit postea accusamus?
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseTwo"
+                className="collapse show"
+                aria-labelledby="headingTwo"
+                data-parent="#accordion"
+              >
+                <div className="card-body card-with-button">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life
+                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa
+                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                  aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                  beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                  beer farm-to-table, raw denim aesthetic synth nesciunt you
+                  probably haven't heard of them accusamus labore sustainable
+                  VHS.
+                  <a href="#" className=" btn">
+                    Go to documentation
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="simple-card">
+              <div className="card-header" id="headingThree">
+                <h5 className="mb-0">
+                  <button
+                    className=" btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    <span className="arrow-container" /> Lorem repudiandae ne
+                    nec?
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseThree"
+                className="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordion"
+              >
+                <div className="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life
+                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa
+                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                  aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                  beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                  beer farm-to-table, raw denim aesthetic synth nesciunt you
+                  probably haven't heard of them accusamus labore sustainable
+                  VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {/*Frequently asked questions end*/}
+  {/* Start Blog Area */}
+  <section className="blog section" id="blog">
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          <div className="section-title">
+            <h2>Read Our Blog</h2>
+            <p>
+              Business consulting excepteur sint occaecat cupidatat consulting
+              non proident, sunt in culpa qui officia deserunt laborum market.{" "}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-4 col-md-6 col-12">
+          {/* Single Blog */}
+          <div className="single-news">
+            <div className="news-head">
+              <img src="img/blog1.jpg" alt="#" />
+            </div>
+            <div className="news-body">
+              <div className="news-content">
+                <div className="date">22 Aug, 2020</div>
+                <h2>
+                  <a href="blog-single-sidebar.html">
+                    We have annnocuced our new product.
+                  </a>
+                </h2>
+                <p className="text">
+                  Lorem ipsum dolor a sit ameti, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt sed do incididunt sed.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* End Single Blog */}
+        </div>
+        <div className="col-lg-4 col-md-6 col-12">
+          {/* Single Blog */}
+          <div className="single-news">
+            <div className="news-head">
+              <img src="img/blog2.jpg" alt="#" />
+            </div>
+            <div className="news-body">
+              <div className="news-content">
+                <div className="date">15 Jul, 2020</div>
+                <h2>
+                  <a href="blog-single-sidebar.html">
+                    Top five way for learning web development.
+                  </a>
+                </h2>
+                <p className="text">
+                  Lorem ipsum dolor a sit ameti, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt sed do incididunt sed.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* End Single Blog */}
+        </div>
+        <div className="col-lg-4 col-md-6 col-12">
+          {/* Single Blog */}
+          <div className="single-news">
+            <div className="news-head">
+              <img src="img/blog3.jpg" alt="#" />
+            </div>
+            <div className="news-body">
+              <div className="news-content">
+                <div className="date">05 Jan, 2020</div>
+                <h2>
+                  <a href="blog-single-sidebar.html">
+                    We provide highly business soliutions.
+                  </a>
+                </h2>
+                <p className="text">
+                  Lorem ipsum dolor a sit ameti, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt sed do incididunt sed.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* End Single Blog */}
+        </div>
+      </div>
+    </div>
+  </section>
+  {/* End Blog Area */}
+  
+</>
+
 
      
-       <div className="hero_area">
-         {/* header section strats */}
-         <div className="hero_bg_box">
-           <div className="img-box">
-             <img src="images/hero-bg.jpg" alt="" />
-           </div>
-         </div>
-       
-       </div>
+    
        {/* team section */}
        <section className="service_section layout_padding">
          <div className="container">
