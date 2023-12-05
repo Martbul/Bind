@@ -11,6 +11,8 @@ const Path = {
   LogIn: "/login",
   WildCard: "*",
   Logout: "/logout",
+  DeliverSingup:'/deliverSingup',
+  DeliverLogin:'/deliverLogin'
 };
 
 export default Path;

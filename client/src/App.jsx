@@ -28,7 +28,8 @@ import BindEdit from "./components/binds/BindEdit";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AuthGuard from "./components/guards/AuthGuard";
 import { ProfileProvider } from "./contexts/profileContext";
-
+import DeliverSingup from "./components/deliver-ingup/DeliverSingUp";
+import DeliverLogin from './components/deliver-login/DeliverLogin'
 function App() {
   return (
     <ErrorBoundary>
@@ -50,12 +51,18 @@ function App() {
 
             <Route path={Path.Profile} element={<Profile />} />
             <Route path={Path.Logout} element={<Logout />} />
+
+            <Route path={Path.DeliverSingup} element={<DeliverSingup />} />
+          <Route path={Path.DeliverLogin} element={<DeliverLogin />} />
           </Route>
 
           <Route path={Path.SingUp} element={<SingUp />} />
           <Route path={Path.LogIn} element={<Login />} />
 
           <Route path={Path.WildCard} element={<NotFound />} />
+
+
+         
         </Routes>
 
         <Footer />

@@ -16,10 +16,10 @@ export default function BecomeADeliver() {
             Make a deliver account to deliver binds
           </p>
           <div className="hero-cta">
-            <Link className="button button-primary" to="/signupToDeliver">
+            <Link className="button button-primary" to="/deliverSingup">
               Sing up
             </Link>
-            <Link className="button" to="ldeliverLearnMore">
+            <Link className="button" to="deliverSingup" style={{backgroundColor:'#f1db25'}}>
               Learn more
             </Link>
           </div>
