@@ -137,18 +137,7 @@ console.log(profileDetails);
                     <div className="h5 mt-4">
                       <i className="ni business_briefcase-24 mr-2" />
                       Solution Manager - Creative Tim Officer
-                    </div>
-                    <div>
-                      <i className="ni education_hat mr-2" />
-                      University of Computer Science
-                    </div>
-                    <hr className="my-4" />
-                    <p>
-                      Ryan — the name taken by Melbourne-raised, Brooklyn-based
-                      Nick Murphy — writes, performs and records all of his own
-                      music.
-                    </p>
-                    <a href="#">Show more</a>
+                    </div>       
                   </div>
                 </div>
               </div>

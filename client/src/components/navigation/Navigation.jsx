@@ -47,7 +47,7 @@ export default function Navigation() {
               <>
                 <li className="nav-item">
               <NavLink to="/beADeliver" className="nav-link">
-                BecomeAdeliver
+                Become a deliver
               </NavLink>
             </li>
             

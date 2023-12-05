@@ -1,55 +1,81 @@
-// import Carousel from "react-bootstrap/Carousel";
-
+import { Link } from "react-router-dom";
 
 export default function BecomeADeliver() {
   return (
     <>
      
      
-      {/* <Carousel data-bs-theme="dark">
-        <Carousel.Item>
-          <img
-            
-            className="d-block w-100"
-            src="./src/public/images/12.jpg"
-            
-            alt="First slide"
+     
+     
+  <section className="hero">
+    <div className="container">
+      <div className="hero-inner">
+        <div className="hero-copy">
+          <h1 className="hero-title mt-0">Become a deliver</h1>
+          <p className="hero-paragraph">
+            Make a deliver account to deliver binds
+          </p>
+          <div className="hero-cta">
+            <Link className="button button-primary" to="/signupToDeliver">
+              Sing up
+            </Link>
+            <Link className="button" to="ldeliverLearnMore">
+              Learn more
+            </Link>
+          </div>
+        </div>
+        <div className="hero-figure anime-element">
+          <svg
+            className="placeholder"
+            width={528}
+            height={396}
+            viewBox="0 0 528 396"
+          >
+            <rect width={528} height={396} style={{ fill: "transparent" }} />
+          </svg>
+          <div
+            className="hero-figure-box hero-figure-box-01"
+            data-rotation="45deg"
           />
-          <Carousel.Caption>
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="./src/public/images/dev.jpg"
-            alt="Second slide"
+          <div
+            className="hero-figure-box hero-figure-box-02"
+            data-rotation="-45deg"
           />
-          <Carousel.Caption>
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="./src/public/images/city.jpg"
-            alt="Third slide"
+          <div
+            className="hero-figure-box hero-figure-box-03"
+            data-rotation="0deg"
           />
-          <Carousel.Caption>
-            <h5>Third slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel> */}
+          <div
+            className="hero-figure-box hero-figure-box-04"
+            data-rotation="-135deg"
+          />
+          <div className="hero-figure-box hero-figure-box-05" />
+          <div className="hero-figure-box hero-figure-box-06" />
+          <div className="hero-figure-box hero-figure-box-07" />
+          <div
+            className="hero-figure-box hero-figure-box-08"
+            data-rotation="-22deg"
+          />
+          <div
+            className="hero-figure-box hero-figure-box-09"
+            data-rotation="-52deg"
+          />
+          <div
+            className="hero-figure-box hero-figure-box-10"
+            data-rotation="-50deg"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+
+
 
       <section className="first-section" style={{ backgroundColor: "#121618" }}>
         <div>
           <div>
-            <h2 id="makeM">Make money when you want</h2>
+            <h2 id="makeM" style={{ color: "white" }}>Make money when you want</h2>
           </div>
           <div>
             <img
@@ -90,7 +116,7 @@ export default function BecomeADeliver() {
                         >
                           <div className="css-eRKiLo">
                             <div className="css-hPnljU">
-                              <h3 className="css-eoQLkM">
+                              <h3 className="css-eoQLkM" style={{ color: "white" }}>
                                 Set your own schedule
                               </h3>
                             </div>
@@ -150,7 +176,7 @@ export default function BecomeADeliver() {
                         >
                           <div className="css-eRKiLo">
                             <div className="css-hPnljU">
-                              <h3 className="css-eoQLkM">
+                              <h3 className="css-eoQLkM" style={{ color: "white" }}>
                                 Make money on your terms
                               </h3>
                             </div>
@@ -205,7 +231,7 @@ export default function BecomeADeliver() {
                         >
                           <div className="css-eRKiLo">
                             <div className="css-hPnljU">
-                              <h3 className="css-eoQLkM">
+                              <h3 className="css-eoQLkM" style={{ color: "white" }}>
                                 Let the app lead the way
                               </h3>
                             </div>
