@@ -22,7 +22,7 @@ exports.update = (email, profileData) => {
       country: profileData.userCountry,
       city: profileData.userCity,
       phoneNumber: profileData.userPhoneNumber,
-      aboutMe: userAboutMe,
+      aboutMe: profileData.userAboutMeText,
     },
     { new: true }
   );
