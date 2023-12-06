@@ -6094,6 +6094,7 @@ button.bg-dark:focus {
 
 .mt-0,
 .my-0 {
+  
   margin-top: 0 !important; }
 
 .mr-0,
@@ -10623,6 +10624,7 @@ button.bg-white:focus {
 }
 
 .mt-0 {
+  display: inline-block;
   margin-top: 0 !important;
 }
 
@@ -15474,6 +15476,7 @@ ul {
     align-items: center;
   }
   .hero-copy {
+   
     padding-right: 64px;
     min-width: 552px;
     width: 552px;
@@ -16210,7 +16213,7 @@ box-shadow:0px 0px 13px #00000054;
   Start Hero Area CSS
 ========================================*/  
 .hero-header {
-min-height: 40vh;
+min-height: 75vh;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -16515,7 +16518,7 @@ margin:0;
 Start Counter CSS
 ===============================*/
 .product-counter-section{
-padding:100px 0px;
+padding:108px 0px;
 background: linear-gradient(45deg,#fff,#fff);
 }
 .product-counter-section.overlay:before{
@@ -17960,4 +17963,20 @@ padding: 20px 15px;
 }
 .mail-seccess .success-inner .btn{
 color:#fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navItemActive{
+  background-color: #fac564;
 }

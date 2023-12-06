@@ -1,42 +1,41 @@
+import { Link } from "react-router-dom";
+
 export default function About() {
    return (
      <>
-     <>
-  <section className="hero-header" id="home">
+     
+
+
+     <section className="hero">
     <div className="container">
-      <div className="row">
-        <div className="col-lg-5 col-12">
-          <div className="hero-header-content">
-            <p style={{color:"black"}}>Plan your life</p>
-            <h1 style={{color:"black"}}>
-              Increase your <b>productivity</b>
-            </h1>
-            <p style={{color:"black"}}>
-              Brute laoreet efficiendi id his, ea illum nonumes luptatum pro.
-              Usu atqui laudem an, insolens gubergren similique est cu. Et vel
-              modus congue vituperata.
-            </p>
-            <div>
-              <a href="#" className="btn btn-secondary" style={{color:"black"}}>
-                Get Start
-              </a>
-            </div>
+      <div className="hero-inner">
+        <div className="hero-copy">
+          <h1 className="hero-title mt-0">We are bind</h1>
+          <p className="hero-paragraph">
+           Brinding Distances with Spped and Care
+          </p>
+          <div className="hero-cta">
+            
           </div>
         </div>
-        <div className="col-lg-7 col-12">
+        <div className="hero-figure anime-element">
+          
           <div className="hero-header-image">
             <img src="./src/public/images/i11.jpg" alt="#" />
           </div>
-        </div>
+         
+      </div>
       </div>
     </div>
   </section>
-  {/*Hero header end*/}
-  
+
+
+
+     
 
   {/* End Services Area */}
   {/* Start Counter Section*/}
-  <section className="product-counter-section" style={{background:'#0004ff6b'}}>
+  <section className="product-counter-section" style={{background:'#49e4fa'}}>
     <div className="product-counter-wrap">
       <div className="container">
         <div className="row">
@@ -52,15 +51,15 @@ export default function About() {
           <div className="col-lg-6 col-12">
             <ul className="counter-list list-inline text-right">
               <li>
-                <span className="number count">1000</span>
+                <span className="number count">1238</span>
                 <span className="title">Happy Clients</span>
               </li>
               <li>
-                <span className="number count">4400</span>
+                <span className="number count">24</span>
                 <span className="title">Wining Award</span>
               </li>
               <li>
-                <span className="number count">5000</span>
+                <span className="number count">55</span>
                 <span className="title">Team Member</span>
               </li>
             </ul>
@@ -78,7 +77,6 @@ export default function About() {
   
   {/* End Blog Area */}
   
-</>
 
 
      
@@ -273,7 +271,7 @@ export default function About() {
        {/* end team section */}
        {/* info section */}
 
-       <section className="callto-action-area section-gap" id="join">
+       {/* <section className="callto-action-area section-gap" id="join">
          <div className="container">
            <div className="row d-flex justify-content-center">
              <div className="menu-content col-lg-9">
@@ -296,18 +294,14 @@ export default function About() {
              </div>
            </div>
          </div>
-       </section>
+       </section> */}
 
-       <section id="faq" className="faq-section section">
+       <section style={{marginTop:'8%', marginBottom:'8%'}} id="faq" className="faq-section section">
     <div className="container">
       <div className="row">
         <div className="col-12">
           <div className="section-title">
             <h2>Frequently asked questions</h2>
-            <p>
-              Business consulting excepteur sint occaecat cupidatat consulting
-              non proident, sunt in culpa qui officia deserunt laborum market.{" "}
-            </p>
           </div>
         </div>
       </div>
@@ -324,7 +318,7 @@ export default function About() {
                     aria-expanded="false"
                     aria-controls="collapseOne"
                   >
-                    <span className="arrow-container" /> Reque insolens in vel?
+                    <span className="arrow-container" /> How to start delivering?
                   </button>
                 </h5>
               </div>
@@ -335,17 +329,7 @@ export default function About() {
                 data-parent="#accordion"
               >
                 <div className="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                  You can start delivering by making a delivering account - sing up in become a deliver page. 
                 </div>
               </div>
             </div>
@@ -359,8 +343,7 @@ export default function About() {
                     aria-expanded="true"
                     aria-controls="collapseTwo"
                   >
-                    <span className="arrow-container" /> Vis rebum error graecis
-                    ea, id sit postea accusamus?
+                    <span className="arrow-container" /> How to order?
                   </button>
                 </h5>
               </div>
@@ -371,20 +354,11 @@ export default function About() {
                 data-parent="#accordion"
               >
                 <div className="card-body card-with-button">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
-                  <a href="#" className=" btn">
+                 You can make orders from order page. Then put your personal data into the form ad make your order.This order will be deliverd to you every single week.
+                
+                  {/* <a href="#" className=" btn">
                     Go to documentation
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
@@ -398,8 +372,7 @@ export default function About() {
                     aria-expanded="false"
                     aria-controls="collapseThree"
                   >
-                    <span className="arrow-container" /> Lorem repudiandae ne
-                    nec?
+                    <span className="arrow-container" /> How much money I will make?
                   </button>
                 </h5>
               </div>
@@ -410,17 +383,9 @@ export default function About() {
                 data-parent="#accordion"
               >
                 <div className="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                 You wil make money with every delivery you make. You get a percentage of the orders price-4%.
+                 You stack your deliveries at once and deliver them all thogether.
+
                 </div>
               </div>
             </div>
@@ -430,7 +395,7 @@ export default function About() {
     </div>
   </section>
 
-       <section className="contact_section layout_padding">
+       <section style={{backgroundColor:'#00000038'}} className="contact_section layout_padding">
          <div className="contact_bg_box">
            <div className="img-box">
              <img src="images/contact-bg.jpg" alt="" />
@@ -474,16 +439,15 @@ export default function About() {
          </div>
        </section>
 
-       <section className="blog section" id="blog">
+
+
+       <section style={{marginTop:'6%', marginBottom:'5%'}} className="blog section" id="blog">
     <div className="container">
       <div className="row">
         <div className="col-12">
           <div className="section-title">
             <h2>Read Our Blog</h2>
-            <p>
-              Business consulting excepteur sint occaecat cupidatat consulting
-              non proident, sunt in culpa qui officia deserunt laborum market.{" "}
-            </p>
+
           </div>
         </div>
       </div>
@@ -491,20 +455,17 @@ export default function About() {
         <div className="col-lg-4 col-md-6 col-12">
           {/* Single Blog */}
           <div className="single-news">
-            <div className="news-head">
-              <img src="img/blog1.jpg" alt="#" />
-            </div>
+           
             <div className="news-body">
               <div className="news-content">
-                <div className="date">22 Aug, 2020</div>
+                <div className="date">22 Aug, 2023</div>
                 <h2>
                   <a href="blog-single-sidebar.html">
-                    We have annnocuced our new product.
+                   NEW CEO ANNOUNCEMENT
                   </a>
                 </h2>
                 <p className="text">
-                  Lorem ipsum dolor a sit ameti, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt sed do incididunt sed.
+                  We are proud to announce that Martin Kovachki is the new ceo of the company
                 </p>
               </div>
             </div>
@@ -514,20 +475,17 @@ export default function About() {
         <div className="col-lg-4 col-md-6 col-12">
           {/* Single Blog */}
           <div className="single-news">
-            <div className="news-head">
-              <img src="img/blog2.jpg" alt="#" />
-            </div>
+            
             <div className="news-body">
               <div className="news-content">
-                <div className="date">15 Jul, 2020</div>
+                <div className="date">15 Jul, 2022</div>
                 <h2>
                   <a href="blog-single-sidebar.html">
-                    Top five way for learning web development.
+                    YOU CAN NOW JOIN US, DELIVER WITH US AND MAKE PROGRESS
                   </a>
                 </h2>
                 <p className="text">
-                  Lorem ipsum dolor a sit ameti, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt sed do incididunt sed.
+                  If you have a free days now you can fill them with delivering amd make money
                 </p>
               </div>
             </div>
@@ -537,20 +495,17 @@ export default function About() {
         <div className="col-lg-4 col-md-6 col-12">
           {/* Single Blog */}
           <div className="single-news">
-            <div className="news-head">
-              <img src="img/blog3.jpg" alt="#" />
-            </div>
+           
             <div className="news-body">
               <div className="news-content">
-                <div className="date">05 Jan, 2020</div>
+                <div className="date">05 Jan, 2021</div>
                 <h2>
                   <a href="blog-single-sidebar.html">
-                    We provide highly business soliutions.
+                  THE START OF THE JOURNEY
                   </a>
                 </h2>
                 <p className="text">
-                  Lorem ipsum dolor a sit ameti, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt sed do incididunt sed.
+                  Our goal is to make life more siple for ones and better of others
                 </p>
               </div>
             </div>

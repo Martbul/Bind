@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AuthContext from "../../contexts/authContext";
+
 import useForm from "../../hooks/useForm";
 import { useContext, useState } from "react";
 
@@ -12,9 +12,9 @@ const signUpFormKeys = {
 export default function DeliverSingup() {
 
 //! use deliverContext to make the loginc for delivers 
-  const { registerSubmitHandler } = useContext(AuthContext);
+  const { deliverRegisterSubmitHandler } = useContext(DeliverAuthContext);
  
-  const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
+  const { formValues, onChange, onSubmit } = useForm(deliverRegisterSubmitHandler, {
     [signUpFormKeys.Username]: '',
     [signUpFormKeys.Email]: '',
     [signUpFormKeys.Password]: '',
@@ -40,25 +40,25 @@ const { errors} = useContext(AuthContext)
         <div className="shape" />
       </div>
       <form method="POST" className='form11' onSubmit={onSubmit} style={{ backgroundColor: "purple" }}>
-        <h3>Make deliver account</h3>
-        <label htmlFor="username">Username</label>
+      <label htmlFor="fullname">Full name</label>
         <input
           type="text"
-          placeholder="Username"
-          id="username"
-          name="username"
+          placeholder="fullname"
+          id="fullname"
+          name="fullname"
           onChange={onChange}
-          values={formValues[signUpFormKeys.Username]}
+          values={formValues[signUpFormKeys.Fullname]}
         />
-        <label htmlFor="email">Email</label>
+         <label htmlFor="address">Address</label>
         <input
           type="text"
-          placeholder="email"
-          id="email"
-          name="email"
+          placeholder="address"
+          id="address"
+          name="address"
           onChange={onChange}
-          values={formValues[signUpFormKeys.Email]}
+          values={formValues[signUpFormKeys.Address]}
         />
+        
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -68,8 +68,8 @@ const { errors} = useContext(AuthContext)
           onChange={onChange}
           values={formValues[signUpFormKeys.Password]}
         />
-        <Link to="/deliverLogin">Already have account?</Link>
-        <button style={{ color: "black" }}>Sing up</button>
+        <Link to="/deliverLogin">Already have deliver account?</Link>
+        <button style={{ color: "black" }}>Make deliver account</button>
       </form>
       &lt;
       <style
