@@ -46,7 +46,7 @@ export default function Login() {
           onChange={onChange}
           value={formValues[loginFormKeys.Password]}
         />
-        <Link to="/singup">Already have account?</Link>
+        <Link to="/singup">Don't have an account?</Link>
         <button style={{ color: "black" }}>Log In</button>
       </form>
       <style

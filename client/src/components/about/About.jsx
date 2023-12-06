@@ -51,7 +51,7 @@ export default function About() {
           <div className="col-lg-6 col-12">
             <ul className="counter-list list-inline text-right">
               <li>
-                <span className="number count">1238</span>
+                <span className="number count">1 238</span>
                 <span className="title">Happy Clients</span>
               </li>
               <li>
@@ -59,7 +59,7 @@ export default function About() {
                 <span className="title">Wining Award</span>
               </li>
               <li>
-                <span className="number count">55</span>
+                <span className="number count">1 000</span>
                 <span className="title">Team Member</span>
               </li>
             </ul>
