@@ -20,6 +20,12 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: [true, "the day for delivery is required"],
   },
+  likes:{
+    type: Number,
+  },
+  likedBy:{
+    type:Array
+  },
   timeForDelivery: {
     type: String,
     required: [true, "the time for delivery is required"],

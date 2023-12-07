@@ -33,3 +33,5 @@ export const edit = async (bindId, bindData) => {
 
 
 export const remove = async (bindId) => request.remove(`${baseUrl}/${bindId}`);
+
+export const addLikeToBind = async(bindId, email) =>request.post(`${baseUrl}/like`, {bindId, email})

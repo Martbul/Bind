@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-
+import { useNavigate } from 'react-router-dom';
 import * as bindsService from "../../services/bindsService";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
@@ -19,28 +19,20 @@ const bindDetailsFormKeys = {
 
 export default function InfoModal({ hideModal, bindId }) {
   const [bindDetails, setBindDetails] = useState({});
-  
+  const navigate = useNavigate();
   const {  email } = useContext(AuthContext);
+  
   
 
   useEffect(() => {
     bindsService.getOne(bindId).then((result) => setBindDetails(result));
   }, [bindId]);
 
-  // const logger = () => {
-  //   console.log(order);
-  // };
-  // const { formValues, onChange, onSubmit } = useForm(logger, {
-  //   [bindDetailsFormKeys.Name]: fullname,
-  //   [bindDetailsFormKeys.Email]: "",
-  //   [bindDetailsFormKeys.PhoneNumber]: "",
-  //   [bindDetailsFormKeys.DayAndTimeForDelivery]: "",
-  //   [bindDetailsFormKeys.City]: "lpj",
-  //   [bindDetailsFormKeys.StreetAndNumber]: [bindDetails.order],
-  //   [bindDetailsFormKeys.Order]: JSON.stringify(order),
-  // });
+  const addLikeHandler = async ()=>{
+    
+    const result = await bindsService.addLikeToBind(bindId,email)
 
-
+  }
 
   const deleteButtonClickHandler = async () => {
     const hasConfirmed = confirm(
@@ -49,9 +41,11 @@ export default function InfoModal({ hideModal, bindId }) {
 
     if (hasConfirmed) {
       const result = await bindsService.remove(bindId);
-      
+      console.log('deleted result=  '+ result);
 
-      navigate("/binds/binds");
+     
+      hideModal();
+      navigate("/");
     }
   };
 
@@ -90,21 +84,52 @@ export default function InfoModal({ hideModal, bindId }) {
             Day and time for delivery: {bindDetails.dayForDelivery}{" "}
             {bindDetails.timeForDelivery}
           </p>
-          <p>City: {bindDetails.city}</p>
+          {/* <p>City: {bindDetails.city}</p> */}
           <p>Address: {bindDetails.address}</p>
           <p>Order: {bindDetails.order}</p>
+          <p>Likes: {bindDetails.likes}</p>
 
           <div id="form-actions">
-            {email !== bindDetails._ownerEmail && (
+            
+            {email !== bindDetails._ownerEmail &&  (
+              // <button
+              //   id="action-save"
+              //   className="btn"
+              //   type="submit"
+              //   style={{ backgroundColor: "purple" }}
+              // >
+              //   Deliver
+              // </button>
               <button
-                id="action-save"
-                className="btn"
-                type="submit"
-                style={{ backgroundColor: "purple" }}
-              >
-                Deliver
-              </button>
+              id="action-save"
+              className="btn"
+              type="submit"
+              style={{ backgroundColor: "#fd0e35" }}
+              onClick={addLikeHandler}
+            >
+              Like
+            </button>
             )}
+{/* 
+                {email !== bindDetails._ownerEmail && bindDetails.likedBy.includes(email) && (
+              // <button
+              //   id="action-save"
+              //   className="btn"
+              //   type="submit"
+              //   style={{ backgroundColor: "purple" }}
+              // >
+              //   Deliver
+              // </button>
+              <button
+              id="action-save"
+              className="btn"
+              type="submit"
+              style={{ backgroundColor: "#898989" }}
+              onClick={addLikeHandler}
+            >
+              Liked
+            </button>
+            )} */}
 
             {/*          CHECKING FOR OWNERSHIP         */}
             {email === bindDetails._ownerEmail && (
@@ -122,7 +147,7 @@ export default function InfoModal({ hideModal, bindId }) {
                   id="action-save"
                   className="btn"
                   type="submit"
-                  style={{ backgroundColor: "red" }}
+                  style={{ backgroundColor: "#C20003" }}
                   onClick={deleteButtonClickHandler}
                 >
                   Delete
@@ -135,163 +160,12 @@ export default function InfoModal({ hideModal, bindId }) {
               className="btn"
               type="button"
               onClick={hideModal}
+            
             >
               Cancel
             </button>
           </div>
 
-          {/* <form onSubmit={onSubmit}>
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <div className="input-wrapper">
-                  <span>
-                    <i className="fa-solid fa-user"></i>
-                  </span>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    onChange={onChange}
-                    value={formValues[bindDetailsFormKeys.Name]}
-                  />
-                </div> */}
-          {/* <p className="form-error">
-                  First name should be at least 3 characters long!
-                </p> */}
-          {/* </div>
-
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <div className="input-wrapper">
-                  <span>
-                    <i className="fa-solid fa-envelope"></i>
-                  </span>
-                  <input
-                    id="email"
-                    name="email"
-                    type="text"
-                    onChange={onChange}
-                    value={formValues[bindDetailsFormKeys.Email]}
-                  />
-                </div> */}
-          {/* <p className="form-error">Email is not valid!</p> */}
-          {/* </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="phoneNumber">Phone number</label>
-                <div className="input-wrapper">
-                  <span>
-                    <i className="fa-solid fa-phone"></i>
-                  </span>
-                  <input
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    type="text"
-                    onChange={onChange}
-                    value={formValues[bindDetailsFormKeys.PhoneNumber]}
-                  />
-                </div> */}
-          {/* <p className="form-error">Phone number is not valid!</p> */}
-          {/* </div>
-
-              <div className="form-group">
-                <label htmlFor="coudayAndTimeForDeliveryntry">
-                  Day and time for delivery
-                </label>
-                <div className="input-wrapper">
-                  <span>
-                    <i className="fa-solid fa-map"></i>
-                  </span>
-                  <input
-                    id="dayAndTimeForDelivery"
-                    name="dayAndTimeForDelivery"
-                    type="text"
-                    onChange={onChange}
-                    value={formValues[bindDetailsFormKeys.dayAndTimeForDelivery]}
-                  />
-                </div> */}
-          {/* <p className="form-error">
-                  Country should be at least 2 characters long!
-                </p> */}
-          {/* </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="city">City</label>
-                <div className="input-wrapper">
-                  <span>
-                    <i className="fa-solid fa-city"></i>
-                  </span>
-                  <input
-                    id="city"
-                    name="city"
-                    type="text"
-                    onChange={onChange}
-                    value={formValues[bindDetailsFormKeys.City]}
-                  />
-                </div> */}
-          {/* <p className="form-error">
-                  City should be at least 3 characters long!
-                </p> */}
-          {/* </div>
-              <div className="form-group">
-                <label htmlFor="streetAndNumber">Street</label>
-                <div className="input-wrapper">
-                  <span>
-                    <i className="fa-solid fa-map"></i>
-                  </span>
-                  <input
-                    id="streetAndNumber"
-                    name="streetAndNumber"
-                    type="text"
-                    onChange={onChange}
-                    value={formValues[bindDetailsFormKeys.StreetAndNumber]}
-                  />
-                </div> */}
-          {/* <p className="form-error">
-                  Street should be at least 3 characters long!
-                </p> */}
-          {/* </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="order">Order</label>
-                <div className="input-wrapper">
-                  <span>
-                    <i className="fa-solid fa-user"></i>
-                  </span>
-                  <input
-                    id="order"
-                    name="order"
-                    type="text"
-                    onChange={onChange}
-                    value={formValues[bindDetailsFormKeys.Order]}
-                  />
-                </div> */}
-          {/* <p className="form-error">
-                  Last name should be at least 3 characters long!
-                </p> */}
-          {/* </div>
-            </div>
-            <div id="form-actions">
-              <button id="action-save" className="btn" type="submit">
-                Save
-              </button>
-              <button
-                id="action-cancel"
-                className="btn"
-                type="button"
-                onClick={hideModal}
-              >
-                Cancel
-              </button>
-            </div>
-          </form> */}
         </div>
       </div>
     </div>

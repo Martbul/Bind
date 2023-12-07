@@ -55,8 +55,8 @@ export const DeliverAuthProvider = ({ children }) => {
   };
 
   const values = {
-    loginSubmitHandler,
-    registerSubmitHandler,
+    deliverLoginSubmitHandler,
+    deliverRegisterSubmitHandler,
     logoutHandler,
 
     username: auth.username,

@@ -33,7 +33,7 @@ export default function BindsGrid() {
       })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
-  }, [searchorder, searchcity, searchday]);
+  }, [searchorder, searchcity, searchday,]);
 
   const onBindInfoClick = async (bind_id) => {
     // console.log(bind_id);

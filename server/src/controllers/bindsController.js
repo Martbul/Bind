@@ -56,15 +56,26 @@ router.put("/binds/:bindId", async (req, res) => {
 });
 
 router.delete("/binds/:bindId", async (req, res) => {
-  //console.log("kurec");
+  
   try {
     const { bindId } = req.params;
     // console.log(bindId);
     await bindService.delete(bindId);
-    res.status(200).end();
+    res.json(bindId).status(200).end();
   } catch (message) {
     res.status(400).json({ message });
   }
+});
+
+
+
+router.post("/binds/like", async (req, res) => {
+  const {email}  = req.body
+  const {bindId} = req.body
+
+  const result = await bindService.addLikeToBind(bindId, email);
+
+  res.json(result).status(200).end()
 });
 
 
