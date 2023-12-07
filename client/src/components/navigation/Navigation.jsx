@@ -50,14 +50,15 @@ export default function Navigation() {
                 Become a deliver
               </NavLink>
             </li>
-            
-              </>
-          )}
-          <li className="nav-item">
+            <li className="nav-item">
               <NavLink to="/binds/binds"  className={({ isActive }) => (isActive ? 'navItemActive nav-link' : 'nav-link')}>
                 Binds
               </NavLink>
             </li>
+              </>
+          )}
+
+          
             
             <li className="nav-item">
               <NavLink to="/about" className={({ isActive }) => (isActive ? 'navItemActive nav-link' : 'nav-link')}>

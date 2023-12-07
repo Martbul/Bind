@@ -42,13 +42,13 @@ function App() {
           <Route path={Path.LearnMore} element={<LearnMore />} />
           <Route path={Path.Orders} element={<Order />} />
 
-          <Route path={Path.Binds} element={<Binds />} />
           <Route path={Path.OrderEdit} element={<BindEdit />} />
           <Route path={Path.About} element={<About />} />
 
           <Route element={<AuthGuard />}>
             <Route path={Path.BeADeliver} element={<BecomeADeliver />} />
 
+          <Route path={Path.Binds} element={<Binds />} />
             <Route path={Path.Profile} element={<Profile />} />
             <Route path={Path.Logout} element={<Logout />} />
 

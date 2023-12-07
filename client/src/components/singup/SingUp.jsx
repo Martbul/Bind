@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 
 const signUpFormKeys = {
@@ -10,7 +10,7 @@ const signUpFormKeys = {
   Password: "password",
 };
 export default function SingUp() {
-
+  const [errorsHere, setErrorsHere] = useState("");
 
   const { registerSubmitHandler } = useContext(AuthContext);
  
@@ -20,17 +20,20 @@ export default function SingUp() {
     [signUpFormKeys.Password]: '',
  
 });
+let { errorsSingUp} = useContext(AuthContext)
+useEffect(() => {
+  
+  setErrorsHere(errorsSingUp)
+},[errorsHere,errorsSingUp])
 
-
-const { errors} = useContext(AuthContext)
 
 
   return (
     <>
 
-{errors && (
+{errorsHere && (
       <div className="d11">
-<p className="p11">{errors}</p>
+<p className="p11">{errorsHere}</p>
 
       </div>
       

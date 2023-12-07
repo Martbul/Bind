@@ -6,6 +6,11 @@ import * as request from '../lib/request'
     const result = await request.post(`${baseUrl}/login`, {
         email,password
     })
+
+    console.log(result);
+    if(result === "invalid username!!!!!!!!! or password"){
+        throw new Error
+    }
     //console.log(result);
     return result
 }

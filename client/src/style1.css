@@ -17105,9 +17105,7 @@ color:#fff;
 .main-sidebar .categor-list {
 margin-top: 15px;
 }
-.main-sidebar .categor-list li{
 
-}
 .main-sidebar .categor-list li {
 margin-bottom: 10px;
 }
@@ -17152,9 +17150,7 @@ padding: 17px 0;
 padding-bottom:0px;
 border:none;
 }
-.main-sidebar .single-post .image {
 
-}
 .main-sidebar .single-post .image img{
 float: left;
 width: 80px;
@@ -17196,7 +17192,7 @@ display:inline-block;
 margin-right:5px;
 }
 /* Blog Tags */
-.main-sidebar .side-tags{}
+
 .main-sidebar .single-widget {
 margin-bottom: 50px;
 background: #fff;
@@ -17977,6 +17973,6 @@ color:#fff;
 
 
 /* 
-.navItemActive{
+.nav-link{
   background-color: #fac564;
-} */
+}  */

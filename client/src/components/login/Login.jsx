@@ -18,10 +18,23 @@ export default function Login() {
     [loginFormKeys.Password]: "",
   });
 
+  const { errorsLogin} = useContext(AuthContext)
 
 
   return (
     <>
+
+
+
+
+
+{errorsLogin && (
+      <div className="d11">
+<p className="p11">{errorsLogin}</p>
+
+      </div>
+      
+    )}
       <div style={{ paddingTop: "23%" }}>
         <div className="shape" />
         <div className="shape" />

@@ -16,22 +16,25 @@ const userSchema = new mongoose.Schema({
     },
   },
 
+
   email: {
+  unique: [true,'email already exists'],
     type: String,
-    required: [true, "usernmae is required"],
-    unique: { value: true, message: "email already exists" },
-    // validate: {r
-    //     validator: function (value) {
-    //       return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
-    //     },
-    //     message: 'please enter a valid email address'
-    //   },
+    required: [true, "email is required"],
+    unique: true,
+    validate: {
+      validator: function (value) {
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+      },
+      message: 'please enter a valid email address'
+    },
   },
+
 
   password: {
     type: String,
     required: [true, "password is required"],
-    minLength: [8, "password is too short"],
+    minLength: [6, "password is too short"],
     // validate: {
     //   validator: function (value) {
     //     return /^[A-Za-z0-9]+$/.test(value);
@@ -80,5 +83,6 @@ userSchema.pre("save", async function () {
 });
 
 const User = mongoose.model("User", userSchema);
+
 
 module.exports = User;

@@ -36,8 +36,13 @@ exports.singup = async (userData) => {
   userData.phoneNumber = ''
   userData.aboutMe = ''
   userData.imgUrl = ''
-  console.log(userData.order);
-  const user = await User.create(userData);
+  // console.log(userData.order);
+  // const emailTest = JSON.parse(userData.email)
+  // if(await User.findOne(emailTest)){
+  //   throw Error
+  // }
+  try {
+    const user = await User.create(userData);
 
 const token = await getToken(user);
 
@@ -47,6 +52,10 @@ console.log('token =  '+decodedToken);
 //console.log(token);
 
 return decodedToken;
+  } catch ({message}) {
+    console.log(message);
+  }
+  
 };
 
 
@@ -57,7 +66,7 @@ exports.login = async (email, password) => {
   
 
   if (!user) {
-    throw new Error("invalid username!!!!!!!!! or password");
+    return ("invalid username!!!!!!!!! or password");
   }
 
   await validatePassword(password, user.password);

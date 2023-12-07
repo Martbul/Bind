@@ -54,7 +54,7 @@ router.post("/login", async (req, res) => {
     
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
-   console.log(errorMessages);
+   return Error
   }
 });
 

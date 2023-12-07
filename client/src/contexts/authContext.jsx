@@ -10,43 +10,74 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [auth, setAuth] = usePersistedState("auth", {});
-  const [errors, setErrors] = useState("");
+  const [errorsLogin, setErrorsLogin] = useState("");
+  const [errorsSingUp, setErrorsSignUp] = useState("");
 
   const loginSubmitHandler = async (formValues) => {
-    const result = await authService.login(
-      formValues.email,
-      formValues.password
-    );
-    console.log(result);
-    // console.log(result);
-    setAuth(result);
-    localStorage.setItem("accessToken", `'${result}'`);
+    try {
+      const result = await authService.login(
+        formValues.email,
+        formValues.password
+      );
+      setAuth(result);
+      localStorage.setItem("accessToken", `'${result}'`);
 
-    navigate(Path.Home);
+      navigate(Path.Home);
+    } catch (error) {
+      setErrorsLogin("Your email address or password is incorrect");
+    }
   };
 
   const registerSubmitHandler = async (formValues) => {
-    if (
-      formValues.username.length < 3 ||
-      typeof formValues.fullname != "string"
-    ) {
-      setErrors("Please enter a valid username");
+
+    try {
+      if (formValues.username.length < 3) {
+      setErrorsSignUp("Please enter a valid username");
       //throw new Error('Please enter a valid username')
+    }else if (formValues.email.length < 3) {
+      //setErrorsSignUp("Please enter a longer email");
+      throw new Error('Please enter a valid email')
+    } else if (
+      !formValues.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+    ) {
+     // setErrorsSignUp("Please enter a valid email");
+      throw new Error('Please enter a valid email')
+    } else if (formValues.password.length < 6) {
+      //setErrorsSignUp("Password must be at least 6 characters");
+      throw new Error('Please enter a valid password')
+    }else{
+      setErrorsSignUp('')
     }
 
-    let result = await authService.register(
-      formValues.username,
-      formValues.email,
-      formValues.password
-    );
+    } catch (error) {
+      if(error.message=='Please enter a valid username'){
+        setErrorsSignUp('Please enter a valid username')
+      }else if(error.message=='Please enter a valid password'){
+        setErrorsSignUp('Please enter a valid password')
+      }else if(error.message=='Please enter a valid email'){
+        setErrorsSignUp('Please enter a valid email')
+      }else {
+        setErrorsSignUp('')
+    }}
+    
 
-    console.log(result);
-    setAuth(result);
+    try {
+      let result = await authService.register(
+        formValues.username,
+        formValues.email,
+        formValues.password
+      );
 
-    localStorage.setItem("accessToken", `'${result}'`);
+      console.log(result);
+      setAuth(result);
 
-    setErrors("");
-    navigate(Path.Home);
+      localStorage.setItem("accessToken", `'${result}'`);
+
+      setErrorsSignUp("");
+      navigate(Path.Home);
+    } catch (error) {
+      
+    }
   };
 
   const logoutHandler = () => {
@@ -62,7 +93,8 @@ export const AuthProvider = ({ children }) => {
     username: auth.username,
     email: auth.email,
     isAuthenticated: !!auth.email,
-    errors: errors,
+    errorsSingUp: errorsSingUp,
+    errorsLogin: errorsLogin,
   };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
