@@ -17,38 +17,48 @@ const bindDetailsFormKeys = {
   Order: "order",
 };
 
-export default function InfoModal({ hideModal, bindId }) {
+export default function InfoModal({ hideModal, rerenderDeletedModal,bindId }) {
   const [bindDetails, setBindDetails] = useState({});
   const navigate = useNavigate();
-  const {  email } = useContext(AuthContext);
-  
-  
+  const { email } = useContext(AuthContext);
+  const [like, setLike] = useState(false);
+  const [isLiked,setIsLiked] = useState(false);
 
   useEffect(() => {
-    bindsService.getOne(bindId).then((result) => setBindDetails(result));
-  }, [bindId]);
+    bindsService
+      .getOne(bindId)
+      .then((result) => {
+        setBindDetails(result)
+    return result
+      }).then((result) => {
+        if (result.likedBy.includes(email)){
+          setIsLiked(true)
+        }
+        
+  })
+  
+        
+        
+     
+  }, [bindId, like]);
 
-  const addLikeHandler = async ()=>{
-    
-    const result = await bindsService.addLikeToBind(bindId,email)
-
-  }
+  const addLikeHandler = async () => {
+    const result = await bindsService.addLikeToBind(bindId, email);
+    setLike(true);
+  };
 
   const deleteButtonClickHandler = async () => {
-    const hasConfirmed = confirm(
-      `Are you sure you want to delete this order`
-    );
+    const hasConfirmed = confirm(`Are you sure you want to delete this order`);
 
     if (hasConfirmed) {
       const result = await bindsService.remove(bindId);
-      console.log('deleted result=  '+ result);
+      console.log("deleted result=  " + result);
 
-     
       hideModal();
-      navigate("/");
+      //navigate("/");
+      rerenderDeletedModal()
     }
   };
-
 
   return (
     <div className="overlay">
@@ -90,28 +100,28 @@ export default function InfoModal({ hideModal, bindId }) {
           <p>Likes: {bindDetails.likes}</p>
 
           <div id="form-actions">
+            {email !== bindDetails._ownerEmail &&
+              !isLiked &&(
+                // <button
+                //   id="action-save"
+                //   className="btn"
+                //   type="submit"
+                //   style={{ backgroundColor: "purple" }}
+                // >
+                //   Deliver
+                // </button>
+                <button
+                  id="action-save"
+                  className="btn"
+                  type="submit"
+                  style={{ backgroundColor: "#fd0e35" }}
+                  onClick={addLikeHandler}
+                >
+                  Like
+                </button>
+              )}
             
-            {email !== bindDetails._ownerEmail &&  (
-              // <button
-              //   id="action-save"
-              //   className="btn"
-              //   type="submit"
-              //   style={{ backgroundColor: "purple" }}
-              // >
-              //   Deliver
-              // </button>
-              <button
-              id="action-save"
-              className="btn"
-              type="submit"
-              style={{ backgroundColor: "#fd0e35" }}
-              onClick={addLikeHandler}
-            >
-              Like
-            </button>
-            )}
-{/* 
-                {email !== bindDetails._ownerEmail && bindDetails.likedBy.includes(email) && (
+                {email !== bindDetails._ownerEmail && isLiked && (
               // <button
               //   id="action-save"
               //   className="btn"
@@ -129,7 +139,7 @@ export default function InfoModal({ hideModal, bindId }) {
             >
               Liked
             </button>
-            )} */}
+            )} 
 
             {/*          CHECKING FOR OWNERSHIP         */}
             {email === bindDetails._ownerEmail && (
@@ -160,12 +170,10 @@ export default function InfoModal({ hideModal, bindId }) {
               className="btn"
               type="button"
               onClick={hideModal}
-            
             >
               Cancel
             </button>
           </div>
-
         </div>
       </div>
     </div>

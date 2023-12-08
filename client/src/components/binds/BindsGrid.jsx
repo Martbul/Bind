@@ -15,6 +15,7 @@ export default function BindsGrid() {
   const [showMoreInfoModal, setMoreInfoModal] = useState(false);
   const [selectedBind, setSelectedBind] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const[isDeleted,setIsDelted] = useState(false);
 
   const { searchorder, searchcity, searchday } = useContext(BindsContext);
   useEffect(() => {
@@ -26,17 +27,20 @@ export default function BindsGrid() {
         const filteredBinds = result.filter(
           (bind) =>
             bind.order.toLowerCase().includes(searchorder.toLowerCase()) &&
-            bind.timeForDelivery.toLowerCase().includes(searchcity.toLowerCase()) &&
+            bind.timeForDelivery
+              .toLowerCase()
+              .includes(searchcity.toLowerCase()) &&
             bind.dayForDelivery.toLowerCase().includes(searchday.toLowerCase())
         );
         setBinds(filteredBinds);
       })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
-  }, [searchorder, searchcity, searchday,]);
+  }, [searchorder, searchcity, searchday, isDeleted]);
 
   const onBindInfoClick = async (bind_id) => {
     // console.log(bind_id);
+     setIsDelted(false);
     setSelectedBind(bind_id);
     // console.log(selectedBind);
     setMoreInfoModal(true);
@@ -46,20 +50,26 @@ export default function BindsGrid() {
     setMoreInfoModal(false);
   };
 
+    const rerendereletedModal = () => {
+     setIsDelted(true);
+    };
+
   return (
     <>
       {isLoading && <Loader />}
 
       {showMoreInfoModal && (
-        <InfoModal hideModal={hideMoreInfoModal} bindId={selectedBind} />
+        <InfoModal
+          hideModal={hideMoreInfoModal}
+          rerenderDeletedModal={rerendereletedModal}
+          bindId={selectedBind}
+        />
       )}
 
-      <Container >
-        <Row >
-         
+      <Container>
+        <Row>
           {binds.map((bind) => (
-            <BindCard 
-             
+            <BindCard
               key={bind._id}
               bind_id={bind._id}
               userFullName={bind.fullname}

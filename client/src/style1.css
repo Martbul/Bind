@@ -17971,8 +17971,6 @@ color:#fff;
 
 
 
-
-/* 
-.nav-link{
-  background-color: #fac564;
-}  */
+.ftco-navbar-light .navbar-nav>.nav-item>.nav-linkActive {
+  color: #fac564;
+}

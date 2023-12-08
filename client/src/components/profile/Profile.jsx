@@ -2,19 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import ProfileContext from "../../contexts/profileContext";
 
 import AuthContext from "../../contexts/authContext";
-import * as profileService from '../../services/profileService'
+import * as profileService from "../../services/profileService";
 
 export default function Profile() {
   const { username, email } = useContext(AuthContext);
-  const { profileInfoHandler } = useContext(ProfileContext);
-
-  //!mislq che useEffecta neshto ne baca
-
-  useEffect(() => {
-    profileInfoHandler(email);
-  }, [email,username]);
-
   const {
+    profileInfoHandler,
     userOrder,
     userFirstName,
     userLastName,
@@ -24,9 +17,11 @@ export default function Profile() {
     userAboutMeText,
   } = useContext(ProfileContext);
 
+
+  
   const [profileDetails, setProfileDetails] = useState({
-    userUsername:username,
-    userEmail:email,
+    userUsername: username,
+    userEmail: email,
     userOrder,
     userFirstName,
     userLastName,
@@ -34,13 +29,16 @@ export default function Profile() {
     userCity,
     userPhoneNumber,
     userAboutMeText,
-  });  
-  
+  });
+  useEffect(() => {
+    profileInfoHandler(email);
+  }, [email, username,]);
+
+
   const editGameSubmitHandler = async (e) => {
-    
     e.preventDefault();
-  
-console.log(profileDetails);
+
+    console.log(profileDetails);
     //! add validations
     try {
       await profileService.edit(email, profileDetails);
@@ -52,18 +50,13 @@ console.log(profileDetails);
     }
   };
 
-
-
-
   const onChange = (e) => {
-   // console.log(e.target.name);
+    // console.log(e.target.name);
     setProfileDetails((state) => ({
       ...state,
       [e.target.name]: e.target.value,
     }));
   };
-
-
 
   return (
     <>
@@ -137,7 +130,7 @@ console.log(profileDetails);
                     <div className="h5 mt-4">
                       <i className="ni business_briefcase-24 mr-2" />
                       Solution Manager - Creative Tim Officer
-                    </div>       
+                    </div>
                   </div>
                 </div>
               </div>
@@ -151,7 +144,7 @@ console.log(profileDetails);
                     </div>
                     <div className="col-4 text-right">
                       <button
-                       type='submit'
+                        type="submit"
                         className="btn btn-sm btn-primary"
                         style={{ display: "inline" }}
                         onClick={editGameSubmitHandler}
@@ -162,7 +155,7 @@ console.log(profileDetails);
                   </div>
                 </div>
                 <div className="card-body">
-                  <form method='POST'>
+                  <form method="POST">
                     <h6 className="heading-small text-muted mb-4">
                       User information
                     </h6>
@@ -179,7 +172,7 @@ console.log(profileDetails);
                             <input
                               type="text"
                               id="userUsername"
-                              name='userUsername'
+                              name="userUsername"
                               className="form-control form-control-alternative"
                               onChange={onChange}
                               value={profileDetails.userUsername}
@@ -197,7 +190,7 @@ console.log(profileDetails);
                             <input
                               type="email"
                               id="userEmail"
-                              name='userEmail'
+                              name="userEmail"
                               className="form-control form-control-alternative"
                               onChange={onChange}
                               value={profileDetails.userEmail}
@@ -217,7 +210,7 @@ console.log(profileDetails);
                             <input
                               type="text"
                               id="userFirstName"
-                              name='userFirstName'
+                              name="userFirstName"
                               className="form-control form-control-alternative"
                               placeholder="John"
                               onChange={onChange}
@@ -236,7 +229,7 @@ console.log(profileDetails);
                             <input
                               type="text"
                               id="userLastName"
-                              name='userLastName'
+                              name="userLastName"
                               className="form-control form-control-alternative"
                               placeholder="Smith"
                               onChange={onChange}
@@ -251,12 +244,11 @@ console.log(profileDetails);
                     <h6 className="heading-small text-muted mb-4">My Order</h6>
                     <div className="pl-lg-4">
                       <div className="form-group focused">
-                        
                         <textarea
                           rows={4}
                           className="form-control form-control-alternative"
                           placeholder="2kg tomatos, 5kg potatos and 1kg lemons"
-                          name='userOrder'
+                          name="userOrder"
                           onChange={onChange}
                           value={profileDetails.userOrder}
                         />
@@ -279,7 +271,7 @@ console.log(profileDetails);
                             <input
                               type="text"
                               id="userCountry"
-                              name='userCountry'
+                              name="userCountry"
                               className="form-control form-control-alternative"
                               placeholder="England"
                               onChange={onChange}
@@ -298,7 +290,7 @@ console.log(profileDetails);
                             <input
                               type="text"
                               id="userCity"
-                              name='userCity'
+                              name="userCity"
                               className="form-control form-control-alternative"
                               placeholder="London"
                               onChange={onChange}
@@ -334,7 +326,7 @@ console.log(profileDetails);
                       <div className="form-group focused">
                         <textarea
                           rows={4}
-                          name='userAboutMeText'
+                          name="userAboutMeText"
                           className="form-control form-control-alternative"
                           placeholder="A few words about you ..."
                           onChange={onChange}
