@@ -28,37 +28,38 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+
   const registerSubmitHandler = async (formValues) => {
 
-    try {
-      if (formValues.username.length < 3) {
-      setErrorsSignUp("Please enter a valid username");
-      //throw new Error('Please enter a valid username')
-    }else if (formValues.email.length < 3) {
-      //setErrorsSignUp("Please enter a longer email");
-      throw new Error('Please enter a valid email')
-    } else if (
-      !formValues.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
-    ) {
-     // setErrorsSignUp("Please enter a valid email");
-      throw new Error('Please enter a valid email')
-    } else if (formValues.password.length < 6) {
-      //setErrorsSignUp("Password must be at least 6 characters");
-      throw new Error('Please enter a valid password')
-    }else{
-      setErrorsSignUp('')
-    }
+    // try {
+    //   if (formValues.username.length < 3) {
+    //   setErrorsSignUp("Please enter a valid username");
+    //   //throw new Error('Please enter a valid username')
+    // }else if (formValues.email.length < 3) {
+    //   //setErrorsSignUp("Please enter a longer email");
+    //   throw new Error('Please enter a valid email')
+    // } else if (
+    //   !formValues.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+    // ) {
+    //  // setErrorsSignUp("Please enter a valid email");
+    //   throw new Error('Please enter a valid email')
+    // } else if (formValues.password.length < 6) {
+    //   //setErrorsSignUp("Password must be at least 6 characters");
+    //   throw new Error('Please enter a valid password')
+    // }else{
+    //   setErrorsSignUp('')
+    // }
 
-    } catch (error) {
-      if(error.message=='Please enter a valid username'){
-        setErrorsSignUp('Please enter a valid username')
-      }else if(error.message=='Please enter a valid password'){
-        setErrorsSignUp('Please enter a valid password')
-      }else if(error.message=='Please enter a valid email'){
-        setErrorsSignUp('Please enter a valid email')
-      }else {
-        setErrorsSignUp('')
-    }}
+    // } catch (error) {
+    //   if(error.message=='Please enter a valid username'){
+    //     setErrorsSignUp('Please enter a valid username')
+    //   }else if(error.message=='Please enter a valid password'){
+    //     setErrorsSignUp('Please enter a valid password')
+    //   }else if(error.message=='Please enter a valid email'){
+    //     setErrorsSignUp('Please enter a valid email')
+    //   }else {
+    //     setErrorsSignUp('')
+    // }}
     
 
     try {
@@ -67,16 +68,17 @@ export const AuthProvider = ({ children }) => {
         formValues.email,
         formValues.password
       );
+      console.log(result);
 
       console.log(result);
       setAuth(result);
 
       localStorage.setItem("accessToken", `'${result}'`);
 
-      setErrorsSignUp("");
-      navigate(Path.Home);
+      //setErrorsSignUp("");
+      //navigate(Path.Home);
     } catch (error) {
-      
+      throw new Error('kurec')
     }
   };
 

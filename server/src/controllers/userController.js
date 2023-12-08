@@ -33,6 +33,7 @@ router.post("/singup", async (req, res) => {
   } catch (error) {
     const errorMessages = extractErrorMsgs(error);
     console.log(errorMessages);
+    return errorMessages
    // res.status(404).render("singUp", { errorMessages });
   }
 });

@@ -2,47 +2,104 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Path from "../../paths";
 
+// const signUpFormKeys = {
+//   Username: "username",
+//   Email:'email',
+//   Password: "password",
+// };
 
-const signUpFormKeys = {
-  Username: "username",
-  Email:'email',
-  Password: "password",
+const formInitialState = {
+  username: "",
+  email: "",
+  password: "",
 };
+
 export default function SingUp() {
-  const [errorsHere, setErrorsHere] = useState("");
+  const navigate = useNavigate();
+  const [formValues, setFormValues] = useState(formInitialState);
+  const [errors, setErrors] = useState("");
 
   const { registerSubmitHandler } = useContext(AuthContext);
- 
-  const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
-    [signUpFormKeys.Username]: '',
-    [signUpFormKeys.Email]: '',
-    [signUpFormKeys.Password]: '',
- 
-});
-let { errorsSingUp} = useContext(AuthContext)
-useEffect(() => {
-  
-  setErrorsHere(errorsSingUp)
-},[errorsHere,errorsSingUp])
+  const onChange = (e) => {
+    let value = e.target.value;
 
+    setFormValues((state) => ({
+      ...state,
+      [e.target.name]: value,
+    }));
+  };
 
+  const resetFomrHandler = () => {
+    setFormValues(formInitialState);
+    setErrors("");
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    //console.log(formValues);
+
+    if (formValues.username.length < 3) {
+      setErrors("Please enter a longer username");
+      throw new Error("Please enter a valid username");
+    } else if (formValues.email.length < 3) {
+      setErrors("Please enter a longer email");
+      throw new Error("Please enter a valid email");
+    } else if (
+      !formValues.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+    ) {
+      setErrors("Please enter a valid email");
+      throw new Error("Please enter a valid email");
+    } else if (formValues.password.length < 6) {
+      setErrors("Password must be at least 6 characters");
+      throw new Error("Please enter a valid password");
+    }
+
+    try {
+      const result = await registerSubmitHandler(formValues);
+      // if (result == false) {
+      //   setErrors("try again");
+      // }
+      navigate(Path.Home);
+    } catch (error) {
+     // setErrors("errors");
+    }
+
+    resetFomrHandler();
+  };
+
+  //   const [errorsHere, setErrorsHere] = useState("");
+
+  //   const { registerSubmitHandler } = useContext(AuthContext);
+
+  //   const { formValues, onChange, onSubmit } = useForm(registerSubmitHandler, {
+  //     [signUpFormKeys.Username]: '',
+  //     [signUpFormKeys.Email]: '',
+  //     [signUpFormKeys.Password]: '',
+
+  // });
+  // let { errorsSingUp} = useContext(AuthContext)
+  // useEffect(() => {
+
+  //   setErrorsHere(errorsSingUp)
+  // },[errorsHere,errorsSingUp])
 
   return (
     <>
+      {errors && (
+        <div className="d11">
+          <p className="p11">{errors}</p>
+        </div>
+      )}
 
-{errorsHere && (
-      <div className="d11">
-<p className="p11">{errorsHere}</p>
 
-      </div>
-      
-    )}
       <div style={{ paddingTop: "23%" }}>
         <div className="shape" />
         <div className="shape" />
       </div>
-      <form method="POST" className='form11' onSubmit={onSubmit}>
+      <form method="POST" className="form11" onSubmit={onSubmit}>
         <h3>Sing up</h3>
         <label htmlFor="username">Username</label>
         <input
@@ -51,7 +108,7 @@ useEffect(() => {
           id="username"
           name="username"
           onChange={onChange}
-          values={formValues[signUpFormKeys.Username]}
+          values={formValues.username}
         />
         <label htmlFor="email">Email</label>
         <input
@@ -60,7 +117,7 @@ useEffect(() => {
           id="email"
           name="email"
           onChange={onChange}
-          values={formValues[signUpFormKeys.Email]}
+          values={formValues.email}
         />
         <label htmlFor="password">Password</label>
         <input
@@ -69,7 +126,7 @@ useEffect(() => {
           id="password"
           name="password"
           onChange={onChange}
-          values={formValues[signUpFormKeys.Password]}
+          values={formValues.password}
         />
         <Link to="/login">Already have account?</Link>
         <button style={{ color: "black" }}>Sing up</button>

@@ -5,7 +5,8 @@ import AuthContext from "../../contexts/authContext";
 import * as profileService from "../../services/profileService";
 
 export default function Profile() {
-  const [change,setChange]= useState(false)
+  const [change, setChange] = useState(false)
+  
   const { username, email } = useContext(AuthContext);
   let {
     profileInfoHandler,
@@ -35,7 +36,7 @@ export default function Profile() {
 
   useEffect(() => {
     profileInfoHandler(email);
-  }, [email, username, change]);
+  }, [email, username, change,]);
 
 
   const editGameSubmitHandler = async (e) => {
@@ -154,7 +155,7 @@ export default function Profile() {
                         style={{ display: "inline" }}
                         onClick={editGameSubmitHandler}
                       >
-                        Edit
+                        Save
                       </button>
                     </div>
                   </div>
