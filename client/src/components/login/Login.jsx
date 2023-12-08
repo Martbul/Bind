@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
 
@@ -9,16 +9,22 @@ const loginFormKeys = {
 };
 
 export default function Login() {
- // const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
   
-  const { loginSubmitHandler } = useContext(AuthContext);
+  
+  const { loginSubmitHandler, errorsLogin } = useContext(AuthContext)
+  // useEffect(() => {}, [errors]);
+  
+
+  //! make error handling here. dont allow wrong thata pass this page to loginSubmit handler
 
   const { formValues, onChange, onSubmit } = useForm(loginSubmitHandler, {
     [loginFormKeys.Email]: "",
     [loginFormKeys.Password]: "",
   });
 
-  const { errorsLogin} = useContext(AuthContext)
+  
+ 
 
 
   return (

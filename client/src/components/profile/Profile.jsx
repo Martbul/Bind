@@ -5,8 +5,9 @@ import AuthContext from "../../contexts/authContext";
 import * as profileService from "../../services/profileService";
 
 export default function Profile() {
+  const [change,setChange]= useState(false)
   const { username, email } = useContext(AuthContext);
-  const {
+  let {
     profileInfoHandler,
     userOrder,
     userFirstName,
@@ -23,16 +24,18 @@ export default function Profile() {
     userUsername: username,
     userEmail: email,
     userOrder,
-    userFirstName,
+    userFirstName: userFirstName,
     userLastName,
     userCountry,
     userCity,
     userPhoneNumber,
     userAboutMeText,
   });
+
+
   useEffect(() => {
     profileInfoHandler(email);
-  }, [email, username,]);
+  }, [email, username, change]);
 
 
   const editGameSubmitHandler = async (e) => {
@@ -43,6 +46,8 @@ export default function Profile() {
     try {
       await profileService.edit(email, profileDetails);
 
+
+      setChange(true)
       navigate("/profile");
     } catch (err) {
       // Error notification
