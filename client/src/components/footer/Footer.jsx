@@ -60,7 +60,7 @@ export default function Footer() {
                    <li>
                      <span className="icon icon-map-marker"></span>
                      <span className="text">
-                       203 Fake St. Mountain View, USA
+                       St. Pobeda 203, Sofia, Bulgaria
                      </span>
                    </li>
                    <li>
