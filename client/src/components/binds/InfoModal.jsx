@@ -52,6 +52,11 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,bindId }) {
 
     if (hasConfirmed) {
       const result = await bindsService.remove(bindId);
+
+
+//! new code
+   //   await bindsService.removeFromUserOrders(bindId, email)
+      
       console.log("deleted result=  " + result);
 
       hideModal();

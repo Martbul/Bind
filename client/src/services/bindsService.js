@@ -17,11 +17,6 @@ export const getOne = async (bindId) => {
 
 
 
-//! export za namirane na porycha za profile page
-// export const getUserOrder = async (userEmail) => {
-//   const result = await request.get(`${baseUrl}/${userEmail}`);
-//   return result
-// }
 
 
 export const edit = async (bindId, bindData) => {
@@ -33,5 +28,9 @@ export const edit = async (bindId, bindData) => {
 
 
 export const remove = async (bindId) => request.remove(`${baseUrl}/${bindId}`);
+
+
+// export const removeFromUserOrders = async (bindId, email) =>
+//   request.post(`${baseUrl}/${bindId}`, email);
 
 export const addLikeToBind = async(bindId, email) =>request.post(`${baseUrl}/like`, {bindId, email})

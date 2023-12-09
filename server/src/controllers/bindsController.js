@@ -79,4 +79,10 @@ router.post("/binds/like", async (req, res) => {
 });
 
 
+// router.post('/binds/:bindId', async (req, res) => {
+//   console.log('here');
+//   console.log(req.body);
+// })
+
+
 module.exports = router;
