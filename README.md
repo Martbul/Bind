@@ -15,3 +15,5 @@ CLIENT
 SERVER
    The server is modified server from the SoftUni course for backend. 
 
+STARTING GUIDE
+   Use the command "npm start" to start the server and "npm run dev" to start the client.
