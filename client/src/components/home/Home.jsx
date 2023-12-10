@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 export default function Home() {
    return (
      <>
-    
        <div className="hero_area">
          {/* header section strats */}
          <div className="hero_bg_box">
@@ -29,7 +28,7 @@ export default function Home() {
                            Weekly grocery delivery <br />
                            <span>Our Responsibility</span>
                          </h1>
-                         <p>Make last minuet changes and track your order.</p>
+                         <p>Make last minute changes and track your order.</p>
                          <div className="btn-box">
                            <Link to="/orders/order" className="btn-1">
                              Order
@@ -78,12 +77,7 @@ export default function Home() {
            </div>
          </div>
        </section>
-       {/* end about section */}\
-
-
-       
-   
-       {/* service section */}
+       {/* end about section */}\{/* service section */}
        <section className="service_section layout_padding">
          <div className="container">
            <div className="heading_container heading_center">
@@ -115,7 +109,7 @@ export default function Home() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Get weekly grocerys</h6>
+                   <h6>Get weekly groceries</h6>
                    <p>Make order for your weekly groceries with us.</p>
                    <a href="">Read More</a>
                  </div>
@@ -194,9 +188,7 @@ export default function Home() {
                  </div>
                  <div className="detail-box">
                    <h6>Save time</h6>
-                   <p>
-                     Almost 90% of the people shop every week. 
-                   </p>
+                   <p>Almost 90% of the people shop every week.</p>
                    <a href="">Read More</a>
                  </div>
                </div>
@@ -260,9 +252,7 @@ export default function Home() {
                  </div>
                  <div className="detail-box">
                    <h6>Earn as a deliver</h6>
-                   <p>
-                     Tou can become a deliver and make money when you want. 
-                   </p>
+                   <p>You can become a deliver and make money when you want.</p>
                    <a href="">Read More</a>
                  </div>
                </div>
@@ -272,7 +262,6 @@ export default function Home() {
        </section>
        {/* end service section */}
        {/* client section */}
-
        <section className="client_section layout_padding">
          <div className="container ">
            <div className="heading_container heading_center">
@@ -292,7 +281,8 @@ export default function Home() {
                    <div className="detail-box">
                      <h4>Peter Dimov</h4>
                      <p>
-                       I hated weekly shopping so much, but i was the only one able to do in in my family. Now with Bind i dont have to 
+                       I hated weekly shopping so much, but i was the only one
+                       able to do in in my family. Now with Bind i don't have to
                        spend time in the store.
                      </p>
                    </div>
@@ -306,8 +296,10 @@ export default function Home() {
                    <div className="detail-box">
                      <h4>Ivo Petrov</h4>
                      <p>
-                       The price is a bit high for a delivey , but they saved me so much time. Now that i dont have to go shop for 
-                       groseries i have so much spare time. I was able to finish my docturanture.
+                       The price is a bit high for a delivey , but they saved me
+                       so much time. Now that i dont have to go shop for
+                       groceries i have so much spare time. I was able to finish
+                       my docturanture.
                      </p>
                    </div>
                  </div>
@@ -320,9 +312,10 @@ export default function Home() {
                    <div className="detail-box">
                      <h4>Martin Kovachki</h4>
                      <p>
-                      "The service is the best in the whole county. I have never experienced the this type 
-                      of service and now i love it. The delivery was on time and the products i orderd were in 
-                      perfect conditoin"
+                       The service is the best in the whole county. I have never
+                       experienced the this type of service and now i love it.
+                       The delivery was on time and the products i ordered were
+                       in perfect condition
                      </p>
                    </div>
                  </div>
@@ -353,24 +346,20 @@ export default function Home() {
        </section>
        {/* end client section */}
        {/* contact section */}
-
-
-       
        <section className="callto-action-area section-gap" id="join">
          <div className="container">
            <div className="row d-flex justify-content-center">
              <div className="menu-content col-lg-9">
                <div className="title text-center">
-                 <h1 className="mb-10 text-white">
-                   Join us today
-                 </h1>
+                 <h1 className="mb-10 text-white">Join us today</h1>
                  <p className="text-white">
-                   Make the dream true wit us. Become a deliver and make money when you want.
-                   Deliver order in your time shedule and prefferd day.
-                   Have own customers and live the life you deserve
+                   Make the dream true wit us. Become a deliver and make money
+                   when you want. Deliver order in your time schedule and
+                   preferred day. Have own customers and live the life you
+                   deserve
                  </p>
                  <a className="primary-btn" href="#">
-                  Make deliver account
+                   Make deliver account
                  </a>
                  <a className="primary-btn" href="#">
                    Lear more
@@ -380,10 +369,6 @@ export default function Home() {
            </div>
          </div>
        </section>
-
-
-
-      
        {/* end contact section */}
        {/* team section */}
        <section className="download-area section-gap" id="app">
@@ -399,10 +384,11 @@ export default function Home() {
              <div className="col-lg-6 download-right">
                <h1>
                  Download the <br />
-                 Job Listing App Today!
+                 Bind App Today!
                </h1>
                <p className="subs">
-                 Now you can download the Bind app. Select and manage your orders easily from the comfort of your phone.
+                 Now you can download the Bind app. Select and manage your
+                 orders easily from the comfort of your phone.
                </p>
                <div className="d-flex flex-row">
                  <div className="buttons">
@@ -432,8 +418,6 @@ export default function Home() {
            </div>
          </div>
        </section>{" "}
-
-       
        {/* end team section */}
        <section className="contact_section layout_padding">
          <div className="contact_bg_box">

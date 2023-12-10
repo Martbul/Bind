@@ -8,7 +8,7 @@ export default function Footer() {
              <div className="ftco-footer-widget mb-4">
                <h2 className="ftco-heading-2">About Us</h2>
                <p>
-                 Get your grecerys every week without worring or losing time.
+                 Get your groceries every week without worrying or losing time.
                </p>
                <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                  <li className="ftco-animate">

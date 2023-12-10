@@ -3,79 +3,82 @@ import { Link } from "react-router-dom";
 export default function BecomeADeliver() {
   return (
     <>
-     
-     
-     
-     
-  <section className="hero">
-    <div className="container">
-      <div className="hero-inner">
-        <div className="hero-copy">
-          <h1 className="hero-title mt-0">Become a deliver</h1>
-          <p className="hero-paragraph">
-            Make a deliver account to deliver binds
-          </p>
-          <div className="hero-cta">
-            <Link className="button button-primary" to="/deliverSingup">
-              Sing up
-            </Link>
-            <Link className="button" to="deliverSingup" style={{backgroundColor:'#f1db25'}}>
-              Learn more
-            </Link>
+      <section className="hero">
+        <div className="container">
+          <div className="hero-inner">
+            <div className="hero-copy">
+              <h1 className="hero-title mt-0">Become a deliver</h1>
+              <p className="hero-paragraph">
+                Make a deliver account to deliver binds
+              </p>
+              <div className="hero-cta">
+                <Link className="button button-primary" to="/deliverSingup">
+                  Sing up
+                </Link>
+                <Link
+                  className="button"
+                  to="deliverSingup"
+                  style={{ backgroundColor: "#f1db25" }}
+                >
+                  Learn more
+                </Link>
+              </div>
+            </div>
+            <div className="hero-figure anime-element">
+              <svg
+                className="placeholder"
+                width={528}
+                height={396}
+                viewBox="0 0 528 396"
+              >
+                <rect
+                  width={528}
+                  height={396}
+                  style={{ fill: "transparent" }}
+                />
+              </svg>
+              <div
+                className="hero-figure-box hero-figure-box-01"
+                data-rotation="45deg"
+              />
+              <div
+                className="hero-figure-box hero-figure-box-02"
+                data-rotation="-45deg"
+              />
+              <div
+                className="hero-figure-box hero-figure-box-03"
+                data-rotation="0deg"
+              />
+              <div
+                className="hero-figure-box hero-figure-box-04"
+                data-rotation="-135deg"
+              />
+              <div className="hero-figure-box hero-figure-box-05" />
+              <div className="hero-figure-box hero-figure-box-06" />
+              <div className="hero-figure-box hero-figure-box-07" />
+              <div
+                className="hero-figure-box hero-figure-box-08"
+                data-rotation="-22deg"
+              />
+              <div
+                className="hero-figure-box hero-figure-box-09"
+                data-rotation="-52deg"
+              />
+              <div
+                className="hero-figure-box hero-figure-box-10"
+                data-rotation="-50deg"
+              />
+            </div>
           </div>
         </div>
-        <div className="hero-figure anime-element">
-          <svg
-            className="placeholder"
-            width={528}
-            height={396}
-            viewBox="0 0 528 396"
-          >
-            <rect width={528} height={396} style={{ fill: "transparent" }} />
-          </svg>
-          <div
-            className="hero-figure-box hero-figure-box-01"
-            data-rotation="45deg"
-          />
-          <div
-            className="hero-figure-box hero-figure-box-02"
-            data-rotation="-45deg"
-          />
-          <div
-            className="hero-figure-box hero-figure-box-03"
-            data-rotation="0deg"
-          />
-          <div
-            className="hero-figure-box hero-figure-box-04"
-            data-rotation="-135deg"
-          />
-          <div className="hero-figure-box hero-figure-box-05" />
-          <div className="hero-figure-box hero-figure-box-06" />
-          <div className="hero-figure-box hero-figure-box-07" />
-          <div
-            className="hero-figure-box hero-figure-box-08"
-            data-rotation="-22deg"
-          />
-          <div
-            className="hero-figure-box hero-figure-box-09"
-            data-rotation="-52deg"
-          />
-          <div
-            className="hero-figure-box hero-figure-box-10"
-            data-rotation="-50deg"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
- 
-
-
+      </section>
 
       <section className="first-section" style={{ backgroundColor: "#121618" }}>
         <div>
           <div>
-            <h2 id="makeM" style={{ color: "white" }}>Make money when you want</h2>
+            <h2 id="makeM" style={{ color: "white" }}>
+              Make money when you want
+            </h2>
           </div>
           <div>
             <img
@@ -116,7 +119,10 @@ export default function BecomeADeliver() {
                         >
                           <div className="css-eRKiLo">
                             <div className="css-hPnljU">
-                              <h3 className="css-eoQLkM" style={{ color: "white" }}>
+                              <h3
+                                className="css-eoQLkM"
+                                style={{ color: "white" }}
+                              >
                                 Set your own schedule
                               </h3>
                             </div>
@@ -130,9 +136,9 @@ export default function BecomeADeliver() {
                           <div className="css-ggxDdj">
                             <div className="css-kqHVrb">
                               <p className="cmln__paragraph">
-                                You’re the boss. You can drive with the Uber app
-                                day or night. Fit driving around your life, not
-                                the other way&nbsp;around.
+                                You’re the boss. You can deliver with the Bind
+                                app day or night. Fit delivering around your
+                                life, not the other way &nbsp;around.
                               </p>
                             </div>
                           </div>
@@ -176,7 +182,10 @@ export default function BecomeADeliver() {
                         >
                           <div className="css-eRKiLo">
                             <div className="css-hPnljU">
-                              <h3 className="css-eoQLkM" style={{ color: "white" }}>
+                              <h3
+                                className="css-eoQLkM"
+                                style={{ color: "white" }}
+                              >
                                 Make money on your terms
                               </h3>
                             </div>
@@ -190,9 +199,9 @@ export default function BecomeADeliver() {
                           <div className="css-ggxDdj">
                             <div className="css-kqHVrb">
                               <p className="cmln__paragraph">
-                                The more you drive, the more money you can make.
-                                When demand is higher than normal, you can make
-                                even&nbsp;more.
+                                The more you deliver, the more money you can
+                                make. When demand is higher than normal, you can
+                                make even&nbsp;more.
                               </p>
                             </div>
                           </div>
@@ -231,7 +240,10 @@ export default function BecomeADeliver() {
                         >
                           <div className="css-eRKiLo">
                             <div className="css-hPnljU">
-                              <h3 className="css-eoQLkM" style={{ color: "white" }}>
+                              <h3
+                                className="css-eoQLkM"
+                                style={{ color: "white" }}
+                              >
                                 Let the app lead the way
                               </h3>
                             </div>
@@ -353,8 +365,9 @@ export default function BecomeADeliver() {
                                   <div className="css-kqHVrb">
                                     <p className="cmln__paragraph">
                                       Just tell us which city you'd like to
-                                      drive in and the type of license you have.
-                                      We'll email you with your next&nbsp;steps.
+                                      deliver in and the type of viachle you
+                                      will be using. We'll email you with your
+                                      next&nbsp;steps.
                                     </p>
                                   </div>
                                 </div>
@@ -412,7 +425,7 @@ export default function BecomeADeliver() {
                                     <p className="cmln__paragraph">
                                       All kinds of people are eligible to
                                       deliver with Bind. Here’s what you need to
-                                      know if you’re delivering in&nbsp;Europe.
+                                      know if you're delivering in &nbsp;Europe.
                                     </p>
                                   </div>
                                 </div>
@@ -470,9 +483,7 @@ export default function BecomeADeliver() {
                                     <p className="cmln__paragraph">
                                       You can sign up even if you don't have a
                                       car or type of vehicle that will help you.
-                                      Registering through a ...insert a
-                                      affiliate partner... could give you access
-                                      to a car if&nbsp;needed.
+                                      
                                     </p>
                                   </div>
                                 </div>
