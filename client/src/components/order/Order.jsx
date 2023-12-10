@@ -41,7 +41,8 @@ export default function Order() {
     if (!isAuthenticated) {
     
   
-    const alerted = alert(`You must be logged in to make an order!`)
+      const alerted = alert(`You must be logged in to make an order!`)
+      throw Error
 
       if (alerted) {
       navigate("/singup");
