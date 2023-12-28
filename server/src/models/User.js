@@ -16,9 +16,8 @@ const userSchema = new mongoose.Schema({
     },
   },
 
-
   email: {
-  unique: [true,'email already exists'],
+    unique: [true, "email already exists"],
     type: String,
     required: [true, "email is required"],
     unique: true,
@@ -26,10 +25,9 @@ const userSchema = new mongoose.Schema({
       validator: function (value) {
         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
       },
-      message: 'please enter a valid email address'
+      message: "please enter a valid email address",
     },
   },
-
 
   password: {
     type: String,
@@ -43,37 +41,33 @@ const userSchema = new mongoose.Schema({
     // },
   },
 
-  firstName: { 
-    type: String, 
-  },
-
-  lastName: { 
-    type: String,  
-  },
-
-  order: { 
-    type: Array,  
-   },
-
-  country: { 
-    type: String, 
-  },
-
-  city: { 
+  firstName: {
     type: String,
-   },
+  },
+
+  lastName: {
+    type: String,
+  },
+
+  order: {
+    type: Array,
+  },
+
+  dayAndTimeForelivery: {
+    type: String,
+  },
+ 
+  address: {
+    type: String,
+  },
+
+  city: {
+    type: String,
+  },
 
   phoneNumber: {
-     type: String,
-      },
-
-  aboutMe: { 
-    type: String, 
-   },
-
-  imgUrl: { 
-    type: String, 
-   },
+    type: String,
+  },
 });
 
 userSchema.pre("save", async function () {

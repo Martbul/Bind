@@ -7,8 +7,8 @@ import BindsContext from "../../contexts/bindsContext";
 
 const searchFormKeys = {
   SearchOrder: "searchorder",
-  SearchCity:'searchcity',
-  SearchDay:'searchday'
+  SearchCity: "searchcity",
+  SearchDay: "searchday",
 };
 
 export default function Search() {
@@ -24,8 +24,11 @@ export default function Search() {
     <form
       method="POST"
       onSubmit={onSubmit}
+      allig
       className="serach-form-area"
       style={{
+        display: "flex",
+        alignItems: "center",
         boxShadow: "10px 10px 10px 8px  lightblue",
         padding: "1%",
         marginTop: "4%",
@@ -34,48 +37,32 @@ export default function Search() {
         marginBottom: "4%",
       }}
     >
-      <div className="row justify-content-center form-wrap">
-        <div className="col-lg-4 form-cols">
-          <input
-            style={{ textAlign: "center" }}
-            type="text"
-            className="form-control  "
-            name="searchorder"
-            onChange={onChange}
-            values={formValues[searchFormKeys.SearchOrder]}
-            placeholder="WHAT TO DELIVER"
-          />
-        </div>
-
-        <div className="col-lg-4 form-cols">
-          <input
-            style={{ textAlign: "center" }}
-            type="text"
-            className="form-control"
-            name="searchcity"
-            onChange={onChange}
-            values={formValues[searchFormKeys.SearchCity]}
-            //!make the placeholder and all login to search for CITY NOT TIME
-            placeholder="WHAT TIME"
-          />
-        </div>
-
-        <div className="col-lg-4 form-cols">
-          <input
-            style={{ textAlign: "center" }}
-            type="text"
-            className="form-control"
-            name="searchday"
-            onChange={onChange}
-            values={formValues[searchFormKeys.SearchDay]}
-            placeholder="WHAT DAY"
-          />
-        </div>
-        <div className="col-lg-2 form-cols">
-          <button type="submit" className="btn btn-info">
-            <span className="lnr lnr-magnifier" /> Search
-          </button>
-        </div>
+      <div className="col-lg-4 ">
+        <input
+          style={{ textAlign: "center" }}
+          type="text"
+          className="form-control"
+          name="searchcity"
+          onChange={onChange}
+          values={formValues[searchFormKeys.SearchCity]}
+          //!make the placeholder and all login to search for CITY NOT TIME
+          placeholder="Какво ще пазаруваш?"
+        />
+      </div>
+      <div style={{ marginLeft: "50%" }} className="col-lg-2 ">
+        <button type="submit" className="btn btn-info">
+          <span className="lnr lnr-magnifier" /> Търсене
+        </button>
+      </div>
+      <div style={{ marginRight: "0%" }} className="col-lg-2 ">
+        <button type="submit" className="btn btn-info">
+          <span className="lnr lnr-magnifier" /> Специялам поръчка
+        </button>
+      </div>
+      <div style={{ marginRight: "0%" }} className="col-lg-2 ">
+        <button type="submit" className="btn btn-info">
+          <span className="lnr lnr-magnifier" /> Добави продукт за еднократна поръчка
+        </button>
       </div>
     </form>
   );

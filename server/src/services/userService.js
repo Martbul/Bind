@@ -87,12 +87,13 @@ exports.getMyProfile = (userId)=>
   
 
 
-exports.addOrderToUser = (order, email) => {
+exports.addOrderToUser = (productAndQuantity, email) => {
+  console.log(productAndQuantity);
   // Find the user by ID
   console.log(email);
   User.findOneAndUpdate(
     { email: email },
-    { $push: { order: order.order } },
+    { $push: { order: productAndQuantity.productAndQuantity } },
     { new: true }
   )
     .then((updatedUser) => {

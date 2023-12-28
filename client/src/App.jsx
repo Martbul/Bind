@@ -30,45 +30,40 @@ import AuthGuard from "./components/guards/AuthGuard";
 import { ProfileProvider } from "./contexts/profileContext";
 import DeliverSingup from "./components/deliver-ingup/DeliverSingUp";
 import DeliverLogin from './components/deliver-login/DeliverLogin'
+import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 function App() {
   return (
     <ErrorBoundary>
       <AuthProvider>
         <ProfileProvider>
- <Navigation />
+          <Navigation />
 
-        <Routes>
-          <Route path={Path.Home} element={<Home />} />
-          <Route path={Path.LearnMore} element={<LearnMore />} />
-          <Route path={Path.Orders} element={<Order />} />
+          <Routes>
+            <Route path={Path.Home} element={<Home />} />
+            <Route path={Path.LearnMore} element={<LearnMore />} />
+            <Route path={Path.Orders} element={<Order />} />
+            <Route path={Path.Binds} element={<Binds />} />
+            <Route path={Path.OrderEdit} element={<BindEdit />} />
+            <Route path={Path.About} element={<About />} />
+            <Route path={Path.Cart} element={<ShoppingCart />} />
+            <Route element={<AuthGuard />}>
+              <Route path={Path.BeADeliver} element={<BecomeADeliver />} />
 
-          <Route path={Path.OrderEdit} element={<BindEdit />} />
-          <Route path={Path.About} element={<About />} />
+              <Route path={Path.Profile} element={<Profile />} />
+              <Route path={Path.Logout} element={<Logout />} />
 
-          <Route element={<AuthGuard />}>
-            <Route path={Path.BeADeliver} element={<BecomeADeliver />} />
+              <Route path={Path.DeliverSingup} element={<DeliverSingup />} />
+              <Route path={Path.DeliverLogin} element={<DeliverLogin />} />
+            </Route>
 
-          <Route path={Path.Binds} element={<Binds />} />
-            <Route path={Path.Profile} element={<Profile />} />
-            <Route path={Path.Logout} element={<Logout />} />
+            <Route path={Path.SingUp} element={<SingUp />} />
+            <Route path={Path.LogIn} element={<Login />} />
 
-            <Route path={Path.DeliverSingup} element={<DeliverSingup />} />
-          <Route path={Path.DeliverLogin} element={<DeliverLogin />} />
-          </Route>
+            <Route path={Path.WildCard} element={<NotFound />} />
+          </Routes>
 
-          <Route path={Path.SingUp} element={<SingUp />} />
-          <Route path={Path.LogIn} element={<Login />} />
-
-          <Route path={Path.WildCard} element={<NotFound />} />
-
-
-         
-        </Routes>
-
-        <Footer />
-
+          <Footer />
         </ProfileProvider>
-       
       </AuthProvider>
     </ErrorBoundary>
   );

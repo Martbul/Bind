@@ -93,43 +93,41 @@ export default function SingUp() {
           <p className="p11">{errors}</p>
         </div>
       )}
-
-
       <div style={{ paddingTop: "23%" }}>
         <div className="shape" />
         <div className="shape" />
       </div>
       <form method="POST" className="form11" onSubmit={onSubmit}>
-        <h3>Sing up</h3>
-        <label htmlFor="username">Username</label>
+        <h3>Регистриране</h3>
+        <label htmlFor="username">Потребителско име</label>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Elon_Musk"
           id="username"
           name="username"
           onChange={onChange}
           values={formValues.username}
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Имейл</label>
         <input
           type="text"
-          placeholder="email"
+          placeholder="e.g. elon@tesla.com"
           id="email"
           name="email"
           onChange={onChange}
           values={formValues.email}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Парала</label>
         <input
           type="password"
-          placeholder="Password"
+          placeholder="e.g. iloveelonmusk"
           id="password"
           name="password"
           onChange={onChange}
           values={formValues.password}
         />
-        <Link to="/login">Already have account?</Link>
-        <button style={{ color: "black" }}>Sing up</button>
+        <Link to="/login">Вече си се регистрирал?</Link>
+        <button style={{ color: "black" }}>Регистриране</button>
       </form>
       &lt;
       <style

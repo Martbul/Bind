@@ -6,36 +6,34 @@ import AuthContext from "../../contexts/authContext";
 import { Link } from "react-router-dom";
 import { pathToUrl } from "../../utils/pathUtils";
 import Path from "../../paths";
+import * as orderService from "../../services/orderServices";
 
-const bindDetailsFormKeys = {
-  Name: "name",
-  Email: "email",
-  PhoneNumber: "phoneNumber",
-  DayAndTimeForDelivery: "dayAndTimeForDelivery",
-  City: "city",
-  StreetAndNumber: "streetAndNumber",
-  Order: "order",
+const formInitialState = {
+  quantity: "",
 };
 
-export default function InfoModal({ hideModal, rerenderDeletedModal,bindId }) {
+export default function InfoModal({ hideModal, rerenderDeletedModal, bindId }) {
+  //! sled natiskane na butona "dobawi w koli`nata" trqnwa produkta sys kolichestwoto da se zapazqt v profila na usera
+  const [quantityValues, setQuantityValues] = useState(formInitialState);
+
   const [bindDetails, setBindDetails] = useState({});
   const navigate = useNavigate();
   const { email } = useContext(AuthContext);
   const [like, setLike] = useState(false);
-  const [isLiked,setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     bindsService
       .getOne(bindId)
       .then((result) => {
         setBindDetails(result)
-    return result
+        return result
       }).then((result) => {
-        if (result.likedBy.includes(email)){
+        if (result.likedBy.includes(email)) {
           setIsLiked(true)
         }
         
-  })
+      })
   
         
         
@@ -47,23 +45,65 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,bindId }) {
     setLike(true);
   };
 
-  const deleteButtonClickHandler = async () => {
-    const hasConfirmed = confirm(`Are you sure you want to delete this order`);
 
-    if (hasConfirmed) {
-      const result = await bindsService.remove(bindId);
+  
+  const onChange = (e) => {
+    let value = e.target.value;
+    console.log(e.target.name);
 
-
-//! new code
-   //   await bindsService.removeFromUserOrders(bindId, email)
-      
-      console.log("deleted result=  " + result);
-
-      hideModal();
-      //navigate("/");
-      rerenderDeletedModal()
-    }
+    setQuantityValues((state) => ({
+      ...state,
+      [e.target.name]: value,
+    }));
   };
+
+  const resetFomrHandler = () => {
+    setQuantityValues(formInitialState);
+    setErrors('');
+  };
+
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    console.log(quantityValues);
+    
+
+    // if (!isAuthenticated) {
+    //   const alerted = alert(`You must be logged in to make an order!`);
+    //   throw Error;
+    // }
+
+    // if (
+    //   formValues.fullname.length < 3 ||
+    //   typeof formValues.fullname != "string" ||
+    //   !formValues.fullname.match(/^[a-zA-Z]+ [a-zA-Z]+$/)
+    // ) {
+    //   setErrors("Please enter a valid name");
+    //   throw new Error("Please enter a valid name");
+    // }
+
+    // if (!formValues.timeForDelivery.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
+    //   setErrors("Please enter a valid time for delivery");
+    //   throw new Error("Please enter a valid time for delivery");
+    // }
+
+    try {
+   
+     
+      let orderDetails = {}
+       orderDetails.productAndQuantity= bindDetails.productName + " - " + quantityValues.quantity;
+      orderDetails.email = email;
+      console.log(orderDetails);
+     const updateUsersOrder = await orderService.updateUserOrder(orderDetails);
+    //  console.log(order._id);
+      // setSuccessfulOrderModal(true)
+    } catch (message) {
+      console.log(message);
+    }
+
+    resetFomrHandler();
+  };
+
 
   return (
     <div className="overlay">
@@ -92,83 +132,47 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,bindId }) {
             </button>
           </header>
 
-          <p>Name: {bindDetails.fullname}</p>
+          <p>Продукт: {bindDetails.productName}</p>
           {/* <p>Email: {bindDetails.email}</p>
             <p>Phonenumber: {bindDetails.PhoneNumber}</p> */}
-          <p>
-            Day and time for delivery: {bindDetails.dayForDelivery}{" "}
-            {bindDetails.timeForDelivery}
-          </p>
+          <p>Цена: {bindDetails.price}</p>
           {/* <p>City: {bindDetails.city}</p> */}
-          <p>Address: {bindDetails.address}</p>
-          <p>Order: {bindDetails.order}</p>
-          <p>Likes: {bindDetails.likes}</p>
+
+          <p>Описание: {bindDetails.description}</p>
+
+          <form method="POST">
+            <div className="row">
+              <div className="col-lg-6">
+                <div className="form-group focused">
+                  <label className="form-control-label" htmlFor="quantity">
+                    Количество:
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="1"
+                    id="quantity"
+                    name="quantity"
+                    className="form-control form-control-alternative"
+                    values={quantityValues.quantity}
+                    onChange={onChange}
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
 
           <div id="form-actions">
-            {email !== bindDetails._ownerEmail &&
-              !isLiked &&(
-                // <button
-                //   id="action-save"
-                //   className="btn"
-                //   type="submit"
-                //   style={{ backgroundColor: "purple" }}
-                // >
-                //   Deliver
-                // </button>
-                <button
-                  id="action-save"
-                  className="btn"
-                  type="submit"
-                  style={{ backgroundColor: "#fd0e35" }}
-                  onClick={addLikeHandler}
-                >
-                  Like
-                </button>
-              )}
-            
-                {email !== bindDetails._ownerEmail && isLiked && (
-              // <button
-              //   id="action-save"
-              //   className="btn"
-              //   type="submit"
-              //   style={{ backgroundColor: "purple" }}
-              // >
-              //   Deliver
-              // </button>
-              <button
+            <button
               id="action-save"
               className="btn"
               type="submit"
-              style={{ backgroundColor: "#898989" }}
-              onClick={addLikeHandler}
+              style={{ backgroundColor: "#fd0e35" }}
+              onClick={submitHandler}
             >
-              Liked
+              Добави в количката
             </button>
-            )} 
 
             {/*          CHECKING FOR OWNERSHIP         */}
-            {email === bindDetails._ownerEmail && (
-              <>
-                <Link
-                  id="action-save"
-                  className="btn"
-                  type="submit"
-                  to={pathToUrl(Path.OrderEdit, { bindId })}
-                >
-                  Edit
-                </Link>
-
-                <button
-                  id="action-save"
-                  className="btn"
-                  type="submit"
-                  style={{ backgroundColor: "#C20003" }}
-                  onClick={deleteButtonClickHandler}
-                >
-                  Delete
-                </button>
-              </>
-            )}
 
             <button
               id="action-cancel"
@@ -176,7 +180,7 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,bindId }) {
               type="button"
               onClick={hideModal}
             >
-              Cancel
+              Back
             </button>
           </div>
         </div>

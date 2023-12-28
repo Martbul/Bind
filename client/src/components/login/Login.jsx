@@ -32,27 +32,27 @@ export default function Login() {
         <div className="shape" />
       </div>
       <form id="loginForm" method="POST" className="form11" onSubmit={onSubmit}>
-        <h3>Login</h3>
-        <label htmlFor="email">Email</label>
+        <h3>Влез</h3>
+        <label htmlFor="email">Имейл</label>
         <input
           type="text"
-          placeholder="Email"
+          placeholder="e.g. elon@tesla.com"
           id="email"
           name={loginFormKeys.Email}
           onChange={onChange}
           value={formValues[loginFormKeys.Email]}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Парола</label>
         <input
           type="password"
-          placeholder="Password"
+          placeholder="e.g. iloveelonmusk"
           id="password"
           name={loginFormKeys.Password}
           onChange={onChange}
           value={formValues[loginFormKeys.Password]}
         />
-        <Link to="/singup">Don't have an account?</Link>
-        <button style={{ color: "black" }}>Log In</button>
+        <Link to="/singup">Нямаш акаунт?</Link>
+        <button style={{ color: "black" }}>Влез</button>
       </form>
       <style
         media="screen"

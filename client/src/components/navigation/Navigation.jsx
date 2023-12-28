@@ -14,11 +14,11 @@ export default function Navigation() {
       id="ftco-navbar"
     >
       <div className="container">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand" to="/binds/binds">
           <img src="../src/public/images/shopping-bag (2).svg" />
           Bind
           <br />
-          <small>Delivery</small>
+          <small>Доставка</small>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -40,18 +40,26 @@ export default function Navigation() {
                   isActive ? "nav-linkActive nav-link" : "nav-link"
                 }
               >
-                Home
+                Как работи
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
+                to="/binds/binds"
+                className={({ isActive }) =>
+                  isActive ? "nav-linkActive nav-link" : "nav-link"
+                }
+              >
+                Пзарувай
+              </NavLink>
+              {/* <NavLink
                 to="/orders/order"
                 className={({ isActive }) =>
                   isActive ? "nav-linkActive nav-link" : "nav-link"
                 }
               >
-                Order
-              </NavLink>
+                Пзарувай
+              </NavLink> */}
             </li>
             {isAuthenticated == true && (
               <>
@@ -62,22 +70,11 @@ export default function Navigation() {
                       isActive ? "nav-linkActive nav-link" : "nav-link"
                     }
                   >
-                    Become a deliver
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    to="/binds/binds"
-                    className={({ isActive }) =>
-                      isActive ? "nav-linkActive nav-link" : "nav-link"
-                    }
-                  >
-                    Binds
+                    Стани доставчик
                   </NavLink>
                 </li>
               </>
             )}
-
             <li className="nav-item">
               <NavLink
                 to="/about"
@@ -85,9 +82,19 @@ export default function Navigation() {
                   isActive ? "nav-linkActive nav-link" : "nav-link"
                 }
               >
-                About
+                За нас
               </NavLink>
-            </li>
+            </li>{" "}
+            <li className="nav-item">
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive ? "nav-linkActive nav-link" : "nav-link"
+                }
+              >
+                <img src=" ./src/public/images/ass.png" alt="" />
+              </NavLink>
+            </li>{" "}
             {isAuthenticated == true && (
               <>
                 <li className="nav-item">
@@ -112,19 +119,9 @@ export default function Navigation() {
                 </li>
               </>
             )}
-
             {isAuthenticated == false && (
               <>
-                <li className="nav-item">
-                  <NavLink
-                    to="/singup"
-                    className={({ isActive }) =>
-                      isActive ? "nav-linkActive nav-link" : "nav-link"
-                    }
-                  >
-                    Sing up
-                  </NavLink>
-                </li>
+                <li className="nav-item"></li>
                 <li className="nav-item">
                   <NavLink
                     to="/login"
@@ -132,7 +129,7 @@ export default function Navigation() {
                       isActive ? "nav-linkActive nav-link" : "nav-link"
                     }
                   >
-                    Log in
+                    Влез
                   </NavLink>
                 </li>
               </>

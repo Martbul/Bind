@@ -78,7 +78,7 @@ export default function Profile() {
           <div className="container-fluid d-flex align-items-center">
             <div className="row">
               <div className="col-lg-7 col-md-10">
-                <h1 className="display-2 text-white">Hello {username}</h1>
+                <h1 className="display-2 text-white">Здравей {username}</h1>
                 <p className="text-white mt-0 mb-5">
                   This is your profile page. You can see the progress you've
                   made with your work and manage your projects or assigned tasks
@@ -146,7 +146,7 @@ export default function Profile() {
                 <div className="card-header bg-white border-0">
                   <div className="row align-items-center">
                     <div className="col-8">
-                      <h3 className="mb-0">My account</h3>
+                      <h3 className="mb-0">Моят профил</h3>
                     </div>
                     <div className="col-4 text-right">
                       <button
@@ -155,7 +155,7 @@ export default function Profile() {
                         style={{ display: "inline" }}
                         onClick={editGameSubmitHandler}
                       >
-                        Save
+                        Запази
                       </button>
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export default function Profile() {
                 <div className="card-body">
                   <form method="POST">
                     <h6 className="heading-small text-muted mb-4">
-                      User information
+                      Моята информация
                     </h6>
                     <div className="pl-lg-4">
                       <div className="row">
@@ -173,7 +173,7 @@ export default function Profile() {
                               className="form-control-label"
                               htmlFor="userUsername"
                             >
-                              Username
+                              Потребителско име
                             </label>
                             <input
                               type="text"
@@ -191,7 +191,7 @@ export default function Profile() {
                               className="form-control-label"
                               htmlFor="userEmail"
                             >
-                              Email address
+                              Имейл адрес
                             </label>
                             <input
                               type="email"
@@ -211,14 +211,14 @@ export default function Profile() {
                               className="form-control-label"
                               htmlFor="userFirstName"
                             >
-                              First name
+                              Първо име
                             </label>
                             <input
                               type="text"
                               id="userFirstName"
                               name="userFirstName"
                               className="form-control form-control-alternative"
-                              placeholder="John"
+                              placeholder="Петър"
                               onChange={onChange}
                               value={profileDetails.userFirstName}
                             />
@@ -230,14 +230,14 @@ export default function Profile() {
                               className="form-control-label"
                               htmlFor="userLastName"
                             >
-                              Last name
+                              Фамилно име
                             </label>
                             <input
                               type="text"
                               id="userLastName"
                               name="userLastName"
                               className="form-control form-control-alternative"
-                              placeholder="Smith"
+                              placeholder="Стоянов"
                               onChange={onChange}
                               value={profileDetails.userLastName}
                             />
@@ -247,7 +247,7 @@ export default function Profile() {
                     </div>
                     <hr className="my-4" />
                     {/* Order */}
-                    <h6 className="heading-small text-muted mb-4">My Order</h6>
+                    <h6 className="heading-small text-muted mb-4">Моята поръчка</h6>
                     <div className="pl-lg-4">
                       <div className="form-group focused">
                         <textarea
@@ -262,7 +262,7 @@ export default function Profile() {
                     </div>
                     {/* Address */}
                     <h6 className="heading-small text-muted mb-4">
-                      Contact information
+                      Информация за връзка
                     </h6>
                     <div className="pl-lg-4">
                       <div className="row">
@@ -272,15 +272,16 @@ export default function Profile() {
                               className="form-control-label"
                               htmlFor="userCountry"
                             >
-                              Country
+                              Ден и време за доставка
                             </label>
                             <input
                               type="text"
                               id="userCountry"
                               name="userCountry"
                               className="form-control form-control-alternative"
-                              placeholder="England"
+                              placeholder="Неделя 18:30"
                               onChange={onChange}
+                              //! ОПРАВИ userCountry na dayandtimefordelivery
                               value={profileDetails.userCountry}
                             />
                           </div>
@@ -291,14 +292,14 @@ export default function Profile() {
                               className="form-control-label"
                               htmlFor="userCity"
                             >
-                              City
+                              Град
                             </label>
                             <input
                               type="text"
                               id="userCity"
                               name="userCity"
                               className="form-control form-control-alternative"
-                              placeholder="London"
+                              placeholder="София"
                               onChange={onChange}
                               value={profileDetails.userCity}
                             />
@@ -310,7 +311,7 @@ export default function Profile() {
                               className="form-control-label"
                               htmlFor="userPhoneNumber"
                             >
-                              Phone
+                              Телефон
                             </label>
                             <input
                               id="userPhoneNumber"
@@ -325,21 +326,8 @@ export default function Profile() {
                         </div>
                       </div>
                     </div>
-                    <hr className="my-4" />
-                    {/* Description */}
-                    <h6 className="heading-small text-muted mb-4">About me</h6>
-                    <div className="pl-lg-4">
-                      <div className="form-group focused">
-                        <textarea
-                          rows={4}
-                          name="userAboutMeText"
-                          className="form-control form-control-alternative"
-                          placeholder="A few words about you ..."
-                          onChange={onChange}
-                          value={profileDetails.userAboutMeText}
-                        />
-                      </div>
-                    </div>
+                   
+                   
                   </form>
                 </div>
               </div>

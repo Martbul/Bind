@@ -7,7 +7,7 @@ export default function About() {
          <div className="container">
            <div className="hero-inner">
              <div className="hero-copy">
-               <h1 className="hero-title mt-0">We are bind</h1>
+               <h1 className="hero-title mt-0">Ние сме Bind</h1>
                <p className="hero-paragraph">
                  Brinding Distances with Speed and Care
                </p>
@@ -35,7 +35,7 @@ export default function About() {
                  <div className="counter-content-wrap">
                    <i className="lni lni-rocket" />
                    <h6 className="counter-title">
-                     <strong>Trusted by 4000+</strong>
+                     <strong>С доверие от 4000+</strong>
                    </h6>
                    <p className="counter-text">
                      High performing team worldwide
@@ -46,15 +46,15 @@ export default function About() {
                  <ul className="counter-list list-inline text-right">
                    <li>
                      <span className="number count">1 238</span>
-                     <span className="title">Happy Clients</span>
+                     <span className="title">Доволни киенти</span>
                    </li>
                    <li>
                      <span className="number count">24</span>
-                     <span className="title">Wining Award</span>
+                     <span className="title">Награди</span>
                    </li>
                    <li>
-                     <span className="number count">1 000</span>
-                     <span className="title">Team Member</span>
+                     <span className="number count">356</span>
+                     <span className="title">Работници</span>
                    </li>
                  </ul>
                </div>
@@ -291,7 +291,7 @@ export default function About() {
            <div className="row">
              <div className="col-12">
                <div className="section-title">
-                 <h2>Frequently asked questions</h2>
+                 <h2>Често задавани въпроси</h2>
                </div>
              </div>
            </div>
@@ -308,8 +308,7 @@ export default function About() {
                          aria-expanded="false"
                          aria-controls="collapseOne"
                        >
-                         <span className="arrow-container" /> How to start
-                         delivering?
+                         <span className="arrow-container" /> Как да стана доставчик?
                        </button>
                      </h5>
                    </div>
@@ -335,7 +334,7 @@ export default function About() {
                          aria-expanded="true"
                          aria-controls="collapseTwo"
                        >
-                         <span className="arrow-container" /> How to order?
+                         <span className="arrow-container" />Как да пазарувам?
                        </button>
                      </h5>
                    </div>
@@ -365,8 +364,7 @@ export default function About() {
                          aria-expanded="false"
                          aria-controls="collapseThree"
                        >
-                         <span className="arrow-container" /> How much money I
-                         will make?
+                         <span className="arrow-container" /> Колко ще печеля?
                        </button>
                      </h5>
                    </div>

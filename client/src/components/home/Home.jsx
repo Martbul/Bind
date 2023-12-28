@@ -25,16 +25,16 @@ export default function Home() {
                      <div className="col-md-7">
                        <div className="detail-box">
                          <h1>
-                           Weekly grocery delivery <br />
-                           <span>Our Responsibility</span>
+                           Седмична доставка <br />
+                           <span>Наша отговорност</span>
                          </h1>
-                         <p>Make last minute changes and track your order.</p>
+                         <p>Специялни поръчки и единични доставки.</p>
                          <div className="btn-box">
                            <Link to="/orders/order" className="btn-1">
-                             Order
+                             Поръчай
                            </Link>
                            <Link to="/learnMore" className="btn-2">
-                             Learn More
+                             Научи повече
                            </Link>
                          </div>
                        </div>
@@ -61,13 +61,13 @@ export default function Home() {
              <div className="col-md-6 px-0">
                <div className="detail-box">
                  <div className="heading_container ">
-                   <h2>Who Are We?</h2>
+                   <h2>Кои сме ние?</h2>
                  </div>
                  <p>
-                   Our goal is to make life more simple and easy. We want people
-                   to have more time to himself and for holiday. Also everyone
-                   who wants a sidehusle and a part job and be part of our
-                   Deliver program and make money.
+                   Нашата цел е да опростим и улесним живота на клиенти.Искаме
+                   да спестим спестим време ,труд и усилия на хората и да 09090.
+                   Всеки може да се включи и в нашата програма и да стане наш
+                   доставчик и да печеи пари.
                  </p>
                  <div className="btn-box">
                    <a href="">Read More</a>
@@ -81,7 +81,7 @@ export default function Home() {
        <section className="service_section layout_padding">
          <div className="container">
            <div className="heading_container heading_center">
-             <h2 style={{ color: "white" }}>Our services </h2>
+             <h2 style={{ color: "white" }}>Нашите услуги</h2>
            </div>
            <div className="row">
              <div className="col-md-4">
@@ -109,9 +109,9 @@ export default function Home() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Get weekly groceries</h6>
+                   <h6>Седмична доставка</h6>
                    <p>Make order for your weekly groceries with us.</p>
-                   <a href="">Read More</a>
+                   <a href="">Научи повече</a>
                  </div>
                </div>
              </div>
@@ -187,9 +187,9 @@ export default function Home() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Save time</h6>
+                   <h6>Избран ден и час</h6>
                    <p>Almost 90% of the people shop every week.</p>
-                   <a href="">Read More</a>
+                   <a href="">Научи повече</a>
                  </div>
                </div>
              </div>
@@ -251,9 +251,9 @@ export default function Home() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Earn as a deliver</h6>
+                   <h6>Стани доставчик</h6>
                    <p>You can become a deliver and make money when you want.</p>
-                   <a href="">Read More</a>
+                   <a href="">Научи повече</a>
                  </div>
                </div>
              </div>
@@ -265,7 +265,7 @@ export default function Home() {
        <section className="client_section layout_padding">
          <div className="container ">
            <div className="heading_container heading_center">
-             <h2>What our clients says</h2>
+             <h2>Мнения на клиенти</h2>
            </div>
            <div
              id="carouselExampleControls"
@@ -279,7 +279,7 @@ export default function Home() {
                      <img src="images/client.png" alt="" />
                    </div>
                    <div className="detail-box">
-                     <h4>Peter Dimov</h4>
+                     <h4>Петър Димов</h4>
                      <p>
                        I hated weekly shopping so much, but i was the only one
                        able to do in in my family. Now with Bind i don't have to
@@ -294,7 +294,7 @@ export default function Home() {
                      <img src="images/client.png" alt="" />
                    </div>
                    <div className="detail-box">
-                     <h4>Ivo Petrov</h4>
+                     <h4>Иво Петров</h4>
                      <p>
                        The price is a bit high for a delivey , but they saved me
                        so much time. Now that i dont have to go shop for
@@ -310,7 +310,7 @@ export default function Home() {
                      <img src="images/client.png" alt="" />
                    </div>
                    <div className="detail-box">
-                     <h4>Martin Kovachki</h4>
+                     <h4>Мартин Ковачки</h4>
                      <p>
                        The service is the best in the whole county. I have never
                        experienced the this type of service and now i love it.
@@ -351,7 +351,7 @@ export default function Home() {
            <div className="row d-flex justify-content-center">
              <div className="menu-content col-lg-9">
                <div className="title text-center">
-                 <h1 className="mb-10 text-white">Join us today</h1>
+                 <h1 className="mb-10 text-white">Присъеди се</h1>
                  <p className="text-white">
                    Make the dream true wit us. Become a deliver and make money
                    when you want. Deliver order in your time schedule and
@@ -359,10 +359,10 @@ export default function Home() {
                    deserve
                  </p>
                  <a className="primary-btn" href="#">
-                   Make deliver account
+                   Регистрирай се за доставчик
                  </a>
                  <a className="primary-btn" href="#">
-                   Lear more
+                   Научи повече
                  </a>
                </div>
              </div>
@@ -383,12 +383,12 @@ export default function Home() {
              </div>
              <div className="col-lg-6 download-right">
                <h1>
-                 Download the <br />
-                 Bind App Today!
+                 Изтегли <br />
+                 Bind Приложението Днес!
                </h1>
                <p className="subs">
-                 Now you can download the Bind app. Select and manage your
-                 orders easily from the comfort of your phone.
+                 Сега може да изтеглиш нашето мобилно приложение Bind. Направи
+                 си лесно поръчка от комфорта на телефона си.
                </p>
                <div className="d-flex flex-row">
                  <div className="buttons">
@@ -396,8 +396,7 @@ export default function Home() {
                    <div className="desc">
                      <a href="#">
                        <p>
-                         <span>Available</span> <br />
-                         on App Store
+                         <span>Налично</span> <br />в App Store
                        </p>
                      </a>
                    </div>
@@ -407,8 +406,7 @@ export default function Home() {
                    <div className="desc">
                      <a href="#">
                        <p>
-                         <span>Available</span> <br />
-                         on Play Store
+                         <span>Налично</span> <br />в Play Store
                        </p>
                      </a>
                    </div>
@@ -427,7 +425,7 @@ export default function Home() {
          </div>
          <div className="container">
            <div className="heading_container heading_center">
-             <h2>Have a questions?</h2>
+             <h2>Имаш въпрос?</h2>
            </div>
            <div className="">
              <div className="row">
@@ -436,23 +434,23 @@ export default function Home() {
                    <div className="contact_form-container">
                      <div>
                        <div>
-                         <input type="text" placeholder="Full Name" />
+                         <input type="text" placeholder="Име" />
                        </div>
                        <div>
-                         <input type="email" placeholder="Email " />
+                         <input type="email" placeholder="Имейл " />
                        </div>
                        <div>
-                         <input type="text" placeholder="Phone Number" />
+                         <input type="text" placeholder="Номер" />
                        </div>
                        <div className="">
                          <input
                            type="text"
-                           placeholder="Message"
+                           placeholder="Въпрос"
                            className="message_input"
                          />
                        </div>
                        <div className="btn-box ">
-                         <button type="submit">Send</button>
+                         <button type="submit">Изпрати</button>
                        </div>
                      </div>
                    </div>

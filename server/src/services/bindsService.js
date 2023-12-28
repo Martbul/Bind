@@ -1,13 +1,13 @@
-const Order = require("../models/order");
+const Product = require("../models/Product");
 
 exports.getAll = async () => {
-  const binds = await Order.find().lean();
+  const binds = await Product.find().lean();
 
   return binds;
 };
 
 
-exports.getSingleBind = (id) => Order.findById(id);
+exports.getSingleBind = (id) => Product.findById(id);
 
 
 exports.update = (bindId, bindData) => Order.findByIdAndUpdate(bindId, bindData);

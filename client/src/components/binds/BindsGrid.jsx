@@ -24,15 +24,15 @@ export default function BindsGrid() {
       .getAll()
       .then((result) => {
         // Filter the result based on the search values
-        const filteredBinds = result.filter(
-          (bind) =>
-            bind.order.toLowerCase().includes(searchorder.toLowerCase()) &&
-            bind.timeForDelivery
-              .toLowerCase()
-              .includes(searchcity.toLowerCase()) &&
-            bind.dayForDelivery.toLowerCase().includes(searchday.toLowerCase())
-        );
-        setBinds(filteredBinds);
+        // const filteredBinds = result.filter(
+        //   (bind) =>
+        //     bind.order.toLowerCase().includes(searchorder.toLowerCase()) &&
+        //     bind.timeForDelivery
+        //       .toLowerCase()
+        //       .includes(searchcity.toLowerCase()) &&
+        //     bind.dayForDelivery.toLowerCase().includes(searchday.toLowerCase())
+        // );
+        setBinds(result);
       })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
@@ -72,9 +72,10 @@ export default function BindsGrid() {
             <BindCard
               key={bind._id}
               bind_id={bind._id}
-              userFullName={bind.fullname}
-              userAddress={bind.address}
-              dayForDelivery={bind.dayForDelivery}
+              productName={bind.productName}
+              image={bind.image}
+              price={bind.price}
+              description={bind.description}
               onBindInfoClick={onBindInfoClick}
             />
           ))}
