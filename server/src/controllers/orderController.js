@@ -38,4 +38,26 @@ router.post("/order", async (req, res) => {
   }
 });
 
+
+router.post("/setDayAndTime", async (req, res) => {
+  console.log(req.body);
+  const { dayAndTimeForDelivery, email } = req.body;
+
+  try {
+ 
+    await userService.setDayAndTimeForDelivery(
+      {
+        dayAndTimeForDelivery,
+      },
+      email
+    );
+
+    res.status(201).end();
+    console.log("new order saved");
+  } catch (message) {
+    res.status(400).json({ message });
+  }
+});
+
+
 module.exports = router;

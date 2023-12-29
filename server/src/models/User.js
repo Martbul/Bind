@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
   dayAndTimeForelivery: {
     type: String,
   },
- 
+
   address: {
     type: String,
   },
@@ -66,6 +66,9 @@ const userSchema = new mongoose.Schema({
   },
 
   phoneNumber: {
+    type: String,
+  },
+  dayAndTimeForDelivery: {
     type: String,
   },
 });
