@@ -4,6 +4,7 @@ import useForm from "../../hooks/useForm";
 import { useContext } from "react";
 import * as bindsService from "../../services/bindsService";
 import BindsContext from "../../contexts/bindsContext";
+import { Link } from "react-router-dom";
 
 const searchFormKeys = {
   SearchOrder: "searchorder",
@@ -49,21 +50,30 @@ export default function Search() {
           placeholder="Какво ще пазаруваш?"
         />
       </div>
-      <div style={{ marginLeft: "50%" }} className="col-lg-2 ">
-        <button type="submit" className="btn btn-info">
-          <span className="lnr lnr-magnifier" /> Търсене
-        </button>
+      <div style={ {display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "700px",
+    margin: "0 auto", }}>
+        {" "}
+        <div  className="col-lg-2 ">
+          <button type="submit" className="btn btn-info">
+            <span className="lnr lnr-magnifier" /> Търсене
+          </button>
+        </div>
+        <div  className="col-lg-2 ">
+          <Link to="/orders/order" type="submit" className="btn btn-info">
+            <span className="lnr lnr-magnifier" /> Специялам поръчка
+          </Link>
+        </div>
+        <div  className="col-lg-2 ">
+          <button type="submit" className="btn btn-info">
+            <span className="lnr lnr-magnifier" /> Добави продукт за еднократна
+            поръчка
+          </button>
+        </div>
       </div>
-      <div style={{ marginRight: "0%" }} className="col-lg-2 ">
-        <button type="submit" className="btn btn-info">
-          <span className="lnr lnr-magnifier" /> Специялам поръчка
-        </button>
-      </div>
-      <div style={{ marginRight: "0%" }} className="col-lg-2 ">
-        <button type="submit" className="btn btn-info">
-          <span className="lnr lnr-magnifier" /> Добави продукт за еднократна поръчка
-        </button>
-      </div>
+    
     </form>
   );
 }

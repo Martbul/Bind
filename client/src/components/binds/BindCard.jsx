@@ -15,25 +15,49 @@ function BindCard({
   };
   return (
     <>
-      <Card
-        style={{
-          width: "10rem",
-          marginLeft: "2%",
-          marginRight: "2%",
-          marginTop: "3%",
-          marginBottom: "3%",
-        }}
-      >
-        <Card.Img variant="top" src={image} />
-        <Card.Body>
-          <Card.Title>{productName}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{price}</Card.Subtitle>
-          <Card.Text>{description}</Card.Text>
-          <Button onClick={infoClickHandler} style={{}} variant="primary">
-            Добави към поръчката
-          </Button>
-        </Card.Body>
-      </Card>
+      <div className="wrapper">
+        <div className="">
+          <div className="top" />
+          <div className="bottom">
+            <img src={image} alt="" />
+            <div className="left">
+              <div className="details">
+                <h4>{productName}</h4>
+                <p>{price}</p>
+              </div>
+              <div className="buy">
+                <i className="material-icons">add_shopping_cart</i>
+              </div>
+            </div>
+            <div className="right">
+              <div className="done">
+                <i className="material-icons">done</i>
+              </div>
+              <div className="details">
+                <button onClick={infoClickHandler}>Добави в количката</button>
+                <p>Added to your cart</p>
+              </div>
+              <div className="remove">
+                <i className="material-icons">clear</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="inside">
+          <div className="icon">
+            <i className="material-icons">Инфо</i>
+          </div>
+          <div className="contents">
+            <table>
+              <tbody>
+                <tr>
+                  <th>{description}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
