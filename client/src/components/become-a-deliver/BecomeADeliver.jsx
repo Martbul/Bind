@@ -7,20 +7,20 @@ export default function BecomeADeliver() {
         <div className="container">
           <div className="hero-inner">
             <div className="hero-copy">
-              <h1 className="hero-title mt-0">Become a deliver</h1>
+              <h1 className="hero-title mt-0">Стани доставчик</h1>
               <p className="hero-paragraph">
-                Make a deliver account to deliver binds
+                Направи си акаунт за да доставяш с нас 
               </p>
               <div className="hero-cta">
                 <Link className="button button-primary" to="/deliverSingup">
-                  Sing up
+                  Регистрирай се
                 </Link>
                 <Link
                   className="button"
                   to="deliverSingup"
                   style={{ backgroundColor: "#f1db25" }}
                 >
-                  Learn more
+                  Научи повече
                 </Link>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function BecomeADeliver() {
         <div>
           <div>
             <h2 id="makeM" style={{ color: "white" }}>
-              Make money when you want
+              Печели пари когато си поискаш
             </h2>
           </div>
           <div>
@@ -123,7 +123,7 @@ export default function BecomeADeliver() {
                                 className="css-eoQLkM"
                                 style={{ color: "white" }}
                               >
-                                Set your own schedule
+                                Работи по удобно време
                               </h3>
                             </div>
                           </div>
@@ -186,7 +186,7 @@ export default function BecomeADeliver() {
                                 className="css-eoQLkM"
                                 style={{ color: "white" }}
                               >
-                                Make money on your terms
+                                Прави пари на
                               </h3>
                             </div>
                           </div>
@@ -244,7 +244,7 @@ export default function BecomeADeliver() {
                                 className="css-eoQLkM"
                                 style={{ color: "white" }}
                               >
-                                Let the app lead the way
+                                Остави приложението да те води
                               </h3>
                             </div>
                           </div>
@@ -277,7 +277,7 @@ export default function BecomeADeliver() {
         <div>
           <div>
             <h2 id="makeM1" className="css-fOwPKV">
-              Get started
+              Започни
             </h2>
           </div>
           <div>
@@ -351,7 +351,7 @@ export default function BecomeADeliver() {
                                       style={{ color: "#000000" }}
                                       className="css-eoQLkM"
                                     >
-                                      Sign up
+                                     Регистрирай се
                                     </h3>
                                   </div>
                                 </div>
@@ -410,7 +410,7 @@ export default function BecomeADeliver() {
                                       style={{ color: "#000000" }}
                                       className="css-eoQLkM"
                                     >
-                                      Check delivering requirements
+                                     Виж нужните неща за да доставяш
                                     </h3>
                                   </div>
                                 </div>

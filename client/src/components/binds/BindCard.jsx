@@ -1,6 +1,3 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-
 function BindCard({
   image,
   productName,
@@ -9,7 +6,7 @@ function BindCard({
   description,
   onBindInfoClick,
 }) {
-  const infoClickHandler = () => {
+  const addToCart = () => {
     window.scrollTo(0, 0);
     onBindInfoClick(bind_id);
   };
@@ -25,21 +22,14 @@ function BindCard({
                 <h4>{productName}</h4>
                 <p>{price}</p>
               </div>
-              <div className="buy">
-                <i className="material-icons">add_shopping_cart</i>
-              </div>
+             
             </div>
             <div className="right">
-              <div className="done">
-                <i className="material-icons">done</i>
-              </div>
+             
               <div className="details">
-                <button onClick={infoClickHandler}>Добави в количката</button>
-                <p>Added to your cart</p>
+                <button className='btn' onClick={addToCart}>Добави в количката</button>
               </div>
-              <div className="remove">
-                <i className="material-icons">clear</i>
-              </div>
+            
             </div>
           </div>
         </div>

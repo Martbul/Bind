@@ -80,8 +80,7 @@ export default function Profile() {
               <div className="col-lg-7 col-md-10">
                 <h1 className="display-2 text-white">Здравей {username}</h1>
                 <p className="text-white mt-0 mb-5">
-                  This is your profile page. You can see the progress you've
-                  made with your work and manage your projects or assigned tasks
+                  Може да видиш и конфигурираш данни и информация за себе си.
                 </p>
               </div>
             </div>
@@ -111,11 +110,11 @@ export default function Profile() {
                       <div className="card-profile-stats d-flex justify-content-center mt-md-5">
                         <div>
                           <span className="heading">22</span>
-                          <span className="description">Binds</span>
+                          <span className="description">Поръчки</span>
                         </div>
                         <div>
                           <span className="heading">10</span>
-                          <span className="description">Delivers</span>
+                          <span className="description">Цена</span>
                         </div>
                         <div>
                           <span className="heading">89</span>
@@ -133,10 +132,7 @@ export default function Profile() {
                       <i className="ni location_pin mr-2" />
                       <h4 placeholder="eerere"></h4>
                     </div>
-                    <div className="h5 mt-4">
-                      <i className="ni business_briefcase-24 mr-2" />
-                      Solution Manager - Creative Tim Officer
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -146,7 +142,7 @@ export default function Profile() {
                 <div className="card-header bg-white border-0">
                   <div className="row align-items-center">
                     <div className="col-8">
-                      <h3 className="mb-0">Моят профил</h3>
+                      <h3 className="mb-0">поръчкатарофил</h3>
                     </div>
                     <div className="col-4 text-right">
                       <button
@@ -163,7 +159,7 @@ export default function Profile() {
                 <div className="card-body">
                   <form method="POST">
                     <h6 className="heading-small text-muted mb-4">
-                      Моята информация
+                     Информация
                     </h6>
                     <div className="pl-lg-4">
                       <div className="row">

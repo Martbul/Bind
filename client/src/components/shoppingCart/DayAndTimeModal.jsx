@@ -91,6 +91,7 @@ export default function DayAndTimeModal({ hideModal }) {
               </div>
             </div>
           </form>
+          <p>Ще получите тези поръчката си всяка седмиза в зададения ден и час!</p>
         </Modal.Body>
 
         <Modal.Footer>

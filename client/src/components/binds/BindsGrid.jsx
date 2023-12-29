@@ -8,9 +8,12 @@ import Row from "react-bootstrap/Row";
 import Loader from "../loader/Loader";
 
 import BindsContext from "../../contexts/bindsContext";
+import SuccessfulAddToCartModal from "./SuccessfulAddToCartModal";
 
 export default function BindsGrid() {
   const [binds, setBinds] = useState([]);
+  const [showSuccessfulAddToCartModal, setSuccessfulAddToCartModal] =
+    useState(false);
 
   const [showMoreInfoModal, setMoreInfoModal] = useState(false);
   const [selectedBind, setSelectedBind] = useState(null);
@@ -49,13 +52,25 @@ export default function BindsGrid() {
   const hideMoreInfoModal = () => {
     setMoreInfoModal(false);
   };
+  const hideMoreInfoModalAndShowSuccessfulAddToCartModal = () => {
+      setSuccessfulAddToCartModal(true);
+      setMoreInfoModal(false);
+    };
 
     const rerendereletedModal = () => {
      setIsDelted(true);
-    };
+  };
+   const hideSuccessfulOrderModal = () => {
+     setSuccessfulAddToCartModal(false);
+   };
 
   return (
     <>
+      {showSuccessfulAddToCartModal && (
+        <SuccessfulAddToCartModal
+          hideSuccessfulOrderModal={hideSuccessfulOrderModal}
+        />
+      )}
       {isLoading && <Loader />}
 
       {showMoreInfoModal && (
@@ -63,6 +78,7 @@ export default function BindsGrid() {
           hideModal={hideMoreInfoModal}
           rerenderDeletedModal={rerendereletedModal}
           bindId={selectedBind}
+          hideAndShowModal={hideMoreInfoModalAndShowSuccessfulAddToCartModal}
         />
       )}
 
