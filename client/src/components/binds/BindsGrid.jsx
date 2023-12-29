@@ -9,6 +9,7 @@ import Loader from "../loader/Loader";
 
 import BindsContext from "../../contexts/bindsContext";
 import SuccessfulAddToCartModal from "./SuccessfulAddToCartModal";
+import { Link } from "react-router-dom";
 
 export default function BindsGrid() {
   const [binds, setBinds] = useState([]);
@@ -18,34 +19,29 @@ export default function BindsGrid() {
   const [showMoreInfoModal, setMoreInfoModal] = useState(false);
   const [selectedBind, setSelectedBind] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const[isDeleted,setIsDelted] = useState(false);
 
-  const { searchorder, searchcity, searchday } = useContext(BindsContext);
+
+  const {searchproduct } = useContext(BindsContext);
   useEffect(() => {
     setIsLoading(true);
     bindsService
       .getAll()
       .then((result) => {
-        // Filter the result based on the search values
-        // const filteredBinds = result.filter(
-        //   (bind) =>
-        //     bind.order.toLowerCase().includes(searchorder.toLowerCase()) &&
-        //     bind.timeForDelivery
-        //       .toLowerCase()
-        //       .includes(searchcity.toLowerCase()) &&
-        //     bind.dayForDelivery.toLowerCase().includes(searchday.toLowerCase())
-        // );
-        setBinds(result);
+        const filteredBinds = result.filter((bind) =>
+          bind.productName.toLowerCase().includes(searchproduct.toLowerCase())
+        );
+      
+        setBinds(filteredBinds);
       })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
-  }, [searchorder, searchcity, searchday, isDeleted]);
+  }, [searchproduct]);
 
   const onBindInfoClick = async (bind_id) => {
-    // console.log(bind_id);
-     setIsDelted(false);
+
+   
     setSelectedBind(bind_id);
-    // console.log(selectedBind);
+    
     setMoreInfoModal(true);
   };
 
@@ -83,6 +79,21 @@ export default function BindsGrid() {
       )}
 
       <Container>
+        <div
+        style={{display: 'flex', }}>
+           <div className="col-lg-2 ">
+          <Link to="/orders/order" type="submit" className="btn btn-info">
+            <span className="lnr lnr-magnifier" /> Специялам поръчка
+          </Link>
+        </div>
+        <div className="col-lg-2 ">
+          <button type="submit" className="btn btn-info">
+            <span className="lnr lnr-magnifier" /> Добави продукт за еднократна
+            поръчка
+          </button>
+        </div>
+        </div>
+       
         <Row>
           {binds.map((bind) => (
             <BindCard

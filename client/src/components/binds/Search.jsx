@@ -7,18 +7,15 @@ import BindsContext from "../../contexts/bindsContext";
 import { Link } from "react-router-dom";
 
 const searchFormKeys = {
-  SearchOrder: "searchorder",
-  SearchCity: "searchcity",
-  SearchDay: "searchday",
+  SearchProduct: "searchproduct",
+
 };
 
 export default function Search() {
   const { searchSubmitHandler } = useContext(BindsContext);
 
   const { formValues, onChange, onSubmit } = useForm(searchSubmitHandler, {
-    [searchFormKeys.SearchOrder]: "",
-    [searchFormKeys.SearchCity]: "",
-    [searchFormKeys.SearchDay]: "",
+    [searchFormKeys.SearchProduct]: "",
   });
 
   return (
@@ -43,37 +40,19 @@ export default function Search() {
           style={{ textAlign: "center" }}
           type="text"
           className="form-control"
-          name="searchcity"
+          name="searchproduct"
           onChange={onChange}
-          values={formValues[searchFormKeys.SearchCity]}
+          values={formValues[searchFormKeys.SearchProduct]}
           //!make the placeholder and all login to search for CITY NOT TIME
           placeholder="Какво ще пазаруваш?"
         />
       </div>
-      <div style={ {display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "700px",
-    margin: "0 auto", }}>
-        {" "}
-        <div  className="col-lg-2 ">
-          <button type="submit" className="btn btn-info">
-            <span className="lnr lnr-magnifier" /> Търсене
-          </button>
-        </div>
-        <div  className="col-lg-2 ">
-          <Link to="/orders/order" type="submit" className="btn btn-info">
-            <span className="lnr lnr-magnifier" /> Специялам поръчка
-          </Link>
-        </div>
-        <div  className="col-lg-2 ">
-          <button type="submit" className="btn btn-info">
-            <span className="lnr lnr-magnifier" /> Добави продукт за еднократна
-            поръчка
-          </button>
-        </div>
+
+      <div className="col-lg-2 " style={{ paddingLeft: "50%" }}>
+        <button type="submit" className="btn btn-info">
+          <span className="lnr lnr-magnifier" /> Търсене
+        </button>
       </div>
-    
     </form>
   );
 }

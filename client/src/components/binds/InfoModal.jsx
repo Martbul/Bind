@@ -106,7 +106,7 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,hideAndShowM
         <div className="modal11">
           <div className="user-container">
             <header className="headers">
-              <h2>Order Info</h2>
+              <h2>Описание</h2>
               <button className="btn close" onClick={hideModal}>
                 <svg
                   aria-hidden="true"

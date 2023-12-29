@@ -49,10 +49,15 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
         <Card.Header as="h5">Поръчка</Card.Header>
         <Card.Body>
           <Card.Text>{`${userOrder} `},</Card.Text>
-          <Button onClick={onButtonForModalClick} variant="primary">
+          <div
+            style={{display: 'flex',}}
+          >
+            <Button onClick={onButtonForModalClick} variant="primary">
             Задай ден и час
           </Button>
           <Button variant="blue">Редактирай</Button>
+          </div>
+          
         </Card.Body>
       </Card>
     </>
