@@ -21,6 +21,7 @@ export const getOne = async (bindId) => {
 
 
 export const edit = async (bindId, bindData) => {
+  console.log(bindData);
   const result = await request.put(`${baseUrl}/${bindId}`, bindData);
 
   return result;

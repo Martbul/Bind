@@ -25,7 +25,7 @@ export default function BindEdit() {
 
   const [order, setOrder] = useState({
    
-    userOrder,
+    userOrder: userOrder
 
   });
 
@@ -48,7 +48,8 @@ export default function BindEdit() {
   //    throw new Error("Please enter a valid time for delivery");
   //  }
     try {
-      await bindService.edit(bindId, userOrder);
+     
+      await bindService.edit(bindId, order);
 
       navigate("/binds/binds");
     } catch (err) {
@@ -74,11 +75,11 @@ export default function BindEdit() {
             <div className="form-row01">
               <div className="input-data textarea">
                 <textarea
-                  id="order"
-                  name="order"
+                  id="userOrder"
+                  name="userOrder"
                   rows={8}
                   cols={80}
-                  values={order.userOrder}
+                  value={order.userOrder}
                   onChange={onChange}
                 />
                 {errors == "Please enter a valid order" && (

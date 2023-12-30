@@ -2,13 +2,13 @@ const router = require("express").Router();
 const bindService = require("../services/bindsService");
 //const { isAuth } = require("./../middlewares/authMiddleware");
 
-router.get("/binds", async (req, res) => { 
-  console.log(req);
+router.get("/binds", async (req, res) => {
+ 
 
   try {
     //  const orders = await orderService.getAll(search, from, to);
     const binds = await bindService.getAll();
-    console.log(binds);
+    
     res.json(binds);
   } catch (message) {
     res.status(400).json({ message });
@@ -25,27 +25,20 @@ router.get("/binds/:bindId", async (req, res) => {
   }
   res.json(bind);
 
-  //res.render("details");
+
 });
 
 router.put("/binds/:bindId", async (req, res) => {
   try {
     const { bindId } = req.params;
-    console.log(bindId);
+
+     const { userOrder } = req.body;
     
 
-    const {  order } =
-      req.body;
-
     const bindData = {
-      fullname,
-      address,
-      dayForDelivery,
-      timeForDelivery,
-      order
-      // _ownerId: req.user._id,
+      order:userOrder,
+   
     };
-    console.log(bindData);
 
     await bindService.update(bindId, bindData);
 
@@ -56,7 +49,6 @@ router.put("/binds/:bindId", async (req, res) => {
 });
 
 router.delete("/binds/:bindId", async (req, res) => {
-  
   try {
     const { bindId } = req.params;
     // console.log(bindId);
@@ -67,22 +59,18 @@ router.delete("/binds/:bindId", async (req, res) => {
   }
 });
 
-
-
 router.post("/binds/like", async (req, res) => {
-  const {email}  = req.body
-  const {bindId} = req.body
+  const { email } = req.body;
+  const { bindId } = req.body;
 
   const result = await bindService.addLikeToBind(bindId, email);
 
-  res.json(result).status(200).end()
+  res.json(result).status(200).end();
 });
-
 
 // router.post('/binds/:bindId', async (req, res) => {
 //   console.log('here');
 //   console.log(req.body);
 // })
-
 
 module.exports = router;
