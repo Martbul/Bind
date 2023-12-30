@@ -34,7 +34,7 @@ router.put("/binds/:bindId", async (req, res) => {
     console.log(bindId);
     
 
-    const { fullname, address, dayForDelivery, timeForDelivery, order, email } =
+    const {  order } =
       req.body;
 
     const bindData = {

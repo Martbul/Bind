@@ -5,6 +5,7 @@ import ProfileContext from "../../contexts/profileContext";
 
 import AuthContext from "../../contexts/authContext";
 import DayAndTimeModal from "./DayAndTimeModal";
+import { Link } from "react-router-dom";
 
 export default function ShoppingCart() {
 const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
@@ -13,8 +14,6 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
   let {
     profileInfoHandler,
     userOrder,
-   
-    
   } = useContext(ProfileContext);
 
   
@@ -49,15 +48,14 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
         <Card.Header as="h5">Поръчка</Card.Header>
         <Card.Body>
           <Card.Text>{`${userOrder} `},</Card.Text>
-          <div
-            style={{display: 'flex',}}
-          >
+          <div style={{ display: "flex" }}>
             <Button onClick={onButtonForModalClick} variant="primary">
-            Задай ден и час
-          </Button>
-          <Button variant="blue">Редактирай</Button>
+              Задай ден и час
+            </Button>
+            <Link to="/binds/edit/:bindId" variant="blue">
+              Редактирай
+            </Link>
           </div>
-          
         </Card.Body>
       </Card>
     </>

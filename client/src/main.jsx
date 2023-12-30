@@ -20,9 +20,6 @@ import "./public/css3/slicknav.css";
 import "./public/css3/themify-icons.css";
 
 
-import "./public/css4/font-awesome.min.css";
-import "./public/css4/main.css";
-import "./public/css4/normalize.min.css";
 // css imports
 // import "./public/css/animate.css";
 // import "./public/css/style.css";
