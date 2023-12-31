@@ -56,7 +56,7 @@ export default function Search() {
         </div>
       </form>
 
-      <form action="#" className="search-box ">
+      {/* <form action="#" className="search-box ">
         <div className="input-form">
           <input type="text" placeholder="Job Tittle or keyword" />
         </div>
@@ -71,7 +71,7 @@ export default function Search() {
         <div className="search-form">
           <a href="#">Find job</a>
         </div>
-      </form>
+      </form> */}
     </>
   );
 }

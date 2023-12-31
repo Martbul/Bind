@@ -5,19 +5,19 @@ import App from './App.jsx'
 import { BrowserRouter } from "react-router-dom";
 
 
-import "./public/css3/style.css"
-import "./public/css3/animate.min.css";
-import "./public/css3/bootstrap.min.css";
-import "./public/css3/flaticon.css";
-import "./public/css3/fontawesome-all.min.css";
-import "./public/css3/magnific-popup.css";
-import "./public/css3/nice-select.css";
-import "./public/css3/owl.carousel.min.css";
-import "./public/css3/price_rangs.css";
-import "./public/css3/responsive.css";
-import "./public/css3/slick.css";
-import "./public/css3/slicknav.css";
-import "./public/css3/themify-icons.css";
+// import "./public/css3/style.css"
+// import "./public/css3/animate.min.css";
+// import "./public/css3/bootstrap.min.css";
+// import "./public/css3/flaticon.css";
+// import "./public/css3/fontawesome-all.min.css";
+// import "./public/css3/magnific-popup.css";
+// import "./public/css3/nice-select.css";
+// import "./public/css3/owl.carousel.min.css";
+// import "./public/css3/price_rangs.css";
+// import "./public/css3/responsive.css";
+// import "./public/css3/slick.css";
+// import "./public/css3/slicknav.css";
+// import "./public/css3/themify-icons.css";
 
 
 // css imports
