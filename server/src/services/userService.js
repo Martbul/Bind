@@ -105,15 +105,35 @@ exports.addOrderToUser = (productAndQuantity, email) => {
 };
 
 
-exports.setDayAndTimeForDelivery = (dayAndTimeForDelivery, email) => {
-  console.log(dayAndTimeForDelivery);
+exports.setDayAndTimeForDelivery = (dayAndTimeForDelivery,address, email) => {
+
   // Find the user by ID
-  console.log(email);
+  console.log(address);
   User.findOneAndUpdate(
     { email: email },
     {
       $push: {
         dayAndTimeForDelivery: dayAndTimeForDelivery.dayAndTimeForDelivery,
+      },
+    },
+    
+    { new: true }
+  )
+    .then((updatedUser) => {
+      //    console.log("Order added successfully to the user:", updatedUser);
+    })
+    .catch((error) => {
+      console.error("Failed to update user with order:", error);
+    });
+  
+  
+  
+  User.findOneAndUpdate(
+    { email: email },
+    
+    {
+      $push: {
+        address: address.address,
       },
     },
     { new: true }

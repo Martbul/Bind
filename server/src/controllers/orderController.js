@@ -5,10 +5,7 @@ const userService = require("../services/userService");
 
 router.post("/order", async (req, res) => {
   console.log(req.body);
-  const {
-    productAndQuantity,
-     email,
-  } = req.body;
+  const { productAndQuantity, email } = req.body;
  
   try {
   
@@ -26,6 +23,7 @@ router.post("/order", async (req, res) => {
     await userService.addOrderToUser(
       {
         productAndQuantity,
+       
       },
       email
     );
@@ -40,14 +38,16 @@ router.post("/order", async (req, res) => {
 
 
 router.post("/setDayAndTime", async (req, res) => {
-  console.log(req.body);
-  const { dayAndTimeForDelivery, email } = req.body;
+ 
+  const { dayAndTimeForDelivery, address, email } = req.body;
+  console.log(address);
 
   try {
  
     await userService.setDayAndTimeForDelivery(
       {
         dayAndTimeForDelivery,
+        address,
       },
       email
     );

@@ -138,80 +138,10 @@ export default function Order() {
 
       <section className="s11">
         <div className="container00">
-          <div className="text00">Make an Order</div>
+          <div className="text00">Специялна поръчка</div>
           <form method="POST">
-            <div className="form-row00">
-              <div className="input-data">
-                <input
-                  type="text00"
-                  id="fullname"
-                  name="fullname"
-                  value={formValues.fullname}
-                  onChange={changeHandler}
-                />
-                {errors == "Please enter a valid name" && (
-                  <div className="d11">
-                    <p className="p11">{errors}</p>
-                  </div>
-                )}
-
-                <div className="underline" />
-                <label htmlFor="fullname">Full name</label>
-              </div>
-              <div className="input-data">
-                <input
-                  type="text00"
-                  id="address"
-                  name="address"
-                  value={formValues.address}
-                  onChange={changeHandler}
-                />
-                {errors == "Please enter a valid address" && (
-                  <div className="d11">
-                    <p className="p11">{errors}</p>
-                  </div>
-                )}
-
-                <div className="underline" />
-                <label htmlFor="address">Address</label>
-              </div>
-            </div>
-            <div className="form-row00">
-              <div className="input-data">
-                <input
-                  type="text00"
-                  id="dayForDelivery"
-                  name="dayForDelivery"
-                  value={formValues.dayForDelivery}
-                  onChange={changeHandler}
-                />
-                {errors == "Please enter a valid day for delivery" && (
-                  <div className="d11">
-                    <p className="p11">{errors}</p>
-                  </div>
-                )}
-
-                <div className="underline" />
-                <label htmlFor="">Preffered day for delivery</label>
-              </div>
-              <div className="input-data">
-                <input
-                  type="text00"
-                  id="timeForDelivery"
-                  name="timeForDelivery"
-                  value={formValues.timeForDelivery}
-                  onChange={changeHandler}
-                />
-                {errors == "Please enter a valid time for delivery" && (
-                  <div className="d11">
-                    <p className="p11">{errors}</p>
-                  </div>
-                )}
-
-                <div className="underline" />
-                <label htmlFor="">Preffered time for delivery</label>
-              </div>
-            </div>
+           
+               
             <div className="form-row00">
               <div className="input-data textarea">
                 <textarea
@@ -230,14 +160,15 @@ export default function Order() {
 
                 <br />
                 <div className="underline" />
-                <label htmlFor="">Order</label>
+                <label htmlFor="">Поръчкай нещо което не е в нашия списък</label>
                 <br />
                 <div className="form-row00 submit-btn">
                   <div className="input-data">
                     <div className="inner" />
                     <input
+                      style={{fontSize:'15px'}}
                       type="button"
-                      defaultValue="Order"
+                      defaultValue="Добави в количката"
                       onClick={submitHandler}
                     />
                   </div>

@@ -5,9 +5,10 @@ import { useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "../../contexts/authContext";
 const formInitialState = {
   dayAndTimeForDelivery: "",
-  
+  address:''
 };
 
+//! naprawi prowerka dali usera veche e zadal address i den i ako e mu pokavi samo productite koito im s, adres an kojto shte dojde porychkata i opciq za promqna na denq, chasa i mqsoto
 export default function DayAndTimeModal({ hideModal }) {
    const [formValues, setFormValues] = useState(formInitialState);
     const { email , isAuthenticated } = useContext(AuthContext);
@@ -46,7 +47,7 @@ export default function DayAndTimeModal({ hideModal }) {
     try {
       formValues.email = email;
 
-      const setDayAndTime = await orderService.setDatAndTime(formValues);
+      const setDayAndTimeAndAddress = await orderService.setDatAndTimeAndAddress(formValues);
       
       // setSuccessfulOrderModal(true)
     } catch (message) {
@@ -89,9 +90,31 @@ export default function DayAndTimeModal({ hideModal }) {
                   />
                 </div>
               </div>
+
+              <div className="col-lg-6">
+                <div className="form-group focused">
+                  <label
+                    className="form-control-label"
+                    htmlFor="dayAndTimeForDelivery"
+                  >
+                    Адрес
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="ул. Победа 15, София"
+                    id="address"
+                    name="address"
+                    className=" form-control-alternative"
+                    values={formValues.address}
+                    onChange={changeHandler}
+                  />
+                </div>
+              </div>
             </div>
           </form>
-          <p>Ще получите тези поръчката си всяка седмиза в зададения ден и час!</p>
+          <p>
+            Ще получите тези поръчката си всяка седмиза в зададения ден и час!
+          </p>
         </Modal.Body>
 
         <Modal.Footer>

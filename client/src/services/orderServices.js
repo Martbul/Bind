@@ -9,9 +9,9 @@ export const updateUserOrder = async (orderData) => {
   return result;
 };
 
-export const setDatAndTime = async (orderData) => {
+export const setDatAndTimeAndAddress = async (orderData) => {
   console.log(orderData);
-  const result = await request.post(baseUrl+'/setDayAndTime', orderData);
+  const result = await request.post(baseUrl + "/setDayAndTime", orderData);
 
   return result;
 };
