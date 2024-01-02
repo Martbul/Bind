@@ -40,15 +40,16 @@ router.post("/order", async (req, res) => {
 router.post("/setDayAndTime", async (req, res) => {
  
   const { dayAndTimeForDelivery, address, email } = req.body;
-  console.log(address);
+ 
 
   try {
  
     await userService.setDayAndTimeForDelivery(
       {
         dayAndTimeForDelivery,
-        address,
+       
       },
+      address,
       email
     );
 

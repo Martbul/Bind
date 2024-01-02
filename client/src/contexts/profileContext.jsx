@@ -14,7 +14,7 @@ const [profileData,setProfileData] = useState('')
     try {
          
       const profileData = await profileService.getProfileData(email);
-    //  console.log(profileData);
+      console.log(profileData);
       setProfileData(profileData)
  
     } catch (message) {
@@ -31,6 +31,7 @@ const [profileData,setProfileData] = useState('')
    const values = {
      profileInfoHandler,
      userOrder: profileData.order,
+     userAddress: profileData.address,
      userOrderId: profileData._id,
      userFirstName: profileData.firstName,
      userLastName: profileData.lastName,

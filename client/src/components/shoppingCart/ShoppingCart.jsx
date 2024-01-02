@@ -10,8 +10,8 @@ import Path from "../../paths";
 export default function ShoppingCart() {
 const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
    
-  const { username, email } = useContext(AuthContext);
-  let { profileInfoHandler, userOrder, userOrderId } =
+  const { username, email,  } = useContext(AuthContext);
+  let { profileInfoHandler, userOrder, userOrderId, userAddress } =
     useContext(ProfileContext);
 
   
@@ -47,9 +47,18 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
         <Card.Body>
           <Card.Text>{`${userOrder} `},</Card.Text>
           <div style={{ display: "flex" }}>
-            <Button onClick={onButtonForModalClick} variant="primary">
-              Задай ден и час
-            </Button>
+        
+              <Button onClick={onButtonForModalClick} variant="primary">
+                Задай ден и час
+              </Button>
+            
+
+            {userAddress == false && (
+              <Button onClick={onButtonForModalClick} variant="primary">
+                Задай ден и час
+              </Button>
+            )}
+
             <Link
               to={pathToUrl(Path.OrderEdit, { userOrderId })}
               variant="blue"
