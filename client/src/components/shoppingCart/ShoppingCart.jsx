@@ -52,7 +52,9 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
         />
       )}
 
+      //! need more tweaking
       <Card>
+
         <Card.Header as="h5">Поръчка</Card.Header>
         <Card.Body>
           <Card.Text>{`${userOrder} `},</Card.Text>
