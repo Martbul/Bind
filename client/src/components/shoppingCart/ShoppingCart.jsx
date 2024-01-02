@@ -10,14 +10,20 @@ import Path from "../../paths";
 export default function ShoppingCart() {
 const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
    
-  const { username, email,  } = useContext(AuthContext);
-  let { profileInfoHandler, userOrder, userOrderId, userAddress } =
-    useContext(ProfileContext);
+  const { username, email, } = useContext(AuthContext);
+  const [address, setAddress] = useState(false);
+  let {
+    profileInfoHandler,
+    userOrder,
+    userOrderId,
+    userAddress,
+    userDayAndTimeForDelivery,
+  } = useContext(ProfileContext);
 
   
     useEffect(() => {
       profileInfoHandler(email);
-    }, [email, username]);
+    }, [email, username, address]);
   
     const onButtonForModalClick = async () => {
       // console.log(bind_id);
@@ -31,13 +37,15 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
   
     const hideDayAndTimeModal = () => {
       setDayAndTimeModal(false);
-    };
+  };
+  
 
   return (
     <>
       {showDayAndTimeModal && (
         <DayAndTimeModal
           hideModal={hideDayAndTimeModal}
+
           // bindId={selectedBind}
         />
       )}
@@ -47,13 +55,13 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
         <Card.Body>
           <Card.Text>{`${userOrder} `},</Card.Text>
           <div style={{ display: "flex" }}>
-        
-              <Button onClick={onButtonForModalClick} variant="primary">
-                Задай ден и час
+            {userAddress != "" && (
+              <Button onClick={onButtonForModalClick} variant="">
+                Рдактирай ден, час и адрес на доставка
               </Button>
-            
+            )}
 
-            {userAddress == false && (
+            {userAddress == "" && (
               <Button onClick={onButtonForModalClick} variant="primary">
                 Задай ден и час
               </Button>
@@ -63,11 +71,22 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
               to={pathToUrl(Path.OrderEdit, { userOrderId })}
               variant="blue"
             >
-              Редактирай
+              Редактирай поръчката
             </Link>
           </div>
         </Card.Body>
       </Card>
+      {userAddress != "" && (
+        <Card>
+          <Card.Body>
+            <Card.Text>
+              {`Адрес: ${userAddress}, ден и час: ${userDayAndTimeForDelivery} `}
+              ,
+            </Card.Text>
+            <div style={{ display: "flex" }}></div>
+          </Card.Body>
+        </Card>
+      )}
     </>
   );
 }

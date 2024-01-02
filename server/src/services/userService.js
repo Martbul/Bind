@@ -36,6 +36,8 @@ exports.singup = async (userData) => {
   userData.phoneNumber = ''
   userData.aboutMe = ''
   userData.imgUrl = ''
+  userData.address = '';
+    userData.dayAndTimeForDelivery = '';
   // console.log(userData.order);
   // const emailTest = JSON.parse(userData.email)
   // if(await User.findOne(emailTest)){
@@ -112,12 +114,10 @@ exports.setDayAndTimeForDelivery = (dayAndTimeForDelivery,address, email) => {
   User.findOneAndUpdate(
     { email: email },
     {
-      $push: {
+      
         dayAndTimeForDelivery: dayAndTimeForDelivery.dayAndTimeForDelivery,
-      },
-      $push: {
-        address: address,
-      },
+     
+    
     },
 
     { new: true }
@@ -129,6 +129,24 @@ exports.setDayAndTimeForDelivery = (dayAndTimeForDelivery,address, email) => {
       console.error("Failed to update user with order:", error);
     });
   
+  
+   User.findOneAndUpdate(
+     { email: email },
+     {
+     
+      
+         address :address,
+       
+     },
+
+     { new: true }
+   )
+     .then((updatedUser) => {
+       //    console.log("Order added successfully to the user:", updatedUser);
+     })
+     .catch((error) => {
+       console.error("Failed to update user with order:", error);
+     });
   
   
 

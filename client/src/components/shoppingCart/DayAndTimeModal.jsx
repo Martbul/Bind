@@ -10,9 +10,9 @@ const formInitialState = {
 
 //! naprawi prowerka dali usera veche e zadal address i den i ako e mu pokavi samo productite koito im s, adres an kojto shte dojde porychkata i opciq za promqna na denq, chasa i mqsoto
 export default function DayAndTimeModal({ hideModal }) {
-   const [formValues, setFormValues] = useState(formInitialState);
-    const { email , isAuthenticated } = useContext(AuthContext);
-   
+  const [formValues, setFormValues] = useState(formInitialState);
+  const { email, isAuthenticated } = useContext(AuthContext);
+
   const changeHandler = (e) => {
     let value = e.target.value;
 
@@ -24,30 +24,27 @@ export default function DayAndTimeModal({ hideModal }) {
 
   const resetFomrHandler = () => {
     setFormValues(formInitialState);
-   // setErrors("");
+    // setErrors("");
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    
 
     if (!isAuthenticated) {
       const alerted = alert(`You must be logged in to make an order!`);
       throw Error;
-
-      
     }
-    
 
-   //  if (!formValues.timeForDelivery.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
-   //    setErrors("Please enter a valid time for delivery");
-   //    throw new Error("Please enter a valid time for delivery");
-   //  }
+    //  if (!formValues.timeForDelivery.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
+    //    setErrors("Please enter a valid time for delivery");
+    //    throw new Error("Please enter a valid time for delivery");
+    //  }
 
     try {
       formValues.email = email;
 
-      const setDayAndTimeAndAddress = await orderService.setDatAndTimeAndAddress(formValues);
+      const setDayAndTimeAndAddress =
+        await orderService.setDatAndTimeAndAddress(formValues);
       
       // setSuccessfulOrderModal(true)
     } catch (message) {
@@ -56,7 +53,6 @@ export default function DayAndTimeModal({ hideModal }) {
 
     resetFomrHandler();
   };
-
 
   return (
     <div

@@ -32,6 +32,7 @@ const [profileData,setProfileData] = useState('')
      profileInfoHandler,
      userOrder: profileData.order,
      userAddress: profileData.address,
+     userDayAndTimeForDelivery: profileData.dayAndTimeForDelivery,
      userOrderId: profileData._id,
      userFirstName: profileData.firstName,
      userLastName: profileData.lastName,
