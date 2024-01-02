@@ -9,7 +9,7 @@ const formInitialState = {
 };
 
 //! naprawi prowerka dali usera veche e zadal address i den i ako e mu pokavi samo productite koito im s, adres an kojto shte dojde porychkata i opciq za promqna na denq, chasa i mqsoto
-export default function DayAndTimeModal({ hideModal }) {
+export default function DayAndTimeModal({ hideModal, setNewChange }) {
   const [formValues, setFormValues] = useState(formInitialState);
   const { email, isAuthenticated } = useContext(AuthContext);
 
@@ -42,7 +42,8 @@ export default function DayAndTimeModal({ hideModal }) {
 
     try {
       formValues.email = email;
-
+setNewChange(true);
+      hideModal(true);
       const setDayAndTimeAndAddress =
         await orderService.setDatAndTimeAndAddress(formValues);
       

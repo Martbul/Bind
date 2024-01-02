@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 import Path from "../../paths";
 export default function ShoppingCart() {
 const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
-   
+   const [change, setChange] = useState(false);
   const { username, email, } = useContext(AuthContext);
-  const [address, setAddress] = useState(false);
+  
   let {
     profileInfoHandler,
     userOrder,
@@ -23,7 +23,7 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
   
     useEffect(() => {
       profileInfoHandler(email);
-    }, [email, username, address]);
+    }, [email, username, change]);
   
     const onButtonForModalClick = async () => {
       // console.log(bind_id);
@@ -38,6 +38,9 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
     const hideDayAndTimeModal = () => {
       setDayAndTimeModal(false);
   };
+  const setNewChange = () => {
+    setChange(true)
+  }
   
 
   return (
@@ -45,8 +48,7 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
       {showDayAndTimeModal && (
         <DayAndTimeModal
           hideModal={hideDayAndTimeModal}
-
-          // bindId={selectedBind}
+          setNewChange={setNewChange}
         />
       )}
 
@@ -76,7 +78,7 @@ const [showDayAndTimeModal, setDayAndTimeModal] = useState(false);
           </div>
         </Card.Body>
       </Card>
-      {userAddress != "" && (
+      {change == true || userAddress != ''&& (
         <Card>
           <Card.Body>
             <Card.Text>
