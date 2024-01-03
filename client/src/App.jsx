@@ -21,6 +21,8 @@ import BecomeADeliver from "./components/become-a-deliver/BecomeADeliver";
 
 import "./style1.css";
 import "./public/scss2/main.scss";
+import "./public/scss3/style.scss"
+
 import Logout from "./components/logout/Logout";
 import LearnMore from "./components/learn-more/LearnMore";
 import BindEdit from "./components/binds/BindEdit";

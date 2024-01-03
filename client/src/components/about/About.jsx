@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 export default function About() {
    return (
      <>
+
+
+
+
+
        <section className="hero">
          <div className="container">
            <div className="hero-inner">
              <div className="hero-copy">
                <h1 className="hero-title mt-0">Ние сме Bind</h1>
                <p className="hero-paragraph">
-                 Brinding Distances with Speed and Care
+               Минаваме разстояния със скорост и грижа
                </p>
                <div className="hero-cta"></div>
              </div>
@@ -75,7 +80,7 @@ export default function About() {
        <section className="service_section layout_padding">
          <div className="container">
            <div className="heading_container heading_center">
-             <h2 style={{ color: "white" }}>Our services </h2>
+             <h2 style={{ color: "white" }}>Нашите услуги</h2>
            </div>
            <div className="row">
              <div className="col-md-4">
@@ -103,9 +108,9 @@ export default function About() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Get weekly groceries</h6>
+                   <h6>Седмична доставка</h6>
                    <p>Make order for your weekly groceries with us.</p>
-                   <a href="">Read More</a>
+                   <a href="">Научи повече</a>
                  </div>
                </div>
              </div>
@@ -181,9 +186,9 @@ export default function About() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Save time</h6>
+                   <h6>Избран ден и час</h6>
                    <p>Almost 90% of the people shop every week.</p>
-                   <a href="">Read More</a>
+                   <a href="">Научи повече</a>
                  </div>
                </div>
              </div>
@@ -245,9 +250,9 @@ export default function About() {
                    </svg>
                  </div>
                  <div className="detail-box">
-                   <h6>Earn as a deliver</h6>
+                   <h6>Стани доставчик</h6>
                    <p>You can become a deliver and make money when you want.</p>
-                   <a href="">Read More</a>
+                   <a href="">Научи повече</a>
                  </div>
                </div>
              </div>
@@ -387,10 +392,7 @@ export default function About() {
          </div>
        </section>
 
-       <section
-         style={{ backgroundColor: "#00000038" }}
-         className="contact_section layout_padding"
-       >
+       <section className="contact_section layout_padding">
          <div className="contact_bg_box">
            <div className="img-box">
              <img src="images/contact-bg.jpg" alt="" />
@@ -398,7 +400,7 @@ export default function About() {
          </div>
          <div className="container">
            <div className="heading_container heading_center">
-             <h2>Have a questions?</h2>
+             <h2>Имаш въпрос?</h2>
            </div>
            <div className="">
              <div className="row">
@@ -407,23 +409,23 @@ export default function About() {
                    <div className="contact_form-container">
                      <div>
                        <div>
-                         <input type="text" placeholder="Full Name" />
+                         <input type="text" placeholder="Име" />
                        </div>
                        <div>
-                         <input type="email" placeholder="Email " />
+                         <input type="email" placeholder="Имейл " />
                        </div>
                        <div>
-                         <input type="text" placeholder="Phone Number" />
+                         <input type="text" placeholder="Номер" />
                        </div>
                        <div className="">
                          <input
                            type="text"
-                           placeholder="Message"
+                           placeholder="Въпрос"
                            className="message_input"
                          />
                        </div>
                        <div className="btn-box ">
-                         <button type="submit">Send</button>
+                         <button type="submit">Изпрати</button>
                        </div>
                      </div>
                    </div>
@@ -432,7 +434,7 @@ export default function About() {
              </div>
            </div>
          </div>
-       </section>
+       </section> 
 
        <section
          style={{ marginTop: "6%", marginBottom: "5%" }}
@@ -443,7 +445,7 @@ export default function About() {
            <div className="row">
              <div className="col-12">
                <div className="section-title">
-                 <h2>Read Our Blog</h2>
+                 <h2>Прочети блога ни</h2>
                </div>
              </div>
            </div>
@@ -453,15 +455,15 @@ export default function About() {
                <div className="single-news">
                  <div className="news-body">
                    <div className="news-content">
-                     <div className="date">22 Aug, 2023</div>
+                     <div className="date">22 Август, 2023</div>
                      <h2>
                        <a href="blog-single-sidebar.html">
-                         NEW CEO ANNOUNCEMENT
+                         Нов изпълнителен директор
                        </a>
                      </h2>
                      <p className="text">
-                       We are proud to announce that Martin Kovachki is the new
-                       ceo of the company
+                       Щастливи сме да съобщим, че Мартин Ковачки е новият изпълнителен директор на Bind!
+                       "Ще работим по усилено от всякога за развиването на компанията"
                      </p>
                    </div>
                  </div>
@@ -473,15 +475,15 @@ export default function About() {
                <div className="single-news">
                  <div className="news-body">
                    <div className="news-content">
-                     <div className="date">15 Jul, 2022</div>
+                     <div className="date">15 Юли, 2022</div>
                      <h2>
                        <a href="blog-single-sidebar.html">
-                         YOU CAN NOW JOIN US, DELIVER WITH US AND MAKE PROGRESS
+                         Вече може да станеш част от нас и да прогресираме заедно
                        </a>
                      </h2>
                      <p className="text">
-                       If you have a free days now you can fill them with
-                       delivering and make money
+                      Стани доставчик за нас и изкарвай пари с всяка успешна доставка.
+                      
                      </p>
                    </div>
                  </div>
@@ -493,15 +495,14 @@ export default function About() {
                <div className="single-news">
                  <div className="news-body">
                    <div className="news-content">
-                     <div className="date">05 Jan, 2021</div>
+                     <div className="date">05 Март, 2021</div>
                      <h2>
                        <a href="blog-single-sidebar.html">
-                         THE START OF THE JOURNEY
+                        Началото
                        </a>
                      </h2>
                      <p className="text">
-                       Our Goal Is To Make Life More Simple For Ones And Better
-                       Of Others
+                      Нашата цел е да улесним живота на клиентитте си,да им спестим време , усилие и да им остава повече време за тях и семейството.
                      </p>
                    </div>
                  </div>

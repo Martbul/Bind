@@ -101,7 +101,7 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,hideAndShowM
   
   return (
     <>
-      <div className="overlay">
+      {/* <div className="overlay">
         <div className="backdrop" onClick={hideModal}></div>
         <div className="modal11">
           <div className="user-container">
@@ -128,10 +128,9 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,hideAndShowM
             </header>
 
             <p>Продукт: {bindDetails.productName}</p>
-            {/* <p>Email: {bindDetails.email}</p>
-            <p>Phonenumber: {bindDetails.PhoneNumber}</p> */}
+           
             <p>Цена: {bindDetails.price}</p>
-            {/* <p>City: {bindDetails.city}</p> */}
+           
 
             <p>Описание: {bindDetails.description}</p>
 
@@ -165,7 +164,7 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,hideAndShowM
                 Добави в количката
               </button>
 
-              {/*          CHECKING FOR OWNERSHIP         */}
+          
 
               <button
                 id="action-cancel"
@@ -178,7 +177,8 @@ export default function InfoModal({ hideModal, rerenderDeletedModal,hideAndShowM
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+ 
     </>
   );
 }

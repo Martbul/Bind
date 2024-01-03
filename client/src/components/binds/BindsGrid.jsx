@@ -1,6 +1,6 @@
 import * as bindsService from "../../services/bindsService";
 import { useContext, useEffect, useState } from "react";
-
+import BindLeftSearchOptions from "./BindLeftSearchOptions";
 import BindCard from "./BindCard";
 import InfoModal from "./InfoModal";
 import Container from "react-bootstrap/Container";
@@ -93,7 +93,7 @@ export default function BindsGrid() {
           </button>
         </div>
         </div>
-       
+        <BindLeftSearchOptions/>
         <Row>
           {binds.map((bind) => (
             <BindCard
