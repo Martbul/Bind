@@ -33,6 +33,7 @@ import { ProfileProvider } from "./contexts/profileContext";
 import DeliverSingup from "./components/deliver-ingup/DeliverSingUp";
 import DeliverLogin from './components/deliver-login/DeliverLogin'
 import ShoppingCart from "./components/shoppingCart/ShoppingCart";
+import AllBlogs from "./components/blog/AllBlogs";
 function App() {
   return (
     <ErrorBoundary>
@@ -47,6 +48,7 @@ function App() {
             <Route path={Path.Binds} element={<Binds />} />
             <Route path={Path.OrderEdit} element={<BindEdit />} />
             <Route path={Path.About} element={<About />} />
+            <Route path={Path.Blog} element={<AllBlogs />} />
             <Route path={Path.Cart} element={<ShoppingCart />} />
             <Route element={<AuthGuard />}>
               <Route path={Path.BeADeliver} element={<BecomeADeliver />} />

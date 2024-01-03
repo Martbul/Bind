@@ -3,6 +3,7 @@ const Path = {
   LearnMore: "/learnMore",
   Cart:'/cart',
   About: "/about",
+  Blog: "/blog",
   Orders: "/orders/order",
   OrderEdit: "/binds/edit/:bindId",
   BeADeliver: "/beADeliver",
