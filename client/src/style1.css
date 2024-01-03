@@ -18184,11 +18184,31 @@ color:#fff;
 
 
 
+/* 
+
+.parent1{ 
+  width:1400px;
+  display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 0px; 
+    border: 1px solid black; 
+    ; 
+} 
+.child { 
+    margin: 0px; 
+    border: 1px solid red; 
+} */
 
 
+.parent1 {
+  display: flex;
+  width: 130%;
+}
 
 
-
-
-
+.child2 {
+  flex: 4;
+  border: 2px solid blueviolet;
+  margin: 0px;
+}
 

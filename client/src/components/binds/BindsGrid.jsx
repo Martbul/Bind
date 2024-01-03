@@ -79,34 +79,37 @@ export default function BindsGrid() {
       )}
 
       <Container>
-        <div
-        style={{display: 'flex', }}>
-           <div className="col-lg-2 ">
-          <Link to="/orders/order" type="submit" className="btn btn-info">
-            <span className="lnr lnr-magnifier" /> Специялам поръчка
-          </Link>
+        <div style={{ display: "flex" }}>
+          <div className="col-lg-2 ">
+            <Link to="/orders/order" type="submit" className="btn btn-info">
+              <span className="lnr lnr-magnifier" /> Специялам поръчка
+            </Link>
+          </div>
+          <div className="col-lg-2 ">
+            <button type="submit" className="btn btn-info">
+              <span className="lnr lnr-magnifier" /> Добави продукт за
+              еднократна поръчка
+            </button>
+          </div>
         </div>
-        <div className="col-lg-2 ">
-          <button type="submit" className="btn btn-info">
-            <span className="lnr lnr-magnifier" /> Добави продукт за еднократна
-            поръчка
-          </button>
+
+        <div className="parent1">
+          <BindLeftSearchOptions className="child1" />
+
+          <Row className="child2">
+            {binds.map((bind) => (
+              <BindCard
+                key={bind._id}
+                bind_id={bind._id}
+                productName={bind.productName}
+                image={bind.image}
+                price={bind.price}
+                description={bind.description}
+                onBindInfoClick={onBindInfoClick}
+              />
+            ))}
+          </Row>
         </div>
-        </div>
-        <BindLeftSearchOptions/>
-        <Row>
-          {binds.map((bind) => (
-            <BindCard
-              key={bind._id}
-              bind_id={bind._id}
-              productName={bind.productName}
-              image={bind.image}
-              price={bind.price}
-              description={bind.description}
-              onBindInfoClick={onBindInfoClick}
-            />
-          ))}
-        </Row>
       </Container>
     </>
   );
