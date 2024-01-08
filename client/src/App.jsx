@@ -21,7 +21,7 @@ import BecomeADeliver from "./components/become-a-deliver/BecomeADeliver";
 
 import "./style1.css";
 import "./public/scss2/main.scss";
-import "./public/scss3/style.scss"
+import "./public/scss3/style.scss";
 
 import Logout from "./components/logout/Logout";
 import LearnMore from "./components/learn-more/LearnMore";
@@ -31,7 +31,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import AuthGuard from "./components/guards/AuthGuard";
 import { ProfileProvider } from "./contexts/profileContext";
 import DeliverSingup from "./components/deliver-ingup/DeliverSingUp";
-import DeliverLogin from './components/deliver-login/DeliverLogin'
+import DeliverLogin from "./components/deliver-login/DeliverLogin";
 import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 import AllBlogs from "./components/blog/AllBlogs";
 function App() {
@@ -41,11 +41,7 @@ function App() {
         <ProfileProvider>
           <Navigation />
 
-
           <Routes>
-            
-            
-            
             <Route path={Path.Home} element={<Home />} />
             <Route path={Path.LearnMore} element={<LearnMore />} />
             <Route path={Path.Orders} element={<Order />} />
