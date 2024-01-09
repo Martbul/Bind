@@ -2,14 +2,11 @@ const router = require("express").Router();
 const orderService = require("../services/orderService");
 const userService = require("../services/userService");
 
-
 router.post("/order", async (req, res) => {
   console.log(req.body);
   const { productAndQuantity, email } = req.body;
- 
-  try {
-  
 
+  try {
     // await orderService.create({
     //   fullname,
     //   order,
@@ -19,15 +16,12 @@ router.post("/order", async (req, res) => {
     //   _ownerEmail: email,
     // });
 
-
     await userService.addOrderToUser(
       {
         productAndQuantity,
-       
       },
       email
     );
-
 
     res.status(201).end();
     console.log("new order saved");
@@ -36,18 +30,13 @@ router.post("/order", async (req, res) => {
   }
 });
 
-
 router.post("/setDayAndTime", async (req, res) => {
- 
   const { dayAndTimeForDelivery, address, email } = req.body;
- 
 
   try {
- 
     await userService.setDayAndTimeForDelivery(
       {
         dayAndTimeForDelivery,
-       
       },
       address,
       email
@@ -59,6 +48,5 @@ router.post("/setDayAndTime", async (req, res) => {
     res.status(400).json({ message });
   }
 });
-
 
 module.exports = router;
