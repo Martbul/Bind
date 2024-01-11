@@ -65,7 +65,11 @@ export const DeliverAuthProvider = ({ children }) => {
     errors: errors,
   };
 
-  return <DeliverAuthContext.Provider value={values}>{children}</DeliverAuthContext.Provider>;
+  return (
+    <DeliverAuthContext.Provider value={values}>
+      {children}
+    </DeliverAuthContext.Provider>
+  );
 };
 
 DeliverAuthContext.displayName = "DeliverAuthContext";
