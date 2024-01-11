@@ -1,11 +1,8 @@
 // imports
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-
-
-
 
 // import "./public/css3/style.css"
 // import "./public/css3/animate.min.css";
@@ -20,7 +17,6 @@ import { BrowserRouter } from "react-router-dom";
 // import "./public/css3/slick.css";
 // import "./public/css3/slicknav.css";
 // import "./public/css3/themify-icons.css";
-
 
 // css imports
 // import "./public/css/animate.css";
@@ -38,11 +34,7 @@ import { BrowserRouter } from "react-router-dom";
 // import "./public/css/bootstrap/bootstrap-grid.css";
 // import "./public/css/bootstrap/bootstrap-reboot.css";
 
-
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(
-  
   <BrowserRouter>
     <App />
   </BrowserRouter>
