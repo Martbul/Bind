@@ -10,7 +10,7 @@ exports.getAll = async () => {
 exports.getSingleBind = (id) => Product.findById(id);
 
 
-exports.update = (userId, bindData) => 
+exports.update = (userId, bindData) =>
 
   User.findByIdAndUpdate(userId, bindData);
 
