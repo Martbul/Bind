@@ -1,10 +1,19 @@
-# React + Vite
+# SF-react-project
+React project for SPA application with my backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+THE PROJECT
+   This is site like Uber. It is place where people can make order for grocery products. The logic for delivering is not ready yet. 
 
-Currently, two official plugins are available:
+CLIENT
+   The client uses react.
+   The application has a guest part, where non authenticated users can see the home , order,binds and about us page. They can see the order and binds page but can not make an order or deliver a bind if they are not authenticated.
+   Logged users can make an order,deliver a bind , read, edit and delete bind if they are the owner. They have a profile page where they can see and set information about themselves and see statistics for their action in the app.
+   The app has a error handler and routh guards 
+   Big part of the html and css for the project is from free site templates , but the application have css and html that is my own.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-This is my project ofr Sofft Uni!!!
+SERVER
+   The server is modified server from the SoftUni course for backend. 
+
+STARTING GUIDE
+   Use the command "npm start" to start the server and "npm run dev" to start the client.
