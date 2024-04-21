@@ -36,7 +36,7 @@ import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 import AllBlogs from "./components/blog/AllBlogs";
 function App() {
   return (
-    <ErrorBoundary>
+    // <ErrorBoundary>
       <AuthProvider>
         <ProfileProvider>
           <Navigation />
@@ -69,7 +69,7 @@ function App() {
           <Footer />
         </ProfileProvider>
       </AuthProvider>
-    </ErrorBoundary>
+    // </ErrorBoundary>
   );
 }
 

@@ -79,7 +79,7 @@ export default function BindsGrid() {
       )}
 
       <Container>
-        <div style={{ display: "flex" }}>
+        {/* <div style={{ display: "flex" }}>
           <div className="col-lg-2 ">
             <Link to="/orders/order" type="submit" className="btn btn-info">
               <span className="lnr lnr-magnifier" /> Специялам поръчка
@@ -91,9 +91,12 @@ export default function BindsGrid() {
               еднократна поръчка
             </button>
           </div>
-        </div>
+        </div> */}
 
-        <div className="parent1">
+          <div>
+            <h2>За съжаление сървърът е паднал и не можем да покажем продукти</h2>
+          </div>
+          <div className="parent1">
           <BindLeftSearchOptions className="child1" />
 
           <Row className="child2">
