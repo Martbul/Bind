@@ -1,11 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { StrictMode, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 import { AuthProvider } from "./contexts/authContext";
 import Path from "./paths";
-import AuthContext from "./contexts/authContext";
-import * as authService from "./services/authService";
+
 
 import Footer from "./components/footer/Footer";
 import Navigation from "./components/navigation/Navigation";
@@ -27,7 +25,7 @@ import Logout from "./components/logout/Logout";
 import LearnMore from "./components/learn-more/LearnMore";
 import BindEdit from "./components/binds/BindEdit";
 
-import ErrorBoundary from "./components/ErrorBoundary";
+
 import AuthGuard from "./components/guards/AuthGuard";
 import { ProfileProvider } from "./contexts/profileContext";
 import DeliverSingup from "./components/deliver-ingup/DeliverSingUp";

@@ -9,7 +9,7 @@ import Loader from "../loader/Loader";
 
 import BindsContext from "../../contexts/bindsContext";
 import SuccessfulAddToCartModal from "./SuccessfulAddToCartModal";
-import { Link } from "react-router-dom";
+
 
 export default function BindsGrid() {
   const [binds, setBinds] = useState([]);
